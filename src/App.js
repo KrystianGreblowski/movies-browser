@@ -1,9 +1,11 @@
-import MainPage from "./features/MainPage";
+// import MainPage from "./features/MainPage";
+import PersonList from "./features/PersonList";
 
 function App() {
   return (
-    <MainPage />
-  )
+    // <MainPage />
+    <PersonList />
+  );
 }
 
 export default App;
