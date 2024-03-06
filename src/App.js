@@ -1,5 +1,8 @@
+import NavigationBar from "./common/NavigationBar/index";
+
+
 function App() {
-  return <p>Test strony</p>;
+  return (<NavigationBar />);
 }
 
 export default App;
