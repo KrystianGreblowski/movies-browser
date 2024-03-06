@@ -1,5 +1,9 @@
+import MainPage from "./features/MainPage";
+
 function App() {
-  return <p>Test strony</p>;
+  return (
+    <MainPage />
+  )
 }
 
 export default App;
