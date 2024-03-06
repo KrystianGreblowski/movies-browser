@@ -1,15 +1,39 @@
 import PersonTile from "./PersonTile";
-import { Header } from "./Header";
 import Title from "./Title";
+import { Container, Tiles } from "./styled";
 import personImage from "./images/person-image.png";
 
 const PersonList = () => {
   return (
-    <>
-      <Header />
-      <Title title="Popular People" />
-      <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
-    </>
+    <Container>
+      <Title title={"Popular People"} />
+      <Tiles>
+        <PersonTile image={personImage} name={"Liu Yifei"} />
+        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
+        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
+        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
+        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
+        <PersonTile image={personImage} name={"Liu Yifei"} />
+        <PersonTile image={personImage} name={"Jason Scott Lee"} />
+        <PersonTile image={personImage} name={"Jason Scott Lee"} />
+        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
+        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
+        <PersonTile image={personImage} name={"Liu Yifei"} />
+        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
+        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
+        <PersonTile image={personImage} name={"Jason Scott "} />
+        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
+        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
+        <PersonTile image={personImage} name={"Liu Yifei"} />
+        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
+        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
+        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
+        <PersonTile image={personImage} name={"Liu Yifei"} />
+        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
+        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
+        <PersonTile image={personImage} name={"Jason Scott"} />
+      </Tiles>
+    </Container>
   );
 };
 
