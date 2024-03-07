@@ -5,5 +5,9 @@ export const theme = {
     white: "#FFFFFF",
     waterloo: "#7B7C94",
   },
-  breakpoint: {},
+  breakpoint: {
+    mobile: "320px",
+    tablet: "480px",
+    narrow: "768px",
+  },
 };
