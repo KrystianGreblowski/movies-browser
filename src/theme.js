@@ -12,4 +12,5 @@ export const theme = {
     tablet: "1140px",
     narrow: "1520px",
   },
+
 };
