@@ -8,9 +8,8 @@ export const theme = {
     silver: "#ffffff6b",
   },
   breakpoint: {
-    mobile: "767px",
-    tablet: "1140px",
-    narrow: "1520px",
+    mobile: "320px",
+    tablet: "480px",
+    narrow: "768px",
   },
-
 };
