@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
   margin: auto;
   padding: 0 52px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     flex-direction: column;
     flex-wrap: wrap;
     

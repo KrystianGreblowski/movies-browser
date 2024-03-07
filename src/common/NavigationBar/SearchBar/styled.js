@@ -11,12 +11,12 @@ export const StyledSearchBar = styled.div`
   border-radius: 33px;
   min-height: 48px;
   padding: 12px 24px;
-  margin-right: 80px;
+  margin-right: 40px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     margin-right: 16px;
-    max-width: 1140px;
-    width: 90%;
+    width: 100%;
+    min-height: 44px;
   }
 `;
 
@@ -38,7 +38,7 @@ export const Input = styled.input`
     outline: none;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     font-size: 13px;
   }
 `;
