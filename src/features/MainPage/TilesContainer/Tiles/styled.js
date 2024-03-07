@@ -4,6 +4,11 @@ export const Tiles = styled.div`
     display: flex;
     gap: 24px;
     margin-top: 24px;
+
+    @media (max-width: ${({theme}) => theme.breakpoint.narrow}) {
+        flex-direction: column;
+        align-items: center;
+    }
 `;
 
 export const Tile = styled.article`
