@@ -5,6 +5,7 @@ export const Tile = styled.div`
   height: 339px;
   border-radius: 5px;
   background-color: ${({ theme }) => theme.color.white};
+  box-shadow: 0px 4px 12px 0px #bac7d550;
   display: flex;
   flex-direction: column;
   align-items: center;
