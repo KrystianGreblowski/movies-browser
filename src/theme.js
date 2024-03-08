@@ -6,11 +6,12 @@ export const theme = {
     mystic: "#E4E6F0",
     woodsmoke: "#18181B",
     silver: "#ffffff6b",
+    black: "#000000",
   },
   breakpoint: {
+    smallMobile: "320px",
     mobile: "767px",
-    tablet: "1140px",
-    narrow: "1520px",
+    tablet: "1024px",
+    narrow: "1536px",
   },
-
 };
