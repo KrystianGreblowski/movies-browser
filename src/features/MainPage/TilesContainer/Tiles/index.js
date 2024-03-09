@@ -16,12 +16,12 @@ export const ExampleTiles = () => {
                         <MovieType> Adventure </MovieType>
                         <MovieType> Drama </MovieType>
                     </MovieTypes>
-                </Description>
-                <Rating>
+                    <Rating>
                     <StarImage src={star} />
                     <Rate>7,9</Rate>
                     <Votes>35 votes</Votes>
                 </Rating>
+                </Description>
             </Tile>
             <Tile>
                 <Image src={poster} />
@@ -33,12 +33,12 @@ export const ExampleTiles = () => {
                         <MovieType> Adventure </MovieType>
                         <MovieType> Drama </MovieType>
                     </MovieTypes>
-                </Description>
-                <Rating>
+                    <Rating>
                     <StarImage src={star} />
                     <Rate>7,9</Rate>
                     <Votes>35 votes</Votes>
                 </Rating>
+                </Description>
             </Tile>
             <Tile>
                 <Image src={poster} />
@@ -50,12 +50,12 @@ export const ExampleTiles = () => {
                         <MovieType> Adventure </MovieType>
                         <MovieType> Drama </MovieType>
                     </MovieTypes>
-                </Description>
-                <Rating>
+                    <Rating>
                     <StarImage src={star} />
                     <Rate>7,9</Rate>
                     <Votes>35 votes</Votes>
                 </Rating>
+                </Description>
             </Tile>
             <Tile>
                 <Image src={poster} />
@@ -67,12 +67,12 @@ export const ExampleTiles = () => {
                         <MovieType> Adventure </MovieType>
                         <MovieType> Drama </MovieType>
                     </MovieTypes>
-                </Description>
-                <Rating>
+                    <Rating>
                     <StarImage src={star} />
                     <Rate>7,9</Rate>
                     <Votes>35 votes</Votes>
                 </Rating>
+                </Description>
             </Tile>
         </Tiles>
     )
