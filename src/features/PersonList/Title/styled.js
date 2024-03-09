@@ -7,6 +7,13 @@ export const StyledTitle = styled.h1`
   margin-top: 56px;
   margin-bottom: 24px;
 
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    font-size: 32px;
+    line-height: 36px;
+    margin-top: 24px;
+    margin-bottom: 12px;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
     font-size: 24px;
     line-height: 32px;

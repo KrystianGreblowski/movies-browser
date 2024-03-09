@@ -12,7 +12,7 @@ export const Tile = styled.div`
   align-items: center;
   padding: 16px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     height: auto;
     padding: 8px;
   }
@@ -34,7 +34,7 @@ export const Name = styled.h1`
   margin: 0;
   margin-top: 12px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     font-size: 16px;
     line-height: 22.4px;
     margin-top: 8px;
