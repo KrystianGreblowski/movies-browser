@@ -5,10 +5,14 @@ export const theme = {
     white: "#FFFFFF",
     waterloo: "#7B7C94",
     woodsmoke: "#18181B",
+    silver: "#ffffff6b",
+    black: "#000000",
   },
   breakpoint: {
-    mobile: "320px",
-    tablet: "480px",
-    narrow: "768px",
+    smallMobile: "320px",
+    mobile: "767px",
+    tablet: "1024px",
+    narrow: "1536px",
+
   },
 };
