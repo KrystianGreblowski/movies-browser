@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const Tile = styled.div`
-  width: 208px;
+  max-width: 208px;
+  width: 100%;
   height: 339px;
   border-radius: 5px;
   background-color: ${({ theme }) => theme.color.white};
@@ -9,15 +10,18 @@ export const Tile = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 16px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
+    height: auto;
+    padding: 8px;
+  }
 `;
 
 export const Image = styled.img`
-  margin-top: 16px;
-  margin-bottom: 12px;
-  width: 176px;
-  height: 231x;
+  max-width: 100%;
+  height: auto;
   border-radius: 5px;
-  padding-bottom: 0;
   text-align: center;
 `;
 
@@ -27,5 +31,17 @@ export const Name = styled.h1`
   line-height: 28.6px;
   text-align: center;
   color: ${({ theme }) => theme.color.woodsmoke};
-  margin: 0 16px;
+  margin: 0;
+  margin-top: 12px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
+    font-size: 16px;
+    line-height: 22.4px;
+    margin-top: 8px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
+    font-size: 14px;
+    line-height: 18.2px;
+  }
 `;
