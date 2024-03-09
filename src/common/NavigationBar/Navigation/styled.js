@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom/cjs/react-router-dom";
 
 export const StyledNavigation = styled.nav`
   display: flex;
+  align-items: center;
   gap: 50px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
