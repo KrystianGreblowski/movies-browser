@@ -1,7 +1,7 @@
 import PersonTile from "./PersonTile";
 import Title from "./Title";
 import { Container, Tiles } from "./styled";
-import { usePopularPeople } from "./usePopularPeopleData";
+import { usePopularPeople } from "./usePopularPeople";
 
 const PersonList = () => {
   const popularPeopleData = usePopularPeople(1);
