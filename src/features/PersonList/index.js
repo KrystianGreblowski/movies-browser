@@ -1,37 +1,23 @@
 import PersonTile from "./PersonTile";
 import Title from "./Title";
 import { Container, Tiles } from "./styled";
-import personImage from "./images/person-image.png";
+import { usePopularPeople } from "./usePopularPeopleData";
 
 const PersonList = () => {
+  const popularPeopleData = usePopularPeople(1);
+  const imageBaseUrl = "https://image.tmdb.org/t/p/w185";
+
   return (
     <Container>
-      <Title title={"Popular People"} />
+      <Title title={"Popular people"} />
       <Tiles>
-        <PersonTile image={personImage} name={"Liu Yifei"} />
-        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
-        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
-        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
-        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
-        <PersonTile image={personImage} name={"Liu Yifei"} />
-        <PersonTile image={personImage} name={"Jason Scott Lee"} />
-        <PersonTile image={personImage} name={"Jason Scott Lee"} />
-        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
-        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
-        <PersonTile image={personImage} name={"Liu Yifei"} />
-        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
-        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
-        <PersonTile image={personImage} name={"Jason Scott "} />
-        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
-        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
-        <PersonTile image={personImage} name={"Liu Yifei"} />
-        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
-        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
-        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
-        <PersonTile image={personImage} name={"Liu Yifei"} />
-        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
-        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
-        <PersonTile image={personImage} name={"Jason Scott"} />
+        {popularPeopleData.map((popularPeople) => (
+          <PersonTile
+            key={popularPeople.id}
+            image={imageBaseUrl + popularPeople.profile_path}
+            name={popularPeople.name}
+          />
+        ))}
       </Tiles>
     </Container>
   );
