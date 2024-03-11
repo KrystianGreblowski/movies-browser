@@ -1,6 +1,6 @@
 import Banner from "./Banner";
 import Content from "./Content";
-import { Container } from "./Container";
+import { Container } from "./styled";
 
 function MoviePage() {
   return (
