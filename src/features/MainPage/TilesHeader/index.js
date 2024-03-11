@@ -7,6 +7,12 @@ export const TilesHeader = styled.h1`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     font-size: 18px;
-    margin-left: 18px;
+    margin-left: 
+    18px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
+    font-size: 40px;
+    margin-left: 85px;
   }
 `;
