@@ -7,6 +7,7 @@ export const theme = {
     woodsmoke: "#18181B",
     silver: "#ffffff6b",
     black: "#000000",
+    stormGray: "#74788B",
   },
   breakpoint: {
     smallMobile: "320px",
