@@ -9,6 +9,12 @@ export const Tiles = styled.div`
     align-items: center;
     margin-top: 0px;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0px;
+  }
 `;
 
 export const Tile = styled.article`
@@ -25,6 +31,12 @@ export const Tile = styled.article`
     grid-template-columns: 1fr auto;
     height: 201px;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
+    max-width: 480px;
+    grid-template-columns: 1fr auto;
+    height: auto;
+  }
 `;
 
 export const Image = styled.img`
@@ -36,10 +48,20 @@ export const Image = styled.img`
     max-width: 114px;
     height: 169px;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
+    height: 300px;
+  }
 `;
 
 export const Description = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
     display: flex;
     flex-direction: column;
     margin-left: 16px;
@@ -55,6 +77,12 @@ export const MovieTitle = styled.h1`
     margin-top: 0px;
     margin-bottom: 0px;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 30px;
+  }
 `;
 
 export const MovieYear = styled.p`
@@ -66,6 +94,11 @@ export const MovieYear = styled.p`
     margin-top: 4px;
     margin-bottom: 0px;
   }
+  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-size: 24px;
+  }
 `;
 
 export const MovieTypes = styled.ul`
@@ -76,6 +109,10 @@ export const MovieTypes = styled.ul`
   padding: 0px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
+    margin-top: 8px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
     margin-top: 8px;
   }
 `;
@@ -90,28 +127,49 @@ export const MovieType = styled.li`
     padding: 4px 8px 4px 8px;
     font-size: 10px;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
+    padding: 4px 8px 4px 8px;
+    font-size: 18px;
+    margin-top: 10px;
+  }
 `;
 
 export const Rating = styled.div`
   display: flex;
   gap: 12px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
+    margin-top: 110px;
   }
+
 `;
 
 export const StarImage = styled.img`
   max-width: 24px;
   height: 23px;
   margin-top: 12px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
+    max-width: 30px;
+    height: 30px;
+  }
 `;
 
 export const Rate = styled.p`
   font-size: 16px;
   font-weight: 600;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
+    font-size: 20px;
+  }
 `;
 
 export const Votes = styled.p`
   font-size: 16px;
   color: ${({ theme }) => theme.color.waterloo};
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
+    font-size: 20px;
+  }
 `;

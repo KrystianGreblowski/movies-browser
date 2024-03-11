@@ -11,4 +11,8 @@ export const TilesContainer = styled.article`
   @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
     grid-template-columns: 1fr;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
+    grid-template-columns: 1fr;
+  }
 `;
