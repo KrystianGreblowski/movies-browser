@@ -1,9 +1,4 @@
-import {
-  HashRouter,
-  Redirect,
-  Route,
-  Switch,
-} from "react-router-dom/cjs/react-router-dom";
+import { HashRouter, Redirect, Route, Switch} from "react-router-dom/cjs/react-router-dom";
 import NavigationBar from "./common/NavigationBar/index";
 import MainPage from "./features/MainPage";
 import PersonList from "./features/PersonList";
