@@ -5,7 +5,7 @@ import { usePopularPeople } from "./usePopularPeople";
 
 const PersonList = () => {
   const popularPeopleData = usePopularPeople(1);
-  const imageBaseUrl = "https://image.tmdb.org/t/p/w185";
+  const imageBaseUrl = "https://image.tmdb.org/t/p/w185/";
 
   return (
     <Container>

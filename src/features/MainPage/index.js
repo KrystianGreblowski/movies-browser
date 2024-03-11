@@ -6,7 +6,7 @@ import { usePopularMovies } from "./usePopularMovies";
 
 function MainPage() {
   const popularMoviesData = usePopularMovies(1);
-  const imageBaseUrl = "https://image.tmdb.org/t/p/w300";
+  const imageBaseUrl = "https://image.tmdb.org/t/p/w300/";
 
   return (
     <Container>
