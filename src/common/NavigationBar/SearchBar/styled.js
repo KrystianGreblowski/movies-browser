@@ -5,13 +5,18 @@ export const StyledSearchBar = styled.div`
   display: flex;
   gap: 16px;
   align-items: center;
-  width: 432px;
+  width: 40%;
   background-color: ${({ theme }) => theme.color.white};
   border: 1px solid ${({ theme }) => theme.color.mystic};
   border-radius: 33px;
   min-height: 48px;
   padding: 12px 24px;
   margin-right: 40px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    width: 30%;
+    margin-right: 0;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     margin-right: 16px;
@@ -40,5 +45,12 @@ export const Input = styled.input`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     font-size: 13px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    font-size: 12px;
+    letter-spacing: -0.5px;
+    width: 100%;
+    margin-right: 0;
   }
 `;

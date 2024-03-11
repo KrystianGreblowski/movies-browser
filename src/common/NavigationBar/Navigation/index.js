@@ -1,18 +1,26 @@
-import { Caption, Header, List, Logo, PageLink, StyledNavigation } from "./styled";
+import {
+  Caption,
+  Header,
+  List,
+  Logo,
+  PageLink,
+  StyledNavigation,
+} from "./styled";
+import { toMainPage, toPersonList } from "../../../routes";
 
 const Navigation = () => {
   return (
     <StyledNavigation>
-      <Header>
+      <Header to="/">
         <Logo />
         <Caption>Movies Browser</Caption>
       </Header>
       <List>
         <li>
-          <PageLink>MOVIES</PageLink>
+          <PageLink to={toMainPage()}>MOVIES</PageLink>
         </li>
         <li>
-          <PageLink>PEOPLE</PageLink>
+          <PageLink to={toPersonList()}>PEOPLE</PageLink>
         </li>
       </List>
     </StyledNavigation>
