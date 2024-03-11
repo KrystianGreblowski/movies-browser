@@ -133,7 +133,7 @@ export const MovieYear = styled.p`
   @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
     margin-top: 10px;
     margin-bottom: 0px;
-    font-size: 24px;
+    font-size: 15px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {

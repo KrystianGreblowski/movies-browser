@@ -20,4 +20,9 @@ export const TilesHeader = styled.h1`
     font-size: 40px;
     margin-left: 15px;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    font-size: 40px;
+    margin-left: 15px;
+  }
 `;
