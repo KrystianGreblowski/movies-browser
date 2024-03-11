@@ -19,10 +19,10 @@ export const Tile = styled.div`
 `;
 
 export const Image = styled.img`
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  max-height: 231px;
+  object-fit: scale-down;
   border-radius: 5px;
-  text-align: center;
 `;
 
 export const Name = styled.h1`
