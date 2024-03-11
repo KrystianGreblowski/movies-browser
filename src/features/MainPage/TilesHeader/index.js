@@ -15,4 +15,9 @@ export const TilesHeader = styled.h1`
     font-size: 40px;
     margin-left: 85px;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    font-size: 40px;
+    margin-left: 15px;
+  }
 `;

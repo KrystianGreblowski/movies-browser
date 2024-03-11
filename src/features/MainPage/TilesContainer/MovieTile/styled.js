@@ -21,6 +21,12 @@ export const Tiles = styled.div`
     align-items: center;
     margin-top: 0px;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0px;
+  }
 `;
 
 export const Tile = styled.article`
@@ -49,6 +55,7 @@ export const Tile = styled.article`
     grid-template-columns: 1fr auto;
     height: auto;
   }
+  
 `;
 
 export const Image = styled.img`

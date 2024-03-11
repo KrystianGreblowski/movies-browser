@@ -20,4 +20,8 @@ export const TilesContainer = styled.article`
     grid-template-columns: 1fr;
   }
 
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    grid-template-columns: auto 1fr;
+  }
+
 `;
