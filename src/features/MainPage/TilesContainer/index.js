@@ -7,4 +7,8 @@ export const TilesContainer = styled.article`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 24px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
+    grid-template-columns: 1fr;
+  }
 `;

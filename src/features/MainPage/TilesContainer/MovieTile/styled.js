@@ -4,7 +4,7 @@ export const Tiles = styled.div`
   display: flex;
   gap: 24px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
     flex-direction: column;
     align-items: center;
     margin-top: 0px;
@@ -20,7 +20,7 @@ export const Tile = styled.article`
   display: grid;
   grid-template-rows: auto 1fr;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
     max-width: 320px;
     grid-template-columns: 1fr auto;
     height: 201px;
@@ -32,14 +32,14 @@ export const Image = styled.img`
   height: 434px;
   border-radius: 5px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
     max-width: 114px;
     height: 169px;
   }
 `;
 
 export const Description = styled.div`
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
     display: flex;
     flex-direction: column;
     margin-left: 16px;
@@ -51,7 +51,7 @@ export const MovieTitle = styled.h1`
   font-size: 22px;
   font-weight: 500;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
     margin-top: 0px;
     margin-bottom: 0px;
   }
@@ -62,7 +62,7 @@ export const MovieYear = styled.p`
   font-size: 16px;
   margin-top: 8px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
     margin-top: 4px;
     margin-bottom: 0px;
   }
@@ -75,7 +75,7 @@ export const MovieTypes = styled.ul`
   list-style: none;
   padding: 0px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
     margin-top: 8px;
   }
 `;
@@ -86,7 +86,7 @@ export const MovieType = styled.li`
   border-radius: 5px;
   font-size: 14px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
     padding: 4px 8px 4px 8px;
     font-size: 10px;
   }
@@ -96,7 +96,7 @@ export const Rating = styled.div`
   display: flex;
   gap: 12px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
   }
 `;
 
