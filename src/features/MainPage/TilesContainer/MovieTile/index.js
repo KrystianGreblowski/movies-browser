@@ -28,7 +28,7 @@ export const MovieTile = ({ image, title, year, type, rate, votes }) => {
           <Rating>
             <StarImage src={star} />
             <Rate>{rate}</Rate>
-            <Votes>{votes}</Votes>
+            <Votes>{votes} votes</Votes>
           </Rating>
         </Description>
       </Tile>

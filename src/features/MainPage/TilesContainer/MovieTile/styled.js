@@ -34,6 +34,7 @@ export const Tile = styled.article`
   max-width: 324px;
   height: 650px;
   box-shadow: 0px 4px 12px 0px #bac7d580;
+  border-radius: 5px;
   padding: 16px;
   display: grid;
   grid-template-rows: auto 1fr;
@@ -64,11 +65,11 @@ export const Image = styled.img`
   border-radius: 5px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
-    height: auto;
+    height: 300px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
-    height: 300px;
+    height: 250px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
@@ -194,15 +195,15 @@ export const Rating = styled.div`
   gap: 12px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
-    margin-top: 200px;
+    margin-top: 0px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
-    margin-top: 110px;
+    margin-top: 0px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
-    margin-top: 25px;
+    margin-top: 0px;
   }
 
 `;
@@ -218,13 +219,13 @@ export const StarImage = styled.img`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
-    max-width: 30px;
-    height: 30px;
+    max-width: 25px;
+    height: 25px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
-    max-width: 25px;
-    height: 25px;
+    max-width: 16px;
+    height: 16px;
   }
 `;
 
@@ -238,11 +239,11 @@ export const Rate = styled.p`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
-    font-size: 15px;
+    font-size: 13px;
   }
 `;
 
@@ -256,10 +257,10 @@ export const Votes = styled.p`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
-    font-size: 15px;
+    font-size: 13px;
   }
 `;
