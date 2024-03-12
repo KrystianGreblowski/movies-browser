@@ -19,20 +19,14 @@ export const Tiles = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     grid-gap: 16px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
-    grid-gap: 16px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
-    grid-gap: 16px;
     grid-template-columns: 1fr 1fr 1fr;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
-    grid-gap: 16px;
     grid-template-columns: 1fr 1fr;
   }
 `;
