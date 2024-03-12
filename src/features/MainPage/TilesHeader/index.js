@@ -5,15 +5,10 @@ export const TilesHeader = styled.h1`
   margin-top: 56px;
   margin-bottom: 24px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
-    font-size: 18px;
-    margin-left: 
-    18px;
-  }
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     font-size: 40px;
-    margin-left: 85px;
+    margin-left: 15px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
@@ -21,8 +16,18 @@ export const TilesHeader = styled.h1`
     margin-left: 15px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
     font-size: 40px;
+    margin-left: 85px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
+    font-size: 30px;
+    margin-left: 15px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
+    font-size: 20px;
     margin-left: 15px;
   }
 `;

@@ -8,7 +8,15 @@ export const TilesContainer = styled.article`
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 24px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    grid-template-columns: auto 1fr 1fr;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    grid-template-columns: auto 1fr;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
     grid-template-columns: 1fr;
   }
 
@@ -16,16 +24,8 @@ export const TilesContainer = styled.article`
     grid-template-columns: 1fr;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
     grid-template-columns: 1fr;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
-    grid-template-columns: auto 1fr;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
-    grid-template-columns: auto 1fr 1fr;
   }
 
 `;

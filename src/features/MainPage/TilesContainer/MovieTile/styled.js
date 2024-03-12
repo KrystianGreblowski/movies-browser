@@ -4,13 +4,7 @@ export const Tiles = styled.div`
   display: flex;
   gap: 24px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
-    flex-direction: column;
-    align-items: center;
-    margin-top: 0px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     flex-direction: column;
     align-items: center;
     margin-top: 0px;
@@ -22,7 +16,13 @@ export const Tiles = styled.div`
     margin-top: 0px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
     flex-direction: column;
     align-items: center;
     margin-top: 0px;
@@ -38,10 +38,10 @@ export const Tile = styled.article`
   display: grid;
   grid-template-rows: auto 1fr;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
-    max-width: 320px;
+  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
+    max-width: 480px;
     grid-template-columns: 1fr auto;
-    height: 201px;
+    height: auto;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
@@ -50,10 +50,10 @@ export const Tile = styled.article`
     height: auto;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
-    max-width: 480px;
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
+    max-width: 320px;
     grid-template-columns: 1fr auto;
-    height: auto;
+    height: 201px;
   }
   
 `;
@@ -63,22 +63,23 @@ export const Image = styled.img`
   height: 434px;
   border-radius: 5px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
-    max-width: 114px;
-    height: 169px;
+  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
+    height: auto;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
     height: 300px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
+    max-width: 114px;
     height: auto;
   }
 `;
 
 export const Description = styled.div`
-  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
     display: flex;
     flex-direction: column;
     margin-left: 16px;
@@ -90,7 +91,7 @@ export const Description = styled.div`
     margin-left: 16px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
     display: flex;
     flex-direction: column;
     margin-left: 16px;
@@ -102,9 +103,10 @@ export const MovieTitle = styled.h1`
   font-size: 22px;
   font-weight: 500;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
     margin-top: 0px;
     margin-bottom: 0px;
+    font-size: 35px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
@@ -113,10 +115,10 @@ export const MovieTitle = styled.h1`
     font-size: 30px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
     margin-top: 0px;
     margin-bottom: 0px;
-    font-size: 35px;
+    font-size: 20px;
   }
 `;
 
@@ -125,9 +127,10 @@ export const MovieYear = styled.p`
   font-size: 16px;
   margin-top: 8px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
-    margin-top: 4px;
+  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
+    margin-top: 10px;
     margin-bottom: 0px;
+    font-size: 26px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
@@ -136,10 +139,9 @@ export const MovieYear = styled.p`
     font-size: 15px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
-    margin-top: 10px;
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
+    margin-top: 4px;
     margin-bottom: 0px;
-    font-size: 26px;
   }
 `;
 
@@ -150,7 +152,7 @@ export const MovieTypes = styled.ul`
   list-style: none;
   padding: 0px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
     margin-top: 8px;
   }
 
@@ -158,7 +160,7 @@ export const MovieTypes = styled.ul`
     margin-top: 8px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
     margin-top: 8px;
   }
 `;
@@ -169,9 +171,10 @@ export const MovieType = styled.li`
   border-radius: 5px;
   font-size: 14px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
     padding: 4px 8px 4px 8px;
-    font-size: 10px;
+    font-size: 20px;
+    margin-top: 10px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
@@ -180,10 +183,9 @@ export const MovieType = styled.li`
     margin-top: 10px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
     padding: 4px 8px 4px 8px;
-    font-size: 20px;
-    margin-top: 10px;
+    font-size: 10px;
   }
 `;
 
@@ -191,12 +193,16 @@ export const Rating = styled.div`
   display: flex;
   gap: 12px;
 
+  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
+    margin-top: 200px;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
     margin-top: 110px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
-    margin-top: 200px;
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
+    margin-top: 25px;
   }
 
 `;
@@ -206,14 +212,19 @@ export const StarImage = styled.img`
   height: 23px;
   margin-top: 12px;
 
+  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
+    max-width: 35px;
+    height: 35px;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
     max-width: 30px;
     height: 30px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
-    max-width: 35px;
-    height: 35px;
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
+    max-width: 25px;
+    height: 25px;
   }
 `;
 
@@ -221,13 +232,17 @@ export const Rate = styled.p`
   font-size: 16px;
   font-weight: 600;
 
+  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
+    font-size: 25px;
+    margin-top: 18px;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
     font-size: 20px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
-    font-size: 25px;
-    margin-top: 18px;
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
+    font-size: 15px;
   }
 `;
 
@@ -235,12 +250,16 @@ export const Votes = styled.p`
   font-size: 16px;
   color: ${({ theme }) => theme.color.waterloo};
 
+  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
+    font-size: 25px;
+    margin-top: 18px;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
     font-size: 20px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
-    font-size: 25px;
-    margin-top: 18px;
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
+    font-size: 15px;
   }
 `;
