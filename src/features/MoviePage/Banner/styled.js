@@ -22,6 +22,7 @@ export const Poster = styled.img`
   margin: 0 auto;
   display: flex;
   z-index: 2;
+  
 `;
 
 export const TitleWrapper = styled.div`
