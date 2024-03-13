@@ -39,7 +39,5 @@ export const usePopularMovies = (pageNumber) => {
     })
   );
 
-  console.log(popularMovies);
-
   return popularMoviesData;
 };
