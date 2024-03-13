@@ -1,3 +1,4 @@
+import Pagination from "../../common/Pagination";
 import PersonTile from "../../common/Tiles/PersonTile";
 import Title from "./Title";
 import { Container, Tiles } from "./styled";
@@ -19,6 +20,8 @@ const PersonList = () => {
           />
         ))}
       </Tiles>
+
+      <Pagination />
     </Container>
   );
 };
