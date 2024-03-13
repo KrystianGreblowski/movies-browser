@@ -19,7 +19,10 @@ function MainPage() {
             title={popularMovies.title}
             year={popularMovies.release_date.slice(0, 4)}
             type={"drama"}
-            rate={popularMovies.vote_average.toFixed(1)}
+            rate={popularMovies.vote_average
+              .toFixed(1)
+              .toString()
+              .replace(".", ",")}
             votes={popularMovies.vote_count}
           />
         ))}
