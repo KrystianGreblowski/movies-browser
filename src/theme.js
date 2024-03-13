@@ -15,6 +15,7 @@ export const theme = {
     largeMobile: "640px",
     mobile: "767px",
     tablet: "1024px",
+    laptop: "1356px",
     narrow: "1536px",
   },
 };
