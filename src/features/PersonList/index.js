@@ -1,4 +1,4 @@
-import PersonTile from "./PersonTile";
+import PersonTile from "../../common/Tiles/PersonTile";
 import Title from "./Title";
 import { Container, Tiles } from "./styled";
 import { usePopularPeople } from "./usePopularPeople";
