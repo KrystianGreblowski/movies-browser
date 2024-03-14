@@ -8,12 +8,16 @@ import NavigationBar from "./common/NavigationBar/index";
 import MainPage from "./features/MainPage";
 import PersonList from "./features/PersonList";
 import { toMainPage, toPersonList } from "./routes";
+import MoviesDetails from "./features/MoviesDetails"
 
 function App() {
   return (
     <HashRouter>
       <NavigationBar />
       <Switch>
+        <Route path="/movies/:title">
+          <MoviesDetails />
+        </Route>
         <Route path={toMainPage()}>
           <MainPage />
         </Route>
