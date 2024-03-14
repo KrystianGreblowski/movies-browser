@@ -18,7 +18,7 @@ function MainPage() {
           <MovieTile
             key={popularMovies.id}
             image={imageBaseUrl + popularMovies.poster_path}
-            title=<DetailsLink to={`/movies/${popularMovies.title}`}>{popularMovies.title}</DetailsLink>
+            title={<DetailsLink to={`/movies/${popularMovies.title}`}>{popularMovies.title}</DetailsLink>}
             year={popularMovies.release_date.slice(0, 4)}
             type={"drama"}
             rate={popularMovies.vote_average.toFixed(1)}
