@@ -42,8 +42,13 @@ export const TitleWrapper = styled.div`
   text-align: left;
   padding-bottom: 56px;
 
+  @media (max-width: ${({ theme }) => theme.breakpoint.laptop}){
+padding-bottom: 10px;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     padding-bottom: 0px;
+    
   }
 `;
 
