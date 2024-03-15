@@ -82,11 +82,8 @@ export const Rating = styled.div`
     max-width: 100%;
   }
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
-    
   }
 `;
-
-
 
 export const StarImage = styled.img`
   width: 40px;
@@ -131,18 +128,17 @@ export const Rate = styled.p`
 
 export const RateMax = styled.p`
   font-size: 16px;
-  
+
   @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
     font-size: 13px;
   }
-  
+
   @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
     font-size: 10px;
   }
 `;
 
 export const Votes = styled.p`
-  
   @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
     font-size: 14px;
   }

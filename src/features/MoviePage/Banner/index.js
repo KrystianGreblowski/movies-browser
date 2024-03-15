@@ -1,10 +1,8 @@
 import {
   ImagesWrapper,
-  OneMoreWrapper,
   Poster,
   PosterContainer,
   Rate,
-  RateContainer,
   RateMax,
   Rating,
   Shadow,
@@ -27,11 +25,9 @@ const Banner = () => {
           <Title>Mulan long title</Title>
           <Rating>
             <StarImage src={star} />
-            <RateContainer>
-              <Rate>7,9</Rate>
-              <RateMax>/ 10</RateMax>
-              <Votes>335 votes</Votes>
-            </RateContainer>
+            <Rate>7,9</Rate>
+            <RateMax>/ 10</RateMax>
+            <Votes>335 votes</Votes>
           </Rating>
         </TitleWrapper>
       </ImagesWrapper>
