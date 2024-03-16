@@ -27,9 +27,15 @@ export const ButtonsWrapper = styled.div`
 `;
 
 export const PagesInfo = styled.div`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 8px;
   align-items: center;
+  justify-items: center;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
+    grid-gap: 2px;
+  }
 `;
 
 export const TextInfo = styled.p`
@@ -38,6 +44,7 @@ export const TextInfo = styled.p`
   line-height: 24px;
   margin: 0;
   color: ${({ theme }) => theme.color.waterloo};
+  width: max-content;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
     font-size: 10px;
@@ -50,6 +57,7 @@ export const NumberInfo = styled.p`
   line-height: 24px;
   margin: 0;
   color: ${({ theme }) => theme.color.woodsmoke};
+  width: max-content;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
     font-size: 10px;
