@@ -14,8 +14,6 @@ export const paginationSlice = createSlice({
     },
     goToNextPage: (state) => {
       state.currentPage = state.currentPage + 1;
-
-      console.log(state.currentPage);
     },
     goToLastPage: (state) => {
       state.currentPage = 500;
