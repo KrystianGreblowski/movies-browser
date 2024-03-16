@@ -11,10 +11,15 @@ import {
   selectPopularMoviesData,
   selectPopularMoviesStatus,
 } from "./popularMoviesSlice";
+import {
+  fetchMovieTypesInit,
+  selectMovieTypesData,
+} from "../../common/movieTypes/movieTypesSlice";
 
 function MainPage() {
   const popularMoviesData = useSelector(selectPopularMoviesData);
   const popularMoviesStatus = useSelector(selectPopularMoviesStatus);
+  const movieTypesData = useSelector(selectMovieTypesData);
   const currentPage = useSelector(selectCurrentPage);
   const imageBaseUrl = "https://image.tmdb.org/t/p/w300";
 
@@ -23,6 +28,10 @@ function MainPage() {
   useEffect(() => {
     dispatch(fetchCurrentPage(currentPage));
   }, [currentPage, dispatch]);
+
+  useEffect(() => {
+    dispatch(fetchMovieTypesInit());
+  }, [dispatch]);
 
   return (
     <>
