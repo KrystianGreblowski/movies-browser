@@ -1,28 +1,55 @@
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 import Pagination from "../../common/Pagination";
 import PersonTile from "../../common/Tiles/PersonTile";
 import Title from "./Title";
-import { Container, Tiles } from "./styled";
-import { usePopularPeople } from "./usePopularPeople";
+import { Container, Tiles, LoadingPage, ErrorPage } from "./styled";
+import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
+import {
+  fetchCurrentPage,
+  selectPopularPeopleData,
+  selectPopularPeopleStatus,
+} from "./popularPeopleSlice";
 
 const PersonList = () => {
-  const popularPeopleData = usePopularPeople(1);
+  const popularPeopleData = useSelector(selectPopularPeopleData);
+  const popularPeopleStatus = useSelector(selectPopularPeopleStatus);
+  const currentPage = useSelector(selectCurrentPage);
   const imageBaseUrl = "https://image.tmdb.org/t/p/w185";
 
-  return (
-    <Container>
-      <Title title={"Popular people"} />
-      <Tiles>
-        {popularPeopleData.map((popularPeople) => (
-          <PersonTile
-            key={popularPeople.id}
-            image={imageBaseUrl + popularPeople.profile_path}
-            name={popularPeople.name}
-          />
-        ))}
-      </Tiles>
+  const dispatch = useDispatch();
 
-      <Pagination />
-    </Container>
+  useEffect(() => {
+    dispatch(fetchCurrentPage(currentPage));
+  }, [currentPage, dispatch]);
+
+  return (
+    <>
+      {popularPeopleStatus === "loading" ? (
+        <LoadingPage />
+      ) : popularPeopleStatus === "done" ? (
+        <Container>
+          <Title title={"Popular people"} />
+          <Tiles>
+            {popularPeopleData.map((popularPeople) => (
+              <PersonTile
+                key={popularPeople.id}
+                image={imageBaseUrl + popularPeople.profile_path}
+                name={popularPeople.name}
+              />
+            ))}
+          </Tiles>
+
+          <Pagination
+            currentPage={currentPage}
+            minPageLimit={1}
+            maxPageLimit={500}
+          />
+        </Container>
+      ) : (
+        <ErrorPage />
+      )}
+    </>
   );
 };
 

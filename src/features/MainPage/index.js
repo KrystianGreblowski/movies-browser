@@ -1,10 +1,10 @@
+import Pagination from "../../common/Pagination";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { Container, LoadingPage, ErrorPage } from "./Container";
 import { TilesContainer } from "./TilesContainer";
 import { MovieTile } from "./TilesContainer/MovieTile";
 import { TilesHeader } from "./TilesHeader";
-import Pagination from "../../common/Pagination";
 import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
 import {
   fetchCurrentPage,
