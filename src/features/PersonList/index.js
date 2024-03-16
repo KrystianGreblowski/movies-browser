@@ -30,6 +30,7 @@ const PersonList = () => {
       ) : popularPeopleStatus === "done" ? (
         <Container>
           <Title title={"Popular people"} />
+
           <Tiles>
             {popularPeopleData.map((popularPeople) => (
               <PersonTile
