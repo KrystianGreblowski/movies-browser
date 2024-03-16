@@ -1,33 +1,63 @@
-import { Container } from "./Container";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { Container, LoadingPage, ErrorPage } from "./Container";
 import { TilesContainer } from "./TilesContainer";
 import { MovieTile } from "./TilesContainer/MovieTile";
 import { TilesHeader } from "./TilesHeader";
-import { usePopularMovies } from "./usePopularMovies";
+import Pagination from "../../common/Pagination";
+import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
+import {
+  fetchCurrentPage,
+  selectPopularMoviesData,
+  selectPopularMoviesStatus,
+} from "./popularMoviesSlice";
 
 function MainPage() {
-  const popularMoviesData = usePopularMovies(1);
+  const popularMoviesData = useSelector(selectPopularMoviesData);
+  const popularMoviesStatus = useSelector(selectPopularMoviesStatus);
+  const currentPage = useSelector(selectCurrentPage);
   const imageBaseUrl = "https://image.tmdb.org/t/p/w300";
 
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCurrentPage(currentPage));
+  }, [currentPage, dispatch]);
+
   return (
-    <Container>
-      <TilesHeader>Popular movies</TilesHeader>
-      <TilesContainer>
-        {popularMoviesData.map((popularMovies) => (
-          <MovieTile
-            key={popularMovies.id}
-            image={imageBaseUrl + popularMovies.poster_path}
-            title={popularMovies.title}
-            year={popularMovies.release_date.slice(0, 4)}
-            type={"drama"}
-            rate={popularMovies.vote_average
-              .toFixed(1)
-              .toString()
-              .replace(".", ",")}
-            votes={popularMovies.vote_count}
+    <>
+      {popularMoviesStatus === "loading" ? (
+        <LoadingPage />
+      ) : popularMoviesStatus === "done" ? (
+        <Container>
+          <TilesHeader>Popular movies</TilesHeader>
+          <TilesContainer>
+            {popularMoviesData.map((popularMovies) => (
+              <MovieTile
+                key={popularMovies.id}
+                image={imageBaseUrl + popularMovies.poster_path}
+                title={popularMovies.title}
+                year={popularMovies.release_date.slice(0, 4)}
+                type={"drama"}
+                rate={popularMovies.vote_average
+                  .toFixed(1)
+                  .toString()
+                  .replace(".", ",")}
+                votes={popularMovies.vote_count}
+              />
+            ))}
+          </TilesContainer>
+
+          <Pagination
+            currentPage={currentPage}
+            minPageLimit={1}
+            maxPageLimit={500}
           />
-        ))}
-      </TilesContainer>
-    </Container>
+        </Container>
+      ) : (
+        <ErrorPage />
+      )}
+    </>
   );
 }
 
