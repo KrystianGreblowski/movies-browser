@@ -1,4 +1,5 @@
 import { useMediaQuery } from "react-responsive";
+import { useDispatch } from "react-redux";
 import {
   Container,
   FirstPage,
@@ -13,20 +14,28 @@ import {
   RightArrow,
   ButtonsWrapper,
 } from "./styled";
+import {
+  goToFirstPage,
+  goToPreviousPage,
+  goToNextPage,
+  goToLastPage,
+} from "./paginationSlice";
 
-const Pagination = (currentPage, minPageLimit, maxPageLimit) => {
+const Pagination = ({ currentPage, minPageLimit, maxPageLimit }) => {
   const isLargeMobile = useMediaQuery({ query: "(max-width: 640px)" });
+
+  const dispatch = useDispatch();
 
   return (
     <Container>
       <ButtonsWrapper>
-        <FirstPage>
+        <FirstPage onClick={() => dispatch(goToFirstPage())}>
           <LeftArrow />
           {isLargeMobile && <LeftArrow />}
           <TextButton>First</TextButton>
         </FirstPage>
 
-        <PreviousPage>
+        <PreviousPage onClick={() => dispatch(goToPreviousPage())}>
           <LeftArrow />
           <TextButton>Previous</TextButton>
         </PreviousPage>
@@ -34,18 +43,18 @@ const Pagination = (currentPage, minPageLimit, maxPageLimit) => {
 
       <PagesInfo>
         <TextInfo>Page</TextInfo>
-        <NumberInfo>1</NumberInfo>
+        <NumberInfo>{currentPage}</NumberInfo>
         <TextInfo>of</TextInfo>
-        <NumberInfo>500</NumberInfo>
+        <NumberInfo>{maxPageLimit}</NumberInfo>
       </PagesInfo>
 
       <ButtonsWrapper>
-        <NextPage>
+        <NextPage onClick={() => dispatch(goToNextPage())}>
           <TextButton>Next</TextButton>
           <RightArrow />
         </NextPage>
 
-        <LastPage>
+        <LastPage onClick={() => dispatch(goToLastPage())}>
           <TextButton>Last</TextButton>
           <RightArrow />
           {isLargeMobile && <RightArrow />}
