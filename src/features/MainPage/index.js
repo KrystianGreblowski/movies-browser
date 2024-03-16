@@ -31,6 +31,7 @@ function MainPage() {
       ) : popularMoviesStatus === "done" ? (
         <Container>
           <TilesHeader>Popular movies</TilesHeader>
+
           <TilesContainer>
             {popularMoviesData.map((popularMovies) => (
               <MovieTile
