@@ -10,3 +10,7 @@ export const Container = styled.main`
     margin-bottom: 41px;
   }
 `;
+
+export const LoadingPage = styled.div``;
+
+export const ErrorPage = styled.div``;
