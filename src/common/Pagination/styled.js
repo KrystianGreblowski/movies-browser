@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { ReactComponent as LeftArrowIcon } from "./images/left-arrow.svg";
 import { ReactComponent as RightArrowIcon } from "./images/right-arrow.svg";
 
@@ -68,7 +68,13 @@ export const LeftArrow = styled(LeftArrowIcon)`
   width: 7px;
   height: 11px;
   margin-right: 8px;
-  color: ${({ theme }) => theme.color.scienceBlue};
+  fill: ${({ theme }) => theme.color.scienceBlue};
+
+  ${({ $isButtonDisabled }) =>
+    $isButtonDisabled &&
+    css`
+      fill: ${({ theme }) => theme.color.waterloo};
+    `}
 
   @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
     width: 5px;
@@ -81,7 +87,13 @@ export const RightArrow = styled(RightArrowIcon)`
   width: 7px;
   height: 11px;
   margin-left: 8px;
-  color: ${({ theme }) => theme.color.scienceBlue};
+  fill: ${({ theme }) => theme.color.scienceBlue};
+
+  ${({ $isButtonDisabled }) =>
+    $isButtonDisabled &&
+    css`
+      fill: ${({ theme }) => theme.color.waterloo};
+    `}
 
   @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
     width: 5px;
@@ -113,16 +125,25 @@ export const FirstPage = styled.button`
   border-radius: 5px;
   transition: 0.4s filter ease;
 
+  &:hover {
+    cursor: pointer;
+    filter: brightness(93%);
+
+    &:disabled {
+      cursor: auto;
+      filter: none;
+    }
+  }
+
+  &:disabled {
+    background-color: ${({ theme }) => theme.color.mystic};
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
     width: 38px;
     height: 24px;
     justify-content: space-evenly;
     padding: 0 8px;
-  }
-
-  &:hover {
-    cursor: pointer;
-    filter: brightness(93%);
   }
 `;
 

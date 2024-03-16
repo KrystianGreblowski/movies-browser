@@ -29,14 +29,22 @@ const Pagination = ({ currentPage, minPageLimit, maxPageLimit }) => {
   return (
     <Container>
       <ButtonsWrapper>
-        <FirstPage onClick={() => dispatch(goToFirstPage())}>
-          <LeftArrow />
-          {isLargeMobile && <LeftArrow />}
+        <FirstPage
+          onClick={() => dispatch(goToFirstPage())}
+          disabled={currentPage <= minPageLimit}
+        >
+          <LeftArrow $isButtonDisabled={currentPage <= minPageLimit} />
+          {isLargeMobile && (
+            <LeftArrow $isButtonDisabled={currentPage <= minPageLimit} />
+          )}
           <TextButton>First</TextButton>
         </FirstPage>
 
-        <PreviousPage onClick={() => dispatch(goToPreviousPage())}>
-          <LeftArrow />
+        <PreviousPage
+          onClick={() => dispatch(goToPreviousPage())}
+          disabled={currentPage <= minPageLimit}
+        >
+          <LeftArrow $isButtonDisabled={currentPage <= minPageLimit} />
           <TextButton>Previous</TextButton>
         </PreviousPage>
       </ButtonsWrapper>
@@ -49,15 +57,23 @@ const Pagination = ({ currentPage, minPageLimit, maxPageLimit }) => {
       </PagesInfo>
 
       <ButtonsWrapper>
-        <NextPage onClick={() => dispatch(goToNextPage())}>
+        <NextPage
+          onClick={() => dispatch(goToNextPage())}
+          disabled={currentPage >= maxPageLimit}
+        >
           <TextButton>Next</TextButton>
-          <RightArrow />
+          <RightArrow $isButtonDisabled={currentPage >= maxPageLimit} />
         </NextPage>
 
-        <LastPage onClick={() => dispatch(goToLastPage())}>
+        <LastPage
+          onClick={() => dispatch(goToLastPage())}
+          disabled={currentPage >= maxPageLimit}
+        >
           <TextButton>Last</TextButton>
-          <RightArrow />
-          {isLargeMobile && <RightArrow />}
+          <RightArrow $isButtonDisabled={currentPage >= maxPageLimit} />
+          {isLargeMobile && (
+            <RightArrow $isButtonDisabled={currentPage >= maxPageLimit} />
+          )}
         </LastPage>
       </ButtonsWrapper>
     </Container>
