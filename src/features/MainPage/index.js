@@ -42,13 +42,20 @@ function MainPage() {
           <TilesHeader>Popular movies</TilesHeader>
 
           <TilesContainer>
-            {popularMoviesData.map((popularMovies) => (
+            {popularMoviesData.map((popularMovies, movieIndex) => (
               <MovieTile
                 key={popularMovies.id}
                 image={imageBaseUrl + popularMovies.poster_path}
                 title={popularMovies.title}
                 year={popularMovies.release_date.slice(0, 4)}
-                type={"drama"}
+                type={movieTypesData
+                  .filter((movieType) =>
+                    popularMoviesData[movieIndex].genre_ids.includes(
+                      movieType.id
+                    )
+                  )
+                  .map((movieType) => movieType.name)
+                  .slice(0, 2)}
                 rate={popularMovies.vote_average
                   .toFixed(1)
                   .toString()
