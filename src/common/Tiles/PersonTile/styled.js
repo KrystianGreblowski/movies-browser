@@ -21,7 +21,7 @@ export const Tile = styled.div`
 export const Image = styled.img`
   width: 100%;
   max-height: 231px;
-  object-fit: scale-down;
+  object-fit: fill;
   border-radius: 5px;
 `;
 
