@@ -6,5 +6,5 @@ export const getPopularMovies = async (pageNumber) => {
 
   const response = await axios.get(apiUrl);
 
-  return response.data;
+  return response.data.results;
 };
