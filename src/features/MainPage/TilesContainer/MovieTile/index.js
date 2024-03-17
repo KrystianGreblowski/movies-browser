@@ -13,7 +13,7 @@ import {
   Rate,
   Votes,
 } from "./styled";
-import star from "../.././Images/Vector.svg";
+import star from "../../images/star.svg";
 
 export const MovieTile = ({ image, title, year, type, rate, votes }) => {
   return (
