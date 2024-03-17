@@ -10,7 +10,7 @@ import {
   selectPopularPeopleData,
   selectPopularPeopleStatus,
 } from "./popularPeopleSlice";
-import noPersonImage from "./images/no-person-image.svg";
+import noPersonImage from "./images/no-person-image.png";
 
 const PersonList = () => {
   const popularPeopleData = useSelector(selectPopularPeopleData);
