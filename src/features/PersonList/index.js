@@ -16,6 +16,7 @@ const PersonList = () => {
   const popularPeopleData = useSelector(selectPopularPeopleData);
   const popularPeopleStatus = useSelector(selectPopularPeopleStatus);
   const currentPage = useSelector(selectCurrentPage);
+
   const imageBaseUrl = "https://image.tmdb.org/t/p/w185";
 
   const dispatch = useDispatch();
@@ -49,7 +50,7 @@ const PersonList = () => {
           <Pagination
             currentPage={currentPage}
             minPageLimit={1}
-            maxPageLimit={500}
+            maxPageLimit={100}
           />
         </Container>
       ) : (

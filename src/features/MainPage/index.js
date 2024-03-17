@@ -22,7 +22,9 @@ function MainPage() {
   const popularMoviesStatus = useSelector(selectPopularMoviesStatus);
   const movieTypesData = useSelector(selectMovieTypesData);
   const currentPage = useSelector(selectCurrentPage);
+
   const imageBaseUrl = "https://image.tmdb.org/t/p/w300";
+  const numberOfMovieTypes = 2;
 
   const dispatch = useDispatch();
 
@@ -60,7 +62,7 @@ function MainPage() {
                     )
                   )
                   .map((movieType) => movieType.name)
-                  .slice(0, 2)}
+                  .slice(0, numberOfMovieTypes)}
                 rate={popularMovies.vote_average
                   .toFixed(1)
                   .toString()
@@ -73,7 +75,7 @@ function MainPage() {
           <Pagination
             currentPage={currentPage}
             minPageLimit={1}
-            maxPageLimit={500}
+            maxPageLimit={100}
           />
         </Container>
       ) : (
