@@ -6,5 +6,5 @@ export const getPopularPeople = async (pageNumber) => {
 
   const response = await axios.get(apiUrl);
 
-  return response.data;
+  return response.data.results;
 };
