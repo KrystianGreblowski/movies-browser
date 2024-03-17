@@ -15,6 +15,7 @@ import {
   fetchMovieTypesInit,
   selectMovieTypesData,
 } from "../../common/movieTypes/movieTypesSlice";
+import noMovieImage from "./Images/no-movie-image.svg";
 
 function MainPage() {
   const popularMoviesData = useSelector(selectPopularMoviesData);
@@ -45,7 +46,11 @@ function MainPage() {
             {popularMoviesData.map((popularMovies, movieIndex) => (
               <MovieTile
                 key={popularMovies.id}
-                image={imageBaseUrl + popularMovies.poster_path}
+                image={
+                  popularMovies.poster_path === null
+                    ? noMovieImage
+                    : imageBaseUrl + popularMovies.poster_path
+                }
                 title={popularMovies.title}
                 year={popularMovies.release_date.slice(0, 4)}
                 type={movieTypesData
