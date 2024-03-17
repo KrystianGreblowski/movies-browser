@@ -1,5 +1,6 @@
 import { useMediaQuery } from "react-responsive";
 import { useDispatch } from "react-redux";
+import { useEffect } from "react";
 import {
   Container,
   FirstPage,
@@ -15,6 +16,9 @@ import {
   ButtonsWrapper,
 } from "./styled";
 import {
+  initCurrentPage,
+  initMinPageLimit,
+  initMaxPageLimit,
   goToFirstPage,
   goToPreviousPage,
   goToNextPage,
@@ -25,6 +29,12 @@ const Pagination = ({ currentPage, minPageLimit, maxPageLimit }) => {
   const isLargeMobile = useMediaQuery({ query: "(max-width: 640px)" });
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(initCurrentPage(minPageLimit));
+    dispatch(initMinPageLimit(minPageLimit));
+    dispatch(initMaxPageLimit(maxPageLimit));
+  }, [minPageLimit, maxPageLimit, dispatch]);
 
   return (
     <Container>
