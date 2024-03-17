@@ -10,6 +10,7 @@ import {
   selectPopularPeopleData,
   selectPopularPeopleStatus,
 } from "./popularPeopleSlice";
+import noPersonImage from "./images/no-person-image.svg";
 
 const PersonList = () => {
   const popularPeopleData = useSelector(selectPopularPeopleData);
@@ -35,7 +36,11 @@ const PersonList = () => {
             {popularPeopleData.map((popularPeople) => (
               <PersonTile
                 key={popularPeople.id}
-                image={imageBaseUrl + popularPeople.profile_path}
+                image={
+                  popularPeople.profile_path === null
+                    ? noPersonImage
+                    : imageBaseUrl + popularPeople.profile_path
+                }
                 name={popularPeople.name}
               />
             ))}
