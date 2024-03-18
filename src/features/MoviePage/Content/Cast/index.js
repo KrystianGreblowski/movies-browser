@@ -1,6 +1,6 @@
-import PersonTile from "../../../../common/Tiles/PersonTile/TilesContainer/PersonsTile/index";
-import Title from "../../../../common/Tiles/PersonTile/TilesContainer/Title/index";
-import {Tiles} from "../../../../common/Tiles/PersonTile/TilesContainer/index";
+import PersonTile from "../../../../common/Tiles/PersonTile/PersonsTile/index";
+import Title from "../../../../common/Tiles/PersonTile/Title/index";
+import {Tiles} from "../../../../common/Tiles/PersonTile/index";
 import personImage from "../../../../images/person-image.png";
 
 const Cast = () => {
