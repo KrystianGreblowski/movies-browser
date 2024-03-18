@@ -14,19 +14,17 @@ import {
   Span,
   Votes,
   RateStar,
-} from "./styled";
-import posterMovie from "../../../../images/poster-movie.png";
-import {
   MovieTypes,
   MovieType,
-} from "../../../../common/Tiles/MovieTile/TilesContainer/MoviesTile/styled";
+} from "./styled";
+import posterMovie from "../../../../images/poster-movie.png";
 
 const MainInfo = () => {
   return (
     <Container>
       <Post src={posterMovie} />
       <Description>
-        <Caption>Mulan</Caption>
+        <Caption>Mulan long title</Caption>
         <MovieYear>2020</MovieYear>
         <Details>
           <Production>
