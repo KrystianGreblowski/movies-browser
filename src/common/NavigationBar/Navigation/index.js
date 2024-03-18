@@ -6,7 +6,7 @@ import {
   PageLink,
   StyledNavigation,
 } from "./styled";
-import { toMainPage, toPersonList } from "../../../routes";
+import { toMainPage, toPersonList } from "../../../core/routes";
 
 const Navigation = () => {
   return (

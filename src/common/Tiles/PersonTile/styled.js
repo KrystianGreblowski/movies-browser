@@ -10,6 +10,7 @@ export const Tile = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   padding: 16px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
@@ -21,7 +22,7 @@ export const Tile = styled.div`
 export const Image = styled.img`
   width: 100%;
   max-height: 231px;
-  object-fit: scale-down;
+  object-fit: inherit;
   border-radius: 5px;
 `;
 
