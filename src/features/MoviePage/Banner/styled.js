@@ -42,13 +42,12 @@ export const TitleWrapper = styled.div`
   text-align: left;
   padding-bottom: 56px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.laptop}){
-padding-bottom: 10px;
+  @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
+    padding-bottom: 10px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     padding-bottom: 0px;
-    
   }
 `;
 
@@ -68,9 +67,9 @@ export const Title = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
-    font-size: 30px;
+    font-size: 28px;
   }
-  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
     font-size: 24px;
   }
 `;
@@ -82,11 +81,14 @@ export const Rating = styled.div`
   flex-wrap: wrap;
   margin: 20px 0;
   gap: 6px;
+
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     margin: 5px 0;
     max-width: 100%;
   }
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+  
+  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
+    margin:0;
   }
 `;
 
@@ -133,9 +135,15 @@ export const Rate = styled.p`
 
 export const RateMax = styled.p`
   font-size: 16px;
+  padding-top: 2px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
     font-size: 13px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
+    margin:0;
+    
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
@@ -154,7 +162,13 @@ export const Votes = styled.p`
     font-size: 12px;
   }
 
+  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
+    margin:0;
+    padding-top: 2px;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
     font-size: 10px;
+    
   }
 `;

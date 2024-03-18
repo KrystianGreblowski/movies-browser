@@ -48,7 +48,7 @@ export const Description = styled.div`
   gap: 24px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
-    -size: 30px;
+    font-size: 30px;
   }
   @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
     font-size: 16px;
