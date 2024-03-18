@@ -9,9 +9,9 @@ export const StyledSearchBar = styled.div`
   background-color: ${({ theme }) => theme.color.white};
   border: 1px solid ${({ theme }) => theme.color.mystic};
   border-radius: 33px;
-  min-height: 48px;
   padding: 12px 24px;
-  margin-right: 40px;
+  margin-right: 16px;
+  max-width: 432px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     width: 30%;
@@ -19,7 +19,7 @@ export const StyledSearchBar = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
-    margin-right: 16px;
+    max-width: 100%;
     width: 100%;
     min-height: 44px;
   }
