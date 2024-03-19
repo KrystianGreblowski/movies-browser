@@ -5,7 +5,7 @@ Welcome to our Movies Browser project! We are currently in the process of creati
 
 - Damian Niklasiński
 - Krystian Gręblowski
-- Olek Riabos
+- Oleksandr Riaboshapka
 
 ## Demo
 Here is a demo of our project:
@@ -39,6 +39,7 @@ The Movies Browser project is created for the YouCode course, we have 4 weeks to
 - JS ES+6
 - Media Query
 - API
+- BEM
 - 
 
 ## Getting Started with Create React App
