@@ -8,7 +8,7 @@ import NavigationBar from "../common/NavigationBar";
 import MainPage from "../features/MainPage";
 import PersonList from "../features/PersonList";
 import { toMainPage, toPersonList } from "./routes";
-import MoviesDetails from "./features/MoviesDetails"
+import MoviesDetails from "../features/MoviesDetails"
 
 function App() {
   return (

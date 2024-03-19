@@ -15,7 +15,7 @@ import {
   fetchMovieTypesInit,
   selectMovieTypesData,
 } from "../../common/movieTypes/movieTypesSlice";
-import noMovieImage from "./images/no-movie-image.svg";
+import noMovieImage from "./Images/no-movie-image.svg";
 
 function MainPage() {
   const popularMoviesData = useSelector(selectPopularMoviesData);
