@@ -10,6 +10,7 @@ export const StyledSearchBar = styled.div`
   border: 1px solid ${({ theme }) => theme.color.mystic};
   border-radius: 33px;
   padding: 12px 24px;
+  max-height: 48px;
   margin-right: 16px;
   max-width: 432px;
 
