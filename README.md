@@ -1,6 +1,45 @@
-# Demo
+## MOVIES BROWSER
+Welcome to our Movies Browser project! We are currently in the process of creating the application, so it may change every day!
 
+# Authors
+
+- Damian Niklasiński
+- Krystian Gręblowski
+- Olek Riabos
+
+# Demo
+Here is a demo of our project:
 [Movies Browser](https://krystiangreblowski.github.io/movies-browser/)
+
+![Photo](https://i.imgur.com/Pekc2pd.png)
+
+# General Info
+The Movies Browser project is created for the YouCode course, we have 4 weeks to complete the task. We work in Scrum, we save all tasks on Trello. The application is created based on a project in Figma.
+
+# Features
+1. Navigation allows you to move between the video home page and popular people.
+2. Pagination allows you to switch to subsequent pages with videos or people
+3. Movie List is our main website where you can browse the database of the most popular movies
+4. People is a website that allows you to browse a database of actors
+
+# What we used to create the website
+
+- Create React App
+- React
+- React Router
+- Redux
+- Redux Saga
+- Redux Toolkit
+- Flexbox
+- Grid
+- Styled Components
+- JSX
+- Axios
+- Async/Await
+- JS ES+6
+- Media Query
+- API
+- 
 
 ## Getting Started with Create React App
 
