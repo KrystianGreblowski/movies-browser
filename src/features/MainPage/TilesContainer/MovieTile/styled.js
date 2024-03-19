@@ -40,10 +40,13 @@ export const Image = styled.img`
 `;
 
 export const Description = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
   }
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     margin-left: 16px;
@@ -58,7 +61,7 @@ export const MainInfo = styled.div`
   margin-left: 4px;
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     margin-top: 0;
-    gap: 6px;
+    gap: 8px;
   }
 `;
 
@@ -109,6 +112,7 @@ export const MovieType = styled.li`
 export const Rating = styled.div`
   display: flex;
   gap: 12px;
+  margin-left: 5px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     gap: 8px;
