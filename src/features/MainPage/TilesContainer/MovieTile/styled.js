@@ -13,16 +13,17 @@ export const Tiles = styled.div`
 
 export const Tile = styled.article`
   background-color: ${({ theme }) => theme.color.white};
-  max-width: 324px;
+  width: 100%;
   height: 650px;
   box-shadow: 0px 4px 12px 0px #bac7d580;
   padding: 16px;
   display: grid;
   grid-template-rows: auto 1fr;
+  border-radius: 5px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
-    max-width: 320px;
-    grid-template-columns: 1fr auto;
+    max-width: 100%;
+    grid-template-columns: 113px auto;
     height: 201px;
   }
 `;
@@ -39,32 +40,51 @@ export const Image = styled.img`
 `;
 
 export const Description = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     display: flex;
     flex-direction: column;
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     margin-left: 16px;
   }
 `;
 
-export const MovieTitle = styled.h1`
+export const MainInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   margin-top: 16px;
+  margin-left: 4px;
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    margin-top: 0;
+    gap: 8px;
+  }
+`;
+
+export const MovieTitle = styled.h1`
+  margin: 0;
   font-size: 22px;
   font-weight: 500;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
-    margin-top: 0px;
-    margin-bottom: 0px;
+  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
+    font-size: 15px;
   }
 `;
 
 export const MovieYear = styled.p`
   color: ${({ theme }) => theme.color.waterloo};
   font-size: 16px;
-  margin-top: 8px;
+  margin: 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
-    margin-top: 4px;
-    margin-bottom: 0px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
+    font-size: 13px;
   }
 `;
 
@@ -74,10 +94,7 @@ export const MovieTypes = styled.ul`
   gap: 8px;
   list-style: none;
   padding: 0px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
-    margin-top: 8px;
-  }
+  margin: 0;
 `;
 
 export const MovieType = styled.li`
@@ -95,8 +112,10 @@ export const MovieType = styled.li`
 export const Rating = styled.div`
   display: flex;
   gap: 12px;
+  margin-left: 5px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    gap: 8px;
   }
 `;
 
@@ -104,14 +123,28 @@ export const StarImage = styled.img`
   max-width: 24px;
   height: 23px;
   margin-top: 12px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
+    max-width: 16px;
+    height: 16px;
+  }
 `;
 
 export const Rate = styled.p`
   font-size: 16px;
   font-weight: 600;
+  margin-bottom: 0;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
+    font-size: 13px;
+  }
 `;
 
 export const Votes = styled.p`
   font-size: 16px;
   color: ${({ theme }) => theme.color.waterloo};
+  margin-bottom: 0;
+  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
+    font-size: 13px;
+  }
 `;
