@@ -12,6 +12,7 @@ import {
   StarImage,
   Rate,
   Votes,
+  MainInfo,
 } from "./styled";
 import star from "../../Images/star.svg";
 
@@ -21,17 +22,19 @@ export const MovieTile = ({ image, title, year, type, rate, votes }) => {
       <Tile>
         <Image src={image} alt={title} />
         <Description>
-          <MovieTitle>{title}</MovieTitle>
-          <MovieYear>{year}</MovieYear>
-          <MovieTypes>
-            {type.map((movieType) => (
-              <MovieType key={nanoid()}> {movieType} </MovieType>
-            ))}
-          </MovieTypes>
+          <MainInfo>
+            <MovieTitle>{title}</MovieTitle>
+            <MovieYear>{year}</MovieYear>
+            <MovieTypes>
+              {type.map((movieType) => (
+                <MovieType key={nanoid()}> {movieType} </MovieType>
+              ))}
+            </MovieTypes>
+          </MainInfo>
           <Rating>
             <StarImage src={star} />
             <Rate>{rate}</Rate>
-            <Votes>{votes}</Votes>
+            <Votes>{votes} votes</Votes>
           </Rating>
         </Description>
       </Tile>
