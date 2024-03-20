@@ -13,7 +13,8 @@ export const Tile = styled.div`
   justify-content: flex-start;
   padding: 16px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    max-width: 136px;
     height: auto;
     padding: 8px;
   }
@@ -22,8 +23,12 @@ export const Tile = styled.div`
 export const Image = styled.img`
   width: 100%;
   max-height: 231px;
-  object-fit: inherit;
+  object-fit: cover;
   border-radius: 5px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    max-height: 178px;
+  }
 `;
 
 export const Name = styled.h1`
@@ -35,14 +40,9 @@ export const Name = styled.h1`
   margin: 0;
   margin-top: 12px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
-    font-size: 16px;
-    line-height: 22.4px;
-    margin-top: 8px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     font-size: 14px;
     line-height: 18.2px;
+    margin-top: 8px;
   }
 `;

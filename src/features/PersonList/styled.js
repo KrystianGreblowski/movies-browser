@@ -18,21 +18,32 @@ export const Container = styled.div`
 export const Tiles = styled.div`
   display: grid;
   grid-gap: 24px;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  justify-items: center;
+  grid-template-columns: repeat(6, 1fr);
   margin-bottom: 56px;
 
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallLaptop}) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    grid-template-columns: repeat(5, 1fr);
     grid-gap: 16px;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-bottom: 50px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
-    grid-template-columns: 1fr 1fr;
-    margin-bottom: 50px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
+    grid-template-columns: repeat(2, 1fr);
   }
 `;

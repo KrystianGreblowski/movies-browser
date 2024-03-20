@@ -8,21 +8,9 @@ export const StyledTitle = styled.h1`
   margin-bottom: 24px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
-    font-size: 32px;
-    line-height: 36px;
-    margin-top: 24px;
-    margin-bottom: 12px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
-    font-size: 24px;
-    line-height: 32px;
-    margin-top: 24px;
-    margin-bottom: 12px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
     font-size: 20px;
     line-height: 24px;
+    margin-top: 24px;
+    margin-bottom: 12px;
   }
 `;
