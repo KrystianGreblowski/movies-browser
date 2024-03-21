@@ -1,6 +1,6 @@
-import PersonTile from "../../../../common/Tiles/PersonTile/TilesContainer/PersonsTile";
-import PersonsTitle from "../../../../common/Tiles/PersonTile/TilesContainer/PersonsTitle";
-import { Tiles } from "../../../../common/Tiles/PersonTile/TilesContainer";
+import PersonTile from "../../../../common/Tiles/PersonTile/PersonsTile";
+import PersonsTitle from "../../../../common/Tiles/PersonTile/Title";
+import { Tiles } from "../../../../common/Tiles/PersonTile/";
 import personImage from "../../../../images/person-crew.png";
 
 const Crew = () => {

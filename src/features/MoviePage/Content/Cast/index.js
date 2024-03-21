@@ -1,12 +1,12 @@
-import { Tiles } from "../../../../common/Tiles/PersonTile/TilesContainer";
-import PersonTile from "../../../../common/Tiles/PersonTile/TilesContainer/PersonsTile";
-import PersonsTitle from "../../../../common/Tiles/PersonTile/TilesContainer/PersonsTitle";
-import personImage from "../../../../images/person-image.png"
+import PersonTile from "../../../../common/Tiles/PersonTile/PersonsTile/index";
+import Title from "../../../../common/Tiles/PersonTile/Title/index";
+import {Tiles} from "../../../../common/Tiles/PersonTile/index";
+import personImage from "../../../../images/person-image.png";
 
 const Cast = () => {
   return (
     <>
-      <PersonsTitle title={"Cast"} />
+      <Title title={"Cast"} />
       <Tiles>
         <PersonTile image={personImage} name={"Liu Yifei"} />
         <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />

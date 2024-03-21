@@ -16,7 +16,6 @@ import {
   selectMovieTypesData,
 } from "../../common/movieTypes/movieTypesSlice";
 import noMovieImage from "./Images/no-movie-image.svg";
-import Loader from "../../common/Loader";
 
 function MainPage() {
   const popularMoviesData = useSelector(selectPopularMoviesData);
