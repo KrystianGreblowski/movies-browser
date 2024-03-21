@@ -38,6 +38,7 @@ function MainPage() {
 
   return (
     <>
+      <Loader />
       {popularMoviesStatus === "loading" ? (
         <LoadingPage />
       ) : popularMoviesStatus === "done" ? (
