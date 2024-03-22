@@ -2,8 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import Pagination from "../../common/Pagination";
 import PersonTile from "../../common/Tiles/PersonTile";
-import Title from "./Title";
-import { Container, Tiles, LoadingPage, ErrorPage } from "./styled";
+import { Container, Title, Tiles, LoadingPage, ErrorPage } from "./styled";
 import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
 import {
   fetchCurrentPage,
@@ -31,7 +30,7 @@ const PersonList = () => {
         <LoadingPage />
       ) : popularPeopleStatus === "done" ? (
         <Container>
-          <Title title={"Popular people"} />
+          <Title>Popular people</Title>
 
           <Tiles>
             {popularPeopleData.map((popularPeople) => (
