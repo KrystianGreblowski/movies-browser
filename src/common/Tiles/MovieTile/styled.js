@@ -39,11 +39,6 @@ export const Description = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
-    display: flex;
-    flex-direction: column;
-  }
 `;
 
 export const MainInfo = styled.div`
