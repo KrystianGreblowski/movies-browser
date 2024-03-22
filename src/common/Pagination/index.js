@@ -26,7 +26,7 @@ import {
 } from "./paginationSlice";
 
 const Pagination = ({ currentPage, minPageLimit, maxPageLimit }) => {
-  const isLargeMobile = useMediaQuery({ query: "(max-width: 640px)" });
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
   const dispatch = useDispatch();
 
@@ -44,7 +44,7 @@ const Pagination = ({ currentPage, minPageLimit, maxPageLimit }) => {
           disabled={currentPage <= minPageLimit}
         >
           <LeftArrow $isButtonDisabled={currentPage <= minPageLimit} />
-          {isLargeMobile && (
+          {isMobile && (
             <LeftArrow $isButtonDisabled={currentPage <= minPageLimit} />
           )}
           <TextButton>First</TextButton>
@@ -81,7 +81,7 @@ const Pagination = ({ currentPage, minPageLimit, maxPageLimit }) => {
         >
           <TextButton>Last</TextButton>
           <RightArrow $isButtonDisabled={currentPage >= maxPageLimit} />
-          {isLargeMobile && (
+          {isMobile && (
             <RightArrow $isButtonDisabled={currentPage >= maxPageLimit} />
           )}
         </LastPage>

@@ -18,7 +18,8 @@ export const theme = {
     largeMobile: "640px",
     mobile: "767px",
     tablet: "1024px",
-    laptop: "1356px",
+    smallLaptop: "1172px",
+    laptop: "1400px",
     narrow: "1536px",
   },
 };
