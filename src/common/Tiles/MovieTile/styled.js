@@ -4,16 +4,12 @@ export const Tile = styled.div`
   background-color: ${({ theme }) => theme.color.white};
   max-width: 324px;
   width: 100%;
-  height: 650px;
+  height: auto;
   box-shadow: 0px 4px 12px 0px #bac7d580;
   padding: 16px;
   display: grid;
   grid-template-rows: auto 1fr;
   border-radius: 5px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
-    height: auto;
-  }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     grid-template-columns: auto 1fr;
@@ -55,7 +51,6 @@ export const MainInfo = styled.div`
   flex-direction: column;
   gap: 8px;
   margin-top: 16px;
-  margin-left: 4px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     margin-top: 0;
