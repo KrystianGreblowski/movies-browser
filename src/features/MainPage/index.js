@@ -1,10 +1,14 @@
 import Pagination from "../../common/Pagination";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { Container, LoadingPage, ErrorPage } from "./Container";
-import { TilesContainer } from "./TilesContainer";
-import { MovieTile } from "./TilesContainer/MovieTile";
-import { TilesHeader } from "./TilesHeader";
+import {
+  Container,
+  Title,
+  TilesContainer,
+  LoadingPage,
+  ErrorPage,
+} from "./styled";
+import { MovieTile } from "../../common/Tiles/MovieTile";
 import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
 import {
   fetchCurrentPage,
@@ -15,7 +19,7 @@ import {
   fetchMovieTypesInit,
   selectMovieTypesData,
 } from "../../common/movieTypes/movieTypesSlice";
-import noMovieImage from "./Images/no-movie-image.svg";
+import noMovieImage from "./no-movie-image.svg";
 
 function MainPage() {
   const popularMoviesData = useSelector(selectPopularMoviesData);
@@ -42,7 +46,7 @@ function MainPage() {
         <LoadingPage />
       ) : popularMoviesStatus === "done" ? (
         <Container>
-          <TilesHeader>Popular movies</TilesHeader>
+          <Title>Popular movies</Title>
 
           <TilesContainer>
             {popularMoviesData.map((popularMovies, movieIndex) => (

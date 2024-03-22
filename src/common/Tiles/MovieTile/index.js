@@ -14,7 +14,7 @@ import {
   Votes,
   MainInfo,
 } from "./styled";
-import star from "../../Images/star.svg";
+import star from "./star.svg";
 
 export const MovieTile = ({ image, title, year, type, rate, votes }) => {
   return (
