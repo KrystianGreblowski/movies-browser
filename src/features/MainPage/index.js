@@ -28,7 +28,7 @@ function MainPage() {
   const currentPage = useSelector(selectCurrentPage);
 
   const imageBaseUrl = "https://image.tmdb.org/t/p/w300";
-  const numberOfMovieTypes = 2;
+  const numberOfMovieTypes = 3;
 
   const dispatch = useDispatch();
 
