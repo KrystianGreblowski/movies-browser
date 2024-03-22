@@ -30,7 +30,7 @@ export const Title = styled.h1`
   }
 `;
 
-export const Tiles = styled.div`
+export const TilesContainer = styled.div`
   display: grid;
   grid-gap: 24px;
   grid-template-columns: repeat(6, 1fr);
