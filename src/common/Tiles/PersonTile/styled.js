@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Tile = styled.div`
   max-width: 208px;
   width: 100%;
-  height: 339px;
+  height: auto;
   border-radius: 5px;
   background-color: ${({ theme }) => theme.color.white};
   box-shadow: 0px 4px 12px 0px #bac7d550;
@@ -15,7 +15,6 @@ export const Tile = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     max-width: 136px;
-    height: auto;
     padding: 8px;
   }
 `;
