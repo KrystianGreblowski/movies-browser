@@ -1,21 +1,26 @@
 import styled from "styled-components";
 
+export const TileButton = styled.button`
+  border: none;
+  padding: 0;
+  cursor: pointer;
+`;
+
 export const Tile = styled.div`
   background-color: ${({ theme }) => theme.color.white};
   max-width: 324px;
   width: 100%;
-  height: auto;
+  height: 100%;
   box-shadow: 0px 4px 12px 0px #bac7d580;
   padding: 16px;
   display: grid;
   grid-template-rows: auto 1fr;
   border-radius: 5px;
+  text-align: left;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     grid-template-columns: auto 1fr;
-    grid-gap: 16px;
     max-width: 360px;
-    height: 201px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
@@ -39,6 +44,10 @@ export const Description = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    margin-left: 16px;
+  }
 `;
 
 export const MainInfo = styled.div`

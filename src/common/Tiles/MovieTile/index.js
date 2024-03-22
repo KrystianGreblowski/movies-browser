@@ -1,5 +1,6 @@
 import { nanoid } from "nanoid";
 import {
+  TileButton,
   Tile,
   Image,
   Description,
@@ -17,24 +18,26 @@ import star from "./star.svg";
 
 export const MovieTile = ({ image, title, year, type, rate, votes }) => {
   return (
-    <Tile>
-      <Image src={image} alt={title} />
-      <Description>
-        <MainInfo>
-          <MovieTitle>{title}</MovieTitle>
-          <MovieYear>{year}</MovieYear>
-          <MovieTypes>
-            {type.map((movieType) => (
-              <MovieType key={nanoid()}> {movieType} </MovieType>
-            ))}
-          </MovieTypes>
-        </MainInfo>
-        <Rating>
-          <StarImage src={star} />
-          <Rate>{rate}</Rate>
-          <Votes>{votes} votes</Votes>
-        </Rating>
-      </Description>
-    </Tile>
+    <TileButton>
+      <Tile>
+        <Image src={image} alt={title} />
+        <Description>
+          <MainInfo>
+            <MovieTitle>{title}</MovieTitle>
+            <MovieYear>{year}</MovieYear>
+            <MovieTypes>
+              {type.map((movieType) => (
+                <MovieType key={nanoid()}> {movieType} </MovieType>
+              ))}
+            </MovieTypes>
+          </MainInfo>
+          <Rating>
+            <StarImage src={star} />
+            <Rate>{rate}</Rate>
+            <Votes>{votes} votes</Votes>
+          </Rating>
+        </Description>
+      </Tile>
+    </TileButton>
   );
 };
