@@ -1,9 +1,15 @@
 import styled from "styled-components";
 
+export const TileButton = styled.button`
+  border: none;
+  padding: 0;
+  cursor: pointer;
+`;
+
 export const Tile = styled.div`
   max-width: 208px;
   width: 100%;
-  height: auto;
+  height: 100%;
   border-radius: 5px;
   background-color: ${({ theme }) => theme.color.white};
   box-shadow: 0px 4px 12px 0px #bac7d550;
