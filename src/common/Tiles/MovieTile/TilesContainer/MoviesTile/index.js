@@ -3,7 +3,7 @@ import poster from "../.././Images/poster.png"
 import star from "../.././Images/Vector.svg"
 
 
-export const ExampleTiles = () => {
+export const MovieTiles = () => {
     return (
         <Tiles>
             <Tile>
