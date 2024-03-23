@@ -36,8 +36,8 @@ export const Input = styled.input`
   border: none;
   font-size: 16px;
   font-weight: 400;
-  line-height: 150%;
-  color: ${({ theme }) => theme.color.white};
+  
+  color: ${({ theme }) => theme.color.black};
 
   &:focus {
     outline: none;
