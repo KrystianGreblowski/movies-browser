@@ -1,21 +1,17 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import Pagination from "../../common/Pagination";
-import PersonTile from "../../common/Tiles/PersonTile";
-import {
-  Container,
-  Title,
-  TilesContainer,
-  LoadingPage,
-  ErrorPage,
-} from "./styled";
+import PersonTile from "../../common/Tiles/PersonTilesContainer/PersonTile";
+import { Container, LoadingPage, ErrorPage } from "./styled";
+import { TilesContainer } from "../../common/Tiles/PersonTilesContainer/styled";
+import { TilesHeader } from "../../common/Tiles/TilesHeader/styled";
 import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
 import {
   fetchCurrentPage,
   selectPopularPeopleData,
   selectPopularPeopleStatus,
 } from "./popularPeopleSlice";
-import noPersonImage from "./images/no-person-image.png";
+import noPersonImage from "./no-person-image.png";
 
 const PersonList = () => {
   const popularPeopleData = useSelector(selectPopularPeopleData);
@@ -36,7 +32,7 @@ const PersonList = () => {
         <LoadingPage />
       ) : popularPeopleStatus === "done" ? (
         <Container>
-          <Title>Popular people</Title>
+          <TilesHeader>Popular people</TilesHeader>
 
           <TilesContainer>
             {popularPeopleData.map((popularPeople) => (
