@@ -1,4 +1,8 @@
+import { useSelector } from "react-redux";
+import { nanoid } from "nanoid";
 import {
+  LoadingPage,
+  ErrorPage,
   Caption,
   Description,
   Details,
@@ -8,6 +12,7 @@ import {
   Production,
   Container,
   ProductionInfo,
+  CountryName,
   Rate,
   RateMax,
   RatingWrapper,
@@ -17,44 +22,86 @@ import {
   MovieTypes,
   MovieType,
 } from "./styled";
-import posterMovie from "../../../../images/poster-movie.png";
+import {
+  selectMovieDetailsData,
+  selectMovieDetailsStatus,
+} from "../../movieDetailsSlice";
+import noMovieImage from "../../images/no-movie-image.svg";
 
 const MainInfo = () => {
+  const movieDetailsData = useSelector(selectMovieDetailsData);
+  const movieDetailsStatus = useSelector(selectMovieDetailsStatus);
+
+  const posterBaseUrl = "http://image.tmdb.org/t/p/w342";
+  const numberOfMovieTypes = 3;
+
+  console.log(movieDetailsData);
+
   return (
-    <Container>
-      <Post src={posterMovie} />
-      <Description>
-        <Caption>Mulan long title</Caption>
-        <MovieYear>2020</MovieYear>
-        <Details>
-          <Production>
-            <Span>Production:</Span>
-            <ProductionInfo>China, United States of America</ProductionInfo>
-          </Production>
-          <Production>
-            <Span>Release date:</Span>
-            <ProductionInfo>24.10.2020</ProductionInfo>
-          </Production>
-        </Details>
-        <MovieTypes>
-          <MovieType> Action </MovieType>
-          <MovieType> Adventure </MovieType>
-          <MovieType> Drama </MovieType>
-        </MovieTypes>
-        <RatingWrapper>
-          <RateStar />
-          <Rate>7,9</Rate>
-          <RateMax>/ 10</RateMax>
-          <Votes>335 votes</Votes>
-        </RatingWrapper>
-        <Information>
-          A young Chinese maiden disguises herself as a male warrior in order to
-          save her father. Disguises herself as a male warrior in order to save
-          her father. A young Chinese maiden disguises herself as a male warrior
-          in order to save her father.
-        </Information>
-      </Description>
-    </Container>
+    <>
+      {movieDetailsStatus === "loading" ? (
+        <LoadingPage />
+      ) : movieDetailsStatus === "done" ? (
+        <Container>
+          <Post
+            src={
+              movieDetailsData.poster_path === null
+                ? noMovieImage
+                : posterBaseUrl + movieDetailsData.poster_path
+            }
+            alt={movieDetailsData.original_title}
+          />
+          <Description>
+            <Caption>{movieDetailsData.original_title}</Caption>
+            <MovieYear>{movieDetailsData.release_date.slice(0, 4)}</MovieYear>
+            <Details>
+              <Production>
+                <Span>Production:</Span>
+                <ProductionInfo>
+                  {movieDetailsData.production_countries.map(
+                    (country, index) => (
+                      <CountryName key={nanoid()}>
+                        {country.name}
+                        {index !==
+                          movieDetailsData.production_countries.length - 1 &&
+                          ","}
+                      </CountryName>
+                    )
+                  )}
+                </ProductionInfo>
+              </Production>
+              <Production>
+                <Span>Release date:</Span>
+                <ProductionInfo>
+                  {movieDetailsData.release_date.split("-").reverse().join(".")}
+                </ProductionInfo>
+              </Production>
+            </Details>
+            <MovieTypes>
+              {movieDetailsData.genres
+                .map((movieType) => (
+                  <MovieType key={movieType.id}> {movieType.name} </MovieType>
+                ))
+                .slice(0, numberOfMovieTypes)}
+            </MovieTypes>
+            <RatingWrapper>
+              <RateStar />
+              <Rate>
+                {movieDetailsData.vote_average
+                  .toFixed(1)
+                  .toString()
+                  .replace(".", ",")}
+              </Rate>
+              <RateMax>/ 10</RateMax>
+              <Votes>{movieDetailsData.vote_count} votes</Votes>
+            </RatingWrapper>
+            <Information>{movieDetailsData.overview}</Information>
+          </Description>
+        </Container>
+      ) : (
+        <ErrorPage />
+      )}
+    </>
   );
 };
 
