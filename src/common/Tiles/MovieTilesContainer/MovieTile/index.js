@@ -1,6 +1,6 @@
 import { nanoid } from "nanoid";
 import {
-  Tiles,
+  TileButton,
   Tile,
   Image,
   Description,
@@ -14,11 +14,11 @@ import {
   Votes,
   MainInfo,
 } from "./styled";
-import star from "../../Images/star.svg";
+import star from "./star.svg";
 
 export const MovieTile = ({ image, title, year, type, rate, votes }) => {
   return (
-    <Tiles>
+    <TileButton>
       <Tile>
         <Image src={image} alt={title} />
         <Description>
@@ -38,6 +38,6 @@ export const MovieTile = ({ image, title, year, type, rate, votes }) => {
           </Rating>
         </Description>
       </Tile>
-    </Tiles>
+    </TileButton>
   );
 };

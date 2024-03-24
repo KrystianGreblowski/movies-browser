@@ -9,7 +9,7 @@ export const Container = styled.div`
   max-width: 525px;
   margin: 0 auto;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     grid-gap: 8px;
     max-width: 232px;
     height: 24px;
@@ -21,7 +21,7 @@ export const ButtonsWrapper = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-gap: 12px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     grid-gap: 8px;
   }
 `;
@@ -33,7 +33,7 @@ export const PagesInfo = styled.div`
   align-items: center;
   justify-items: center;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     grid-gap: 2px;
   }
 `;
@@ -46,7 +46,7 @@ export const TextInfo = styled.p`
   color: ${({ theme }) => theme.color.waterloo};
   width: max-content;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     font-size: 10px;
   }
 `;
@@ -59,7 +59,7 @@ export const NumberInfo = styled.p`
   color: ${({ theme }) => theme.color.woodsmoke};
   width: max-content;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     font-size: 10px;
   }
 `;
@@ -76,7 +76,7 @@ export const LeftArrow = styled(LeftArrowIcon)`
       fill: ${({ theme }) => theme.color.waterloo};
     `}
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     width: 5px;
     height: 8px;
     margin-right: 0;
@@ -95,7 +95,7 @@ export const RightArrow = styled(RightArrowIcon)`
       fill: ${({ theme }) => theme.color.waterloo};
     `}
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     width: 5px;
     height: 8px;
     margin-left: 0;
@@ -108,7 +108,7 @@ export const TextButton = styled.p`
   line-height: 19.6px;
   margin: 0;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     display: none;
   }
 `;
@@ -139,7 +139,7 @@ export const FirstPage = styled.button`
     background-color: ${({ theme }) => theme.color.mystic};
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     width: 38px;
     height: 24px;
     justify-content: space-evenly;
@@ -150,7 +150,7 @@ export const FirstPage = styled.button`
 export const PreviousPage = styled(FirstPage)`
   width: 106px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     width: 29px;
     padding: 0;
   }
@@ -159,7 +159,7 @@ export const PreviousPage = styled(FirstPage)`
 export const NextPage = styled(FirstPage)`
   width: 78px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     width: 29px;
     padding: 0;
   }
@@ -168,7 +168,7 @@ export const NextPage = styled(FirstPage)`
 export const LastPage = styled(FirstPage)`
   width: 75px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     width: 38px;
     justify-content: space-evenly;
   }
