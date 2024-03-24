@@ -51,3 +51,18 @@ export const Name = styled.h1`
     margin-top: 8px;
   }
 `;
+
+export const ExtraInfo = styled.h2`
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
+  text-align: center;
+  color: ${({ theme }) => theme.color.waterloo};
+  margin: 0;
+  margin-top: 8px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    font-size: 13px;
+    line-height: 16.9px;
+  }
+`;
