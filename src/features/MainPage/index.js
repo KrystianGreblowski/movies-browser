@@ -1,7 +1,8 @@
 import { nanoid } from "nanoid";
+import { Link } from "react-router-dom/cjs/react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { Container, LoadingPage, ErrorPage } from "./styled";
+import { Container, MovieTileButton, LoadingPage, ErrorPage } from "./styled";
 import { TilesContainer } from "../../common/Tiles/MovieTilesContainer/styled";
 import { TilesHeader } from "../../common/Tiles/TilesHeader/styled";
 import { MovieTile } from "../../common/Tiles/MovieTilesContainer/MovieTile";
@@ -17,6 +18,7 @@ import {
   selectMovieTypesData,
 } from "../../common/movieTypes/movieTypesSlice";
 import noMovieImage from "./no-movie-image.svg";
+import { fetchMovieId } from "../MoviePage/movieDetailsSlice";
 
 function MainPage() {
   const popularMoviesData = useSelector(selectPopularMoviesData);
@@ -46,30 +48,36 @@ function MainPage() {
           <TilesHeader>Popular movies</TilesHeader>
 
           <TilesContainer>
-            {popularMoviesData.map((popularMovies, movieIndex) => (
-              <MovieTile
+            {popularMoviesData.map((popularMovie, movieIndex) => (
+              <MovieTileButton
+                onClick={() => dispatch(fetchMovieId(popularMovie.id))}
                 key={nanoid()}
-                image={
-                  popularMovies.poster_path === null
-                    ? noMovieImage
-                    : imageBaseUrl + popularMovies.poster_path
-                }
-                title={popularMovies.title}
-                year={popularMovies.release_date.slice(0, 4)}
-                type={movieTypesData
-                  .filter((movieType) =>
-                    popularMoviesData[movieIndex].genre_ids.includes(
-                      movieType.id
-                    )
-                  )
-                  .map((movieType) => movieType.name)
-                  .slice(0, numberOfMovieTypes)}
-                rate={popularMovies.vote_average
-                  .toFixed(1)
-                  .toString()
-                  .replace(".", ",")}
-                votes={popularMovies.vote_count}
-              />
+              >
+                <Link to={`/movies/${popularMovie.id}`}>
+                  <MovieTile
+                    image={
+                      popularMovie.poster_path === null
+                        ? noMovieImage
+                        : imageBaseUrl + popularMovie.poster_path
+                    }
+                    title={popularMovie.title}
+                    year={popularMovie.release_date.slice(0, 4)}
+                    type={movieTypesData
+                      .filter((movieType) =>
+                        popularMoviesData[movieIndex].genre_ids.includes(
+                          movieType.id
+                        )
+                      )
+                      .map((movieType) => movieType.name)
+                      .slice(0, numberOfMovieTypes)}
+                    rate={popularMovie.vote_average
+                      .toFixed(1)
+                      .toString()
+                      .replace(".", ",")}
+                    votes={popularMovie.vote_count}
+                  />
+                </Link>
+              </MovieTileButton>
             ))}
           </TilesContainer>
 

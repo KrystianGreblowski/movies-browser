@@ -2,13 +2,13 @@ import { call, put, takeEvery } from "redux-saga/effects";
 import {
   fetchMovieDetailsSuccess,
   fetchMovieDetailsError,
-  fetchMovieDetailsInit,
+  fetchMovieId,
 } from "./movieDetailsSlice";
 import { getMovieDetails } from "../../api/getMovieDetails";
 
-function* fetchMovieDetailsHandler() {
+function* fetchMovieDetailsHandler({ payload: movieId }) {
   try {
-    const movieDetails = yield call(getMovieDetails);
+    const movieDetails = yield call(getMovieDetails, movieId);
     yield put(fetchMovieDetailsSuccess(movieDetails));
   } catch (error) {
     yield put(fetchMovieDetailsError());
@@ -16,5 +16,5 @@ function* fetchMovieDetailsHandler() {
 }
 
 export function* watchFetchMovieDetails() {
-  yield takeEvery(fetchMovieDetailsInit, fetchMovieDetailsHandler);
+  yield takeEvery(fetchMovieId, fetchMovieDetailsHandler);
 }
