@@ -1,19 +1,35 @@
+import { useSelector } from "react-redux";
+import { nanoid } from "nanoid";
 import PersonTile from "../../../../common/Tiles/PersonTilesContainer/PersonTile";
 import { TilesHeader } from "../../../../common/Tiles/TilesHeader/styled";
 import { TilesContainer } from "../../../../common/Tiles/PersonTilesContainer/styled";
-import personImage from "../no-person-image.png";
+import noPersonImage from "../../images/no-person-image.png";
+import { selectMovieDetailsData } from "../../movieDetailsSlice";
 
 const Crew = () => {
+  const movieDetailsData = useSelector(selectMovieDetailsData);
+  const imageBaseUrl = "https://image.tmdb.org/t/p/w185";
+  const maxNumberOfTiles = 6;
+
+  console.log(movieDetailsData);
   return (
     <>
       <TilesHeader>Crew</TilesHeader>
       <TilesContainer>
-        <PersonTile image={personImage} name={"Liu Yifei"} />
-        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
-        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
-        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
-        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
-        <PersonTile image={personImage} name={"Liu Yifei"} />
+        {movieDetailsData.credits.crew
+          .slice(0, maxNumberOfTiles)
+          .map((crew) => (
+            <PersonTile
+              key={nanoid()}
+              image={
+                crew.profile_path === null
+                  ? noPersonImage
+                  : imageBaseUrl + crew.profile_path
+              }
+              name={crew.name}
+              extraInfo={crew.department}
+            />
+          ))}
       </TilesContainer>
     </>
   );
