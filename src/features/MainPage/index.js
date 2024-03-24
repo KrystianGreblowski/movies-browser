@@ -1,8 +1,13 @@
 import { nanoid } from "nanoid";
-import { Link } from "react-router-dom/cjs/react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { Container, MovieTileButton, LoadingPage, ErrorPage } from "./styled";
+import {
+  Container,
+  MovieTileButton,
+  MoviePageLink,
+  LoadingPage,
+  ErrorPage,
+} from "./styled";
 import { TilesContainer } from "../../common/Tiles/MovieTilesContainer/styled";
 import { TilesHeader } from "../../common/Tiles/TilesHeader/styled";
 import { MovieTile } from "../../common/Tiles/MovieTilesContainer/MovieTile";
@@ -53,7 +58,7 @@ function MainPage() {
                 onClick={() => dispatch(fetchMovieId(popularMovie.id))}
                 key={nanoid()}
               >
-                <Link to={`/movies/${popularMovie.id}`}>
+                <MoviePageLink to={`/movies/${popularMovie.id}`}>
                   <MovieTile
                     image={
                       popularMovie.poster_path === null
@@ -76,7 +81,7 @@ function MainPage() {
                       .replace(".", ",")}
                     votes={popularMovie.vote_count}
                   />
-                </Link>
+                </MoviePageLink>
               </MovieTileButton>
             ))}
           </TilesContainer>
