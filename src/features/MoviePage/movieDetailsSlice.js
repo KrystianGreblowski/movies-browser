@@ -25,6 +25,6 @@ export const {
 } = movieDetailsSlice.actions;
 
 export const selectMovieDetailsData = (state) => state.movieDetails.data;
-export const selectMovieDeteilsStatus = (state) => state.movieDetails.status;
+export const selectMovieDetailsStatus = (state) => state.movieDetails.status;
 
 export default movieDetailsSlice.reducer;
