@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import { ReactComponent as StarImage } from "../../../../images/Vector.svg";
 
+export const LoadingPage = styled.div``;
+
+export const ErrorPage = styled.div``;
+
 export const Container = styled.div`
   min-height: 350px;
   display: flex;
@@ -8,6 +12,7 @@ export const Container = styled.div`
   gap: 40px;
   background-color: ${({ theme }) => theme.color.white};
   box-shadow: 0px 4px 12px 0px #bac7d580;
+  border-radius: 5px;
   padding: 40px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
@@ -108,10 +113,18 @@ export const Production = styled.div`
   gap: 10px;
 `;
 
-export const ProductionInfo = styled.p`
-  font-size: 18px;
+export const ProductionInfo = styled.div`
   margin: 0;
   background-color: ${({ theme }) => theme.color.white};
+  display: flex;
+  flex-direction: row;
+`;
+
+export const CountryName = styled.p`
+  font-size: 18px;
+  margin: 0;
+  margin-right: 5px;
+
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     font-size: 15px;
   }
