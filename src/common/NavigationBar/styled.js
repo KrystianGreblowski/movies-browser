@@ -1,11 +1,7 @@
 import styled from "styled-components";
 
 export const StyledNavigationBar = styled.div`
-  background-color: ${({ theme }) => theme.color.woodsmoke};
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
-    background-color: ${({ theme }) => theme.color.black};
-  }
+  background-color: ${({ theme }) => theme.color.black};
 `;
 
 export const Wrapper = styled.div`
