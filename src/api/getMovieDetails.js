@@ -5,7 +5,7 @@ export const getMovieDetails = async () => {
   const language = "en-US";
   const movieId = 1011985;
 
-  const apiUrl = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=${language}`;
+  const apiUrl = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=${language}&append_to_response=credits`;
 
   const response = await axios.get(apiUrl);
 
