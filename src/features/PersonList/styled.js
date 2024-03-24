@@ -40,7 +40,7 @@ export const TilesContainer = styled.div`
     grid-template-columns: repeat(5, 1fr);
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallTablet}) {
     grid-template-columns: repeat(4, 1fr);
   }
 
