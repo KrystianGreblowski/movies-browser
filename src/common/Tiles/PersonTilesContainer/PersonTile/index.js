@@ -4,7 +4,7 @@ const PersonTile = ({ image, name }) => {
   return (
     <TileButton>
       <Tile>
-        <Image src={image} alt="Person Image"></Image>
+        <Image src={image} alt={name}></Image>
         <Name>{name}</Name>
       </Tile>
     </TileButton>
