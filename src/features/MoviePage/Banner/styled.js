@@ -42,8 +42,8 @@ export const TitleWrapper = styled.div`
   text-align: left;
   padding-bottom: 56px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
-    padding-bottom: 10px;
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallLaptop}) {
+    padding-bottom: 20px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
@@ -80,6 +80,7 @@ export const Rating = styled.div`
   align-items: center;
   flex-wrap: wrap;
   margin: 20px 0;
+  margin-bottom: 0;
   gap: 6px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
@@ -115,8 +116,8 @@ export const StarImage = styled.img`
 export const Rate = styled.p`
   font-size: 30px;
   font-weight: 500;
-
   margin: 0;
+
   @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
     font-size: 25px;
   }
@@ -151,6 +152,9 @@ export const RateMax = styled.p`
 `;
 
 export const Votes = styled.p`
+  margin-top: 4px;
+  margin-bottom: 0;
+
   @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
     font-size: 14px;
   }
