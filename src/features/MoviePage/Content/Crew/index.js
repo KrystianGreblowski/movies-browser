@@ -11,7 +11,6 @@ const Crew = () => {
   const imageBaseUrl = "https://image.tmdb.org/t/p/w185";
   const maxNumberOfTiles = 6;
 
-  console.log(movieDetailsData);
   return (
     <>
       <TilesHeader>Crew</TilesHeader>
