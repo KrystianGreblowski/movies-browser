@@ -5,11 +5,13 @@ import Content from "./Content";
 import { Container, LoadingPage, ErrorPage } from "./styled";
 import {
   fetchMovieDetailsInit,
+  selectMovieDetailsData,
   selectMovieDetailsStatus,
 } from "./movieDetailsSlice";
 
 function MoviePage() {
   const movieDetailsStatus = useSelector(selectMovieDetailsStatus);
+  const movieDetailsData = useSelector(selectMovieDetailsData);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -22,7 +24,7 @@ function MoviePage() {
         <LoadingPage />
       ) : movieDetailsStatus === "done" ? (
         <Container>
-          <Banner />
+          {movieDetailsData.backdrop_path !== null && <Banner />}
           <Content />
         </Container>
       ) : (
