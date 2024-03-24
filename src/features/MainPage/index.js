@@ -1,10 +1,11 @@
-import Pagination from "../../common/Pagination";
+import { nanoid } from "nanoid";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { Container, LoadingPage, ErrorPage } from "./styled";
 import { TilesContainer } from "../../common/Tiles/MovieTilesContainer/styled";
 import { TilesHeader } from "../../common/Tiles/TilesHeader/styled";
 import { MovieTile } from "../../common/Tiles/MovieTilesContainer/MovieTile";
+import Pagination from "../../common/Pagination";
 import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
 import {
   fetchCurrentPage,
@@ -47,7 +48,7 @@ function MainPage() {
           <TilesContainer>
             {popularMoviesData.map((popularMovies, movieIndex) => (
               <MovieTile
-                key={popularMovies.id}
+                key={nanoid()}
                 image={
                   popularMovies.poster_path === null
                     ? noMovieImage

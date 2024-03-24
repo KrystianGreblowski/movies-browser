@@ -1,3 +1,4 @@
+import { nanoid } from "nanoid";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import Pagination from "../../common/Pagination";
@@ -37,7 +38,7 @@ const PersonList = () => {
           <TilesContainer>
             {popularPeopleData.map((popularPeople) => (
               <PersonTile
-                key={popularPeople.id}
+                key={nanoid()}
                 image={
                   popularPeople.profile_path === null
                     ? noPersonImage
