@@ -11,6 +11,12 @@ export const Container = styled.div`
   }
 `;
 
+export const MovieTileButton = styled.button`
+  border: none;
+  padding: 0;
+  cursor: pointer;
+`;
+
 export const LoadingPage = styled.div``;
 
 export const ErrorPage = styled.div``;
