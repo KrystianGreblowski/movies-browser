@@ -1,10 +1,8 @@
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import Banner from "./Banner";
 import Content from "./Content";
 import { Container, LoadingPage, ErrorPage } from "./styled";
 import {
-  fetchMovieDetailsInit,
   selectMovieDetailsData,
   selectMovieDetailsStatus,
 } from "./movieDetailsSlice";
@@ -12,11 +10,6 @@ import {
 function MoviePage() {
   const movieDetailsStatus = useSelector(selectMovieDetailsStatus);
   const movieDetailsData = useSelector(selectMovieDetailsData);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchMovieDetailsInit());
-  }, [dispatch]);
 
   return (
     <>
