@@ -3,7 +3,6 @@ import Cast from "./Cast";
 import Crew from "./Crew";
 import { MoviesContainer } from "./styled";
 
-
 const Content = () => {
   return (
     <MoviesContainer>

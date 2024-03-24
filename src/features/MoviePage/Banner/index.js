@@ -1,6 +1,4 @@
 import {
-  LoadingPage,
-  ErrorPage,
   ImagesWrapper,
   Poster,
   PosterContainer,
@@ -16,49 +14,37 @@ import {
 import star from "../../../images/Vector.svg";
 import shadow from "../../../images/Shadow.png";
 import { useSelector } from "react-redux";
-import {
-  selectMovieDetailsData,
-  selectMovieDetailsStatus,
-} from "../movieDetailsSlice";
+import { selectMovieDetailsData } from "../movieDetailsSlice";
 
 const Banner = () => {
   const movieDetailsData = useSelector(selectMovieDetailsData);
-  const movieDetailsStatus = useSelector(selectMovieDetailsStatus);
 
   const posterBaseUrl = "http://image.tmdb.org/t/p/original";
 
   return (
-    <>
-      {movieDetailsStatus === "loading" ? (
-        <LoadingPage />
-      ) : movieDetailsStatus === "done" ? (
-        <PosterContainer>
-          <ImagesWrapper>
-            <Poster
-              src={posterBaseUrl + movieDetailsData.backdrop_path}
-              alt={movieDetailsData.original_title}
-            />
-            <Shadow src={shadow} alt={"Shadow Frame"} />
-            <TitleWrapper>
-              <Title>{movieDetailsData.original_title}</Title>
-              <Rating>
-                <StarImage src={star} />
-                <Rate>
-                  {movieDetailsData.vote_average
-                    .toFixed(1)
-                    .toString()
-                    .replace(".", ",")}
-                </Rate>
-                <RateMax>/ 10</RateMax>
-                <Votes>{movieDetailsData.vote_count} votes</Votes>
-              </Rating>
-            </TitleWrapper>
-          </ImagesWrapper>
-        </PosterContainer>
-      ) : (
-        <ErrorPage />
-      )}
-    </>
+    <PosterContainer>
+      <ImagesWrapper>
+        <Poster
+          src={posterBaseUrl + movieDetailsData.backdrop_path}
+          alt={movieDetailsData.original_title}
+        />
+        <Shadow src={shadow} alt={"Shadow Frame"} />
+        <TitleWrapper>
+          <Title>{movieDetailsData.original_title}</Title>
+          <Rating>
+            <StarImage src={star} />
+            <Rate>
+              {movieDetailsData.vote_average
+                .toFixed(1)
+                .toString()
+                .replace(".", ",")}
+            </Rate>
+            <RateMax>/ 10</RateMax>
+            <Votes>{movieDetailsData.vote_count} votes</Votes>
+          </Rating>
+        </TitleWrapper>
+      </ImagesWrapper>
+    </PosterContainer>
   );
 };
 

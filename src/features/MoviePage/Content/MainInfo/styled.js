@@ -1,10 +1,6 @@
 import styled from "styled-components";
 import { ReactComponent as StarImage } from "../../../../images/Vector.svg";
 
-export const LoadingPage = styled.div``;
-
-export const ErrorPage = styled.div``;
-
 export const Container = styled.div`
   min-height: 350px;
   display: flex;

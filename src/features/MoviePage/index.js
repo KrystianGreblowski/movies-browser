@@ -1,11 +1,15 @@
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import Banner from "./Banner";
 import Content from "./Content";
-import { Container } from "./styled";
-import { fetchMovieDetailsInit } from "./movieDetailsSlice";
-import { useDispatch } from "react-redux";
+import { Container, LoadingPage, ErrorPage } from "./styled";
+import {
+  fetchMovieDetailsInit,
+  selectMovieDetailsStatus,
+} from "./movieDetailsSlice";
 
 function MoviePage() {
+  const movieDetailsStatus = useSelector(selectMovieDetailsStatus);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -13,10 +17,18 @@ function MoviePage() {
   }, [dispatch]);
 
   return (
-    <Container>
-      <Banner />
-      <Content />
-    </Container>
+    <>
+      {movieDetailsStatus === "loading" ? (
+        <LoadingPage />
+      ) : movieDetailsStatus === "done" ? (
+        <Container>
+          <Banner />
+          <Content />
+        </Container>
+      ) : (
+        <ErrorPage />
+      )}
+    </>
   );
 }
 
