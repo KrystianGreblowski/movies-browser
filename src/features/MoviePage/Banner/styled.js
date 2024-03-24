@@ -86,9 +86,9 @@ export const Rating = styled.div`
     margin: 5px 0;
     max-width: 100%;
   }
-  
+
   @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
-    margin:0;
+    margin: 0;
   }
 `;
 
@@ -142,8 +142,7 @@ export const RateMax = styled.p`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
-    margin:0;
-    
+    margin: 0;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
@@ -163,12 +162,11 @@ export const Votes = styled.p`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
-    margin:0;
+    margin: 0;
     padding-top: 2px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
     font-size: 10px;
-    
   }
 `;
