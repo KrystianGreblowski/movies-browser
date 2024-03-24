@@ -1,14 +1,10 @@
 import Pagination from "../../common/Pagination";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import {
-  Container,
-  Title,
-  TilesContainer,
-  LoadingPage,
-  ErrorPage,
-} from "./styled";
-import { MovieTile } from "../../common/Tiles/MovieTile";
+import { Container, LoadingPage, ErrorPage } from "./styled";
+import { TilesContainer } from "../../common/Tiles/MovieTilesContainer/styled";
+import { TilesHeader } from "../../common/Tiles/TilesHeader/styled";
+import { MovieTile } from "../../common/Tiles/MovieTilesContainer/MovieTile";
 import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
 import {
   fetchCurrentPage,
@@ -46,7 +42,7 @@ function MainPage() {
         <LoadingPage />
       ) : popularMoviesStatus === "done" ? (
         <Container>
-          <Title>Popular movies</Title>
+          <TilesHeader>Popular movies</TilesHeader>
 
           <TilesContainer>
             {popularMoviesData.map((popularMovies, movieIndex) => (
