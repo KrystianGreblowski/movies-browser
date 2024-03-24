@@ -85,7 +85,7 @@ export const Rating = styled.div`
   flex-wrap: wrap;
   margin: 20px 0;
   margin-bottom: 0;
-  gap: 6px;
+  gap: 8px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     margin: 5px 0;
