@@ -26,7 +26,7 @@ const Crew = () => {
                   : imageBaseUrl + crew.profile_path
               }
               name={crew.name}
-              extraInfo={crew.department}
+              extraInfo={crew.job}
             />
           ))}
       </TilesContainer>
