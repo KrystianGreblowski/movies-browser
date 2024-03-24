@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const LoadingPage = styled.div``;
+
+export const ErrorPage = styled.div``;
+
 export const PosterContainer = styled.div`
   margin: 0 auto;
   background-color: ${({ theme }) => theme.color.black};
