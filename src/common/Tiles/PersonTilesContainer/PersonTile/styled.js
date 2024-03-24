@@ -1,11 +1,5 @@
 import styled from "styled-components";
 
-export const TileButton = styled.button`
-  border: none;
-  padding: 0;
-  cursor: pointer;
-`;
-
 export const Tile = styled.div`
   max-width: 208px;
   width: 100%;
