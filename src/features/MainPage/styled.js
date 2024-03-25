@@ -20,6 +20,7 @@ export const MovieTileButton = styled.button`
 
 export const MoviePageLink = styled(NavLink)`
   text-decoration: none;
+  color: inherit;
 `;
 
 export const LoadingPage = styled.div``;
