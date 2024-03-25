@@ -14,7 +14,7 @@ import { MovieTile } from "../../common/Tiles/MovieTilesContainer/MovieTile";
 import Pagination from "../../common/Pagination";
 import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
 import {
-  fetchCurrentMoviePage,
+  fetchCurrentMoviesPage,
   selectPopularMoviesData,
   selectPopularMoviesStatus,
 } from "./popularMoviesSlice";
@@ -37,7 +37,7 @@ function MainPage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchCurrentMoviePage(currentPage));
+    dispatch(fetchCurrentMoviesPage(currentPage));
   }, [currentPage, dispatch]);
 
   useEffect(() => {
