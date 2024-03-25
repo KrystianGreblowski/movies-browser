@@ -3,7 +3,7 @@ import { getPopularPeople } from "../../api/getPopularPeople";
 import {
   fetchPopularPeopleSuccess,
   fetchPopularPeopleError,
-  fetchCurrentPage,
+  fetchCurrentPeoplePage,
 } from "./popularPeopleSlice";
 
 function* fetchPopularPeopleHandler({ payload: pageNumber }) {
@@ -36,6 +36,6 @@ function* fetchPopularPeopleHandler({ payload: pageNumber }) {
   }
 }
 
-export function* watchFetchPopularPeople() {
-  yield takeEvery(fetchCurrentPage, fetchPopularPeopleHandler);
+export function* watchFetchCurrentPeoplePage() {
+  yield takeEvery(fetchCurrentPeoplePage, fetchPopularPeopleHandler);
 }

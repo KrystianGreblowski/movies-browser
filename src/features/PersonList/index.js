@@ -8,7 +8,7 @@ import { TilesContainer } from "../../common/Tiles/PersonTilesContainer/styled";
 import { TilesHeader } from "../../common/Tiles/TilesHeader/styled";
 import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
 import {
-  fetchCurrentPage,
+  fetchCurrentPeoplePage,
   selectPopularPeopleData,
   selectPopularPeopleStatus,
 } from "./popularPeopleSlice";
@@ -24,7 +24,7 @@ const PersonList = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchCurrentPage(currentPage));
+    dispatch(fetchCurrentPeoplePage(currentPage));
   }, [currentPage, dispatch]);
 
   return (
