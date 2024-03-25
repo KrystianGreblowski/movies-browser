@@ -15,6 +15,6 @@ function* fetchMovieDetailsHandler({ payload: movieId }) {
   }
 }
 
-export function* watchFetchMovieDetails() {
+export function* watchFetchMovieId() {
   yield takeEvery(fetchMovieId, fetchMovieDetailsHandler);
 }
