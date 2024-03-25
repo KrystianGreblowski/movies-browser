@@ -5,10 +5,11 @@ import {
   Switch,
 } from "react-router-dom/cjs/react-router-dom";
 import NavigationBar from "../common/NavigationBar";
+import NoResults from "../features/NoResults";
 import MainPage from "../features/MainPage";
 import PersonList from "../features/PersonList";
 import { toMainPage, toPersonList } from "./routes";
-import MoviesDetails from "../features/MoviesDetails"
+import MoviesDetails from "../features/MoviesDetails";
 
 function App() {
   return (
