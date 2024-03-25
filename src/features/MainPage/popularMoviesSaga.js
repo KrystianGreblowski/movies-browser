@@ -3,7 +3,7 @@ import { getPopularMovies } from "../../api/getPopularMovies";
 import {
   fetchPopularMoviesSuccess,
   fetchPopularMoviesError,
-  fetchCurrentPage,
+  fetchCurrentMoviePage,
 } from "./popularMoviesSlice";
 
 function* fetchPopularMoviesHandler({ payload: pageNumber }) {
@@ -15,6 +15,6 @@ function* fetchPopularMoviesHandler({ payload: pageNumber }) {
   }
 }
 
-export function* watchFetchPopularMovies() {
-  yield takeEvery(fetchCurrentPage, fetchPopularMoviesHandler);
+export function* watchFetchCurrentMoviePage() {
+  yield takeEvery(fetchCurrentMoviePage, fetchPopularMoviesHandler);
 }
