@@ -1,10 +1,11 @@
-import { NoResultsHeader, NoResultsImage, NoResultsWrapper } from "./styled";
+import {NoResultsImage, NoResultsWrapper } from "./styled";
 import NoResult from "../../images/NoResult.png"
+import { TilesHeader } from "../../common/Tiles/TilesHeader/styled"
 
 const NoResults = () => {
     return (
         <NoResultsWrapper>
-        <NoResultsHeader>Sorry, there are no results for “...”</NoResultsHeader>
+        <TilesHeader>Sorry, there are no results for “...”</TilesHeader>
         <NoResultsImage src={NoResult} alt="No Results Image"/>
         </NoResultsWrapper>
     );
