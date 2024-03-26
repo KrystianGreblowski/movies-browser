@@ -22,7 +22,7 @@ const Crew = () => {
         <>
           <TilesHeader>Crew</TilesHeader>
           <TilesContainer>
-            {[...Array(6)].map(() => (
+            {[...Array(maxNumberOfTiles)].map(() => (
               <PersonTile
                 key={nanoid()}
                 image={noPersonImage}

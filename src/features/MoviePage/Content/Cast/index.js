@@ -22,7 +22,7 @@ const Cast = () => {
         <>
           <TilesHeader>Cast</TilesHeader>
           <TilesContainer>
-            {[...Array(12)].map(() => (
+            {[...Array(maxNumberOfTiles)].map(() => (
               <PersonTile
                 key={nanoid()}
                 image={noPersonImage}
