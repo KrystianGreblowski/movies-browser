@@ -3,30 +3,29 @@ import styled from "styled-components";
 export const PosterContainer = styled.div`
   margin: 0 auto;
   background-color: ${({ theme }) => theme.color.black};
+  position: relative;
+  z-index: -3;
 `;
+
 export const ImagesWrapper = styled.div`
   max-width: 1356px;
-  position: relative;
   max-height: 770px;
+  position: relative;
   margin: 0 auto;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.narrow}) {
-    width: 90%;
-  }
 `;
 
-export const Shadow = styled.img`
+export const StyledPoster = styled.div`
   max-width: 1356px;
-  height: 100%;
-  z-index: 1;
-  position: absolute;
-  top: 0;
-  left: 0;
+  max-height: 770px;
+  box-shadow: inset 0 0 100px 100px rgba(0, 0, 0);
+  z-index: -1;
 `;
 
 export const Poster = styled.img`
   max-width: 1356px;
-  z-index: 2;
+  max-height: 770px;
+  position: relative;
+  z-index: -2;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
     width: 100%;
@@ -40,6 +39,7 @@ export const TitleWrapper = styled.div`
   z-index: 3;
   position: absolute;
   text-align: left;
+  padding: 0 16px;
   padding-bottom: 56px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.smallLaptop}) {
