@@ -1,6 +1,13 @@
 import styled from "styled-components";
 
+export const LoadingBanner = styled.div`
+  height: 770px;
+  margin: 0 auto;
+  background-color: ${({ theme }) => theme.color.black};
+`;
+
 export const PosterContainer = styled.div`
+  max-height: 770px;
   margin: 0 auto;
   background-color: ${({ theme }) => theme.color.black};
   position: relative;
