@@ -1,12 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getMovieDetailsFromLocalStorage } from "./movieDetailsLocalStorage";
 
 export const movieDetailsSlice = createSlice({
   name: "movieDetails",
-  initialState: {
-    movieId: 1,
-    data: {},
-    status: "loading",
-  },
+  initialState: getMovieDetailsFromLocalStorage(),
   reducers: {
     fetchMovieId: (state, { payload: movieId }) => {
       state.movieId = movieId;
@@ -15,6 +12,7 @@ export const movieDetailsSlice = createSlice({
     fetchMovieDetailsSuccess: (state, { payload: movieDetailsData }) => {
       state.data = movieDetailsData;
       state.status = "done";
+      console.log(state.data);
     },
     fetchMovieDetailsError: (state) => {
       state.status = "error";
@@ -28,7 +26,9 @@ export const {
   fetchMovieId,
 } = movieDetailsSlice.actions;
 
+export const selectMovieDetails = (state) => state.movieDetails;
 export const selectMovieDetailsData = (state) => state.movieDetails.data;
 export const selectMovieDetailsStatus = (state) => state.movieDetails.status;
+export const selectMovieId = (state) => state.movieDetails.movieId;
 
 export default movieDetailsSlice.reducer;

@@ -3,6 +3,7 @@ import { watchFetchCurrentMoviesPage } from "../features/MainPage/popularMoviesS
 import { watchFetchCurrentPeoplePage } from "../features/PersonList/popularPeopleSaga";
 import { watchFetchMovieTypesInit } from "../common/movieTypes/movieTypesSaga";
 import { watchFetchMovieId } from "../features/MoviePage/movieDetailsSaga";
+import { watchFetchMovieDetailsSuccess } from "../features/MoviePage/localStorageSaga";
 
 export default function* rootSaga() {
   yield all([
@@ -10,5 +11,6 @@ export default function* rootSaga() {
     watchFetchCurrentPeoplePage(),
     watchFetchMovieTypesInit(),
     watchFetchMovieId(),
+    watchFetchMovieDetailsSuccess(),
   ]);
 }
