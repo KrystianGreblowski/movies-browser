@@ -3,13 +3,14 @@ import { createSlice } from "@reduxjs/toolkit";
 export const movieDetailsSlice = createSlice({
   name: "movieDetails",
   initialState: {
-    movieId: 792307,
+    movieId: 1,
     data: {},
     status: "loading",
   },
   reducers: {
     fetchMovieId: (state, { payload: movieId }) => {
       state.movieId = movieId;
+      state.status = "loading";
     },
     fetchMovieDetailsSuccess: (state, { payload: movieDetailsData }) => {
       state.data = movieDetailsData;
