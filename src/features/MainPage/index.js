@@ -1,13 +1,7 @@
 import { nanoid } from "nanoid";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import {
-  Container,
-  MovieTileButton,
-  MoviePageLink,
-  LoadingPage,
-  ErrorPage,
-} from "./styled";
+import { Container, MoviePageLink, LoadingPage, ErrorPage } from "./styled";
 import { TilesContainer } from "../../common/Tiles/MovieTilesContainer/styled";
 import { TilesHeader } from "../../common/Tiles/TilesHeader/styled";
 import { MovieTile } from "../../common/Tiles/MovieTilesContainer/MovieTile";
@@ -54,35 +48,34 @@ function MainPage() {
 
           <TilesContainer>
             {popularMoviesData.map((popularMovie, movieIndex) => (
-              <MovieTileButton
+              <MoviePageLink
+                to={`/movies/${popularMovie.id}`}
                 onClick={() => dispatch(fetchMovieId(popularMovie.id))}
                 key={nanoid()}
               >
-                <MoviePageLink to={`/movies/${popularMovie.id}`}>
-                  <MovieTile
-                    image={
-                      popularMovie.poster_path === null
-                        ? noMovieImage
-                        : imageBaseUrl + popularMovie.poster_path
-                    }
-                    title={popularMovie.title}
-                    year={popularMovie.release_date.slice(0, 4)}
-                    type={movieTypesData
-                      .filter((movieType) =>
-                        popularMoviesData[movieIndex].genre_ids.includes(
-                          movieType.id
-                        )
+                <MovieTile
+                  image={
+                    popularMovie.poster_path === null
+                      ? noMovieImage
+                      : imageBaseUrl + popularMovie.poster_path
+                  }
+                  title={popularMovie.title}
+                  year={popularMovie.release_date.slice(0, 4)}
+                  type={movieTypesData
+                    .filter((movieType) =>
+                      popularMoviesData[movieIndex].genre_ids.includes(
+                        movieType.id
                       )
-                      .map((movieType) => movieType.name)
-                      .slice(0, numberOfMovieTypes)}
-                    rate={popularMovie.vote_average
-                      .toFixed(1)
-                      .toString()
-                      .replace(".", ",")}
-                    votes={popularMovie.vote_count}
-                  />
-                </MoviePageLink>
-              </MovieTileButton>
+                    )
+                    .map((movieType) => movieType.name)
+                    .slice(0, numberOfMovieTypes)}
+                  rate={popularMovie.vote_average
+                    .toFixed(1)
+                    .toString()
+                    .replace(".", ",")}
+                  votes={popularMovie.vote_count}
+                />
+              </MoviePageLink>
             ))}
           </TilesContainer>
 

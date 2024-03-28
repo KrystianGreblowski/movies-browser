@@ -12,12 +12,6 @@ export const Container = styled.div`
   }
 `;
 
-export const MovieTileButton = styled.button`
-  border: none;
-  padding: 0;
-  cursor: pointer;
-`;
-
 export const MoviePageLink = styled(NavLink)`
   text-decoration: none;
   color: inherit;
