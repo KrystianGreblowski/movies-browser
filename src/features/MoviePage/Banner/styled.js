@@ -24,8 +24,32 @@ export const ImagesWrapper = styled.div`
 export const StyledPoster = styled.div`
   max-width: 1356px;
   max-height: 770px;
-  box-shadow: inset 0 0 100px 100px rgba(0, 0, 0);
+  box-shadow: inset 0 0 100px 90px rgba(0, 0, 0);
   z-index: -1;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    box-shadow: inset 0 0 100px 80px rgba(0, 0, 0);
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallTablet}) {
+    box-shadow: inset 0 0 92px 70px rgba(0, 0, 0);
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    box-shadow: inset 0 0 84px 60px rgba(0, 0, 0);
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
+    box-shadow: inset 0 0 67px 50px rgba(0, 0, 0);
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
+    box-shadow: inset 0 0 44px 33px rgba(0, 0, 0);
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
+    box-shadow: inset 0 0 39px 25px rgba(0, 0, 0);
+  }
 `;
 
 export const Poster = styled.img`
