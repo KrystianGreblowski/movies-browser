@@ -93,8 +93,9 @@ const MainInfo = () => {
               <RateMax>/ 10</RateMax>
               <Votes>{movieDetailsData.vote_count} votes</Votes>
             </RatingWrapper>
-            <Information>{movieDetailsData.overview}</Information>
           </Description>
+
+          <Information>{movieDetailsData.overview}</Information>
         </Container>
       ) : (
         "ErrorPage"
