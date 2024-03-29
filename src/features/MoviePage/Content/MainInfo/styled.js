@@ -247,7 +247,7 @@ export const Information = styled.div`
   font-weight: 400;
   font-size: 20px;
   line-height: 32px;
-  align-self: flex-end;
+  align-self: flex-start;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     grid-column: span 2;
