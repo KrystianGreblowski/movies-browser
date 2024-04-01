@@ -8,23 +8,29 @@ import { TilesHeader } from "./TilesHeader";
 import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
 import {
   fetchCurrentPage,
-  selectPopularMoviesData,
-  selectPopularMoviesStatus,
+  selectSearchMoviesData,
+  selectSearchMoviesStatus,
 } from "./popularMoviesSlice";
 import {
   fetchMovieTypesInit,
   selectMovieTypesData,
 } from "../../common/movieTypes/movieTypesSlice";
 import noMovieImage from "./Images/no-movie-image.svg";
+import { useQueryParameter } from "../../common/NavigationBar/SearchBar/queryParameters";
+import {
+  selectSearchMoviesData,
+  selectSearchMoviesStatus,
+} from "../../common/NavigationBar/SearchBar/SearchMoviesSlice";
 
-function MainPage() {
-  const popularMoviesData = useSelector(selectPopularMoviesData);
-  const popularMoviesStatus = useSelector(selectPopularMoviesStatus);
-  const movieTypesData = useSelector(selectMovieTypesData);
-  const currentPage = useSelector(selectCurrentPage);
+function SearchResults() {
+  const query = (useQueryParameter = "search");
+  const searchMoviesData = useSelector(selectSearchMoviesData);
+  const searchMoviesStatus = useSelector(selectSearchMoviesStatus);
+  // const movieTypesData = useSelector(selectMovieTypesData);
+  // const currentPage = useSelector(selectCurrentPage);
 
   const imageBaseUrl = "https://image.tmdb.org/t/p/w300";
-  const numberOfMovieTypes = 2;
+  const numberOfMovieTypes = 3;
 
   const dispatch = useDispatch();
 
@@ -38,36 +44,38 @@ function MainPage() {
 
   return (
     <>
-      {popularMoviesStatus === "loading" ? (
+      {selectSearchMoviesStatus === "loading" ? (
         <LoadingPage />
-      ) : popularMoviesStatus === "done" ? (
+      ) : searchMoviesStatus === "done" ? (
         <Container>
-          <TilesHeader>Popular movies</TilesHeader>
-
+          <TilesHeader>
+            {" "}
+            Search results for “{query}” {/*tutaj wstawić ilość wyniku*/}
+          </TilesHeader>
           <TilesContainer>
-            {popularMoviesData.map((popularMovies, movieIndex) => (
+            {selectSearchMoviesData.map((searchMovies, movieIndex) => (
               <MovieTile
-                key={popularMovies.id}
+                key={searchMovies.id}
                 image={
-                  popularMovies.poster_path === null
+                  searchMovies.poster_path === null
                     ? noMovieImage
-                    : imageBaseUrl + popularMovies.poster_path
+                    : imageBaseUrl + searchMovies.poster_path
                 }
-                title={popularMovies.title}
-                year={popularMovies.release_date.slice(0, 4)}
+                title={searchMovies.title}
+                year={searchMovies.release_date.slice(0, 4)}
                 type={movieTypesData
                   .filter((movieType) =>
-                    popularMoviesData[movieIndex].genre_ids.includes(
+                    searchMoviesData[movieIndex].genre_ids.includes(
                       movieType.id
                     )
                   )
                   .map((movieType) => movieType.name)
                   .slice(0, numberOfMovieTypes)}
-                rate={popularMovies.vote_average
+                rate={searchMovies.vote_average
                   .toFixed(1)
                   .toString()
                   .replace(".", ",")}
-                votes={popularMovies.vote_count}
+                votes={searchMovies.vote_count}
               />
             ))}
           </TilesContainer>
@@ -85,4 +93,4 @@ function MainPage() {
   );
 }
 
-export default MainPage;
+export default SearchResults;
