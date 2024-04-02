@@ -14,7 +14,7 @@ const Crew = () => {
   const movieDetailsStatus = useSelector(selectMovieDetailsStatus);
 
   const imageBaseUrl = "https://image.tmdb.org/t/p/w185";
-  const maxNumberOfTiles = 6;
+  const maxNumberOfTiles = 12;
 
   return (
     <>
