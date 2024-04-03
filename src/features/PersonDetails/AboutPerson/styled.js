@@ -6,6 +6,7 @@ export const AboutPersonContainer = styled.div`
   max-width: 1368px;
   margin: 56px auto;
   background-color: ${({ theme }) => theme.color.white};
+  padding: 40px;
 `;
 
 export const PersonImage = styled.img`
