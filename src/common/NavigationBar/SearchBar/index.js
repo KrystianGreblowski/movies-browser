@@ -12,6 +12,7 @@ const SearchBar = () => {
     replaseQueryParameter({
       key: "search",
       value: target.value.trim() !== "" ? target.value : undefined,
+      resetPage: true,
     });
   };
 
