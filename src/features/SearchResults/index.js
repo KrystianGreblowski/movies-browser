@@ -11,7 +11,7 @@ import { MovieTile } from "../../common/Tiles/MovieTilesContainer/MovieTile";
 import PersonsTile from "../../common/Tiles/PersonTile/PersonsTile";
 import NoResults from "../../common/NoResults";
 import Error from "../../common/ErrorPage";
-import { Container } from "..а/MainPage/Container";
+import { Container } from "../MainPage/Container";
 import { useSearchResults } from "./useSearchResults";
 import { Tiles } from "../../common/Tiles/PersonTile/TilesContainer";
 import { useGenres } from "./useGenres";
