@@ -50,4 +50,5 @@ export const PersonInformation = styled.p`
   font-weight: 400;
   font-size: 20px;
   margin-top: 24px;
+  line-height: 32px;
 `;
