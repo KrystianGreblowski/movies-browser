@@ -1,11 +1,12 @@
 import { useLocation } from "react-router-dom/cjs/react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { TilesContainer } from "../../common/Tiles/MovieTilesContainer/styled";
+import { TilesHeader } from "../../common/Tiles/TilesHeader/styled";
 import noMovieImage from "../../images/no-movie-image.svg";
 import noPersonImage from "../../images/not-found-person.svg";
 import Pagination from "../../common/Pagination";
 import LoadingPade from "../../common/LoadingPage";
-import { TilesHeader } from "./styled";
 import { MovieTile } from "../../common/Tiles/MovieTilesContainer/MovieTile";
 import PersonsTile from "../../common/Tiles/PersonTile/PersonsTile";
 import NoResults from "../../common/NoResults";
@@ -21,7 +22,7 @@ import {
   selectSearchMoviesData,
   selectSearchMoviesStatus,
 } from "../MainPage/popularMoviesSlice";
-import { TilesContainer } from "../../common/Tiles/MovieTilesContainer/styled";
+
 
 function SearchResults() {
   const query = useQueryParameter("search");
