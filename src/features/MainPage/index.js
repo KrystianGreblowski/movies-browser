@@ -59,7 +59,7 @@ function MainPage() {
                   .filter((movieType) =>
                     popularMoviesData[movieIndex].genre_ids.includes(
                       movieType.id
-                    )
+                    ) 
                   )
                   .map((movieType) => movieType.name)
                   .slice(0, numberOfMovieTypes)}

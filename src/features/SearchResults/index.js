@@ -1,36 +1,43 @@
-import Pagination from "../../common/Pagination";
-import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router-dom/cjs/react-router-dom";
 import { useEffect } from "react";
-import { Container, LoadingPage, ErrorPage } from "./Container";
-import { TilesContainer } from "./TilesContainer";
-import { MovieTile } from "./TilesContainer/MovieTile";
-import { TilesHeader } from "./TilesHeader";
+import { useDispatch, useSelector } from "react-redux";
+import noMovieImage from "../../images/no-movie-image.svg";
+import noPersonImage from "../../images/not-found-person.svg";
+import Pagination from "../../common/Pagination";
+import LoadingPade from "../../common/LoadingPage";
+import { TilesHeader } from "./styled";
+import { MovieTile } from "../../common/Tiles/MovieTilesContainer/MovieTile";
+import PersonsTile from "../../common/Tiles/PersonTile/PersonsTile";
+import NoResults from "../../common/NoResults";
+import Error from "../../common/ErrorPage";
+import { Container } from "../MainPage/Container";
+import { useSearchResults } from "./useSearchResults";
+import { Tiles } from "../../common/Tiles/PersonTile/TilesContainer";
+import { useGenres } from "./useGenres";
+import { useQueryParameter } from "../../common/NavigationBar/SearchBar/queryParameters";
 import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
 import {
   fetchCurrentPage,
   selectSearchMoviesData,
   selectSearchMoviesStatus,
-} from "./popularMoviesSlice";
-import {
-  fetchMovieTypesInit,
-  selectMovieTypesData,
-} from "../../common/movieTypes/movieTypesSlice";
-import noMovieImage from "./Images/no-movie-image.svg";
-import { useQueryParameter } from "../../common/NavigationBar/SearchBar/queryParameters";
-import {
-  selectSearchMoviesData,
-  selectSearchMoviesStatus,
-} from "../../common/NavigationBar/SearchBar/SearchMoviesSlice";
+} from "../MainPage/popularMoviesSlice";
+import { TilesContainer } from "../../common/Tiles/MovieTilesContainer/styled";
 
 function SearchResults() {
-  const query = (useQueryParameter = "search");
-  const searchMoviesData = useSelector(selectSearchMoviesData);
-  const searchMoviesStatus = useSelector(selectSearchMoviesStatus);
-  // const movieTypesData = useSelector(selectMovieTypesData);
-  // const currentPage = useSelector(selectCurrentPage);
+  const query = useQueryParameter("search");
+  const location = useLocation();
+  const isMoviesPage = location.pathname.startsWith("/movies");
 
-  const imageBaseUrl = "https://image.tmdb.org/t/p/w300";
-  const numberOfMovieTypes = 3;
+  const { searchResults } = useSearchResults();
+
+  const search_quantity = searchResults.data?.total_results;
+  const search_list = searchResults.data?.results;
+  const imageBaseUrlMovies = "https://image.tmdb.org/t/p/w300";
+  const imageBaseUrlPerson = "https://image.tmdb.org/t/p/w185";
+
+  const { genres } = useGenres();
+  const genre_list = genres.data;
+  const currentPage = useSelector(selectCurrentPage);
 
   const dispatch = useDispatch();
 
@@ -38,59 +45,73 @@ function SearchResults() {
     dispatch(fetchCurrentPage(currentPage));
   }, [currentPage, dispatch]);
 
-  useEffect(() => {
-    dispatch(fetchMovieTypesInit());
-  }, [dispatch]);
-
+  
   return (
     <>
-      {selectSearchMoviesStatus === "loading" ? (
-        <LoadingPage />
-      ) : searchMoviesStatus === "done" ? (
+      {searchResults.status === "loading" ? (
+        <Container>
+          <TilesHeader>Search results for "{query}"</TilesHeader>
+          <LoadingPade />
+        </Container>
+      ) : searchResults.status === "error" ? (
+        <Error />
+      ) : search_quantity === 0 ? (
+        <NoResults />
+      ) : isMoviesPage ? (
         <Container>
           <TilesHeader>
-            {" "}
-            Search results for “{query}” {/*tutaj wstawić ilość wyniku*/}
+            Search results for “{query}" ({search_quantity})
           </TilesHeader>
           <TilesContainer>
-            {selectSearchMoviesData.map((searchMovies, movieIndex) => (
-              <MovieTile
-                key={searchMovies.id}
-                image={
-                  searchMovies.poster_path === null
-                    ? noMovieImage
-                    : imageBaseUrl + searchMovies.poster_path
-                }
-                title={searchMovies.title}
-                year={searchMovies.release_date.slice(0, 4)}
-                type={movieTypesData
-                  .filter((movieType) =>
-                    searchMoviesData[movieIndex].genre_ids.includes(
-                      movieType.id
-                    )
-                  )
-                  .map((movieType) => movieType.name)
-                  .slice(0, numberOfMovieTypes)}
-                rate={searchMovies.vote_average
-                  .toFixed(1)
-                  .toString()
-                  .replace(".", ",")}
-                votes={searchMovies.vote_count}
-              />
-            ))}
+            {search_list &&
+              search_list.map((searchedMovie) => (
+                <MovieTile
+                  key={searchedMovie.id}
+                  image={
+                    searchedMovie.poster_path === null
+                      ? noMovieImage
+                      : imageBaseUrlMovies + searchedMovie.poster_path
+                  }
+                  type={searchedMovie.genre_ids.map(
+                    (index) =>
+                      genre_list?.find((item) => item.id === index).name
+                  )}
+                  title={searchedMovie.title}
+                  year={searchedMovie.release_date.slice(0, 4)}
+                  rate={searchedMovie.vote_average.toFixed(1).replace(".", ",")}
+                  votes={searchedMovie.vote_count}
+                />
+              ))}
           </TilesContainer>
-
-          <Pagination
-            currentPage={currentPage}
-            minPageLimit={1}
-            maxPageLimit={100}
-          />
         </Container>
       ) : (
-        <ErrorPage />
-      )}
+        <Container>
+          <TilesHeader>
+            Search results for “{query} ({search_quantity})”
+          </TilesHeader>
+          <Tiles>
+            {search_list &&
+              search_list.map((popularPeople) => (
+                <PersonsTile
+                  key={popularPeople.id}
+                  image={
+                    popularPeople.profile_path === null
+                      ? noPersonImage
+                      : imageBaseUrlPerson + popularPeople.profile_path
+                  }
+                  name={popularPeople.original_name}
+                />
+              ))}
+          </Tiles>
+        </Container>
+      )}<Pagination
+      currentPage={currentPage}
+      minPageLimit={1}
+      maxPageLimit={100}
+    />
     </>
   );
 }
+
 
 export default SearchResults;
