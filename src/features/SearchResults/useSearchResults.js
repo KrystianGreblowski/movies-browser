@@ -8,7 +8,7 @@ export const useSearchResults = () => {
   const apiKey = "5b5837d1c9bb80f117b57d1d4ef3d375";
   const location = useLocation();
   const isMoviesPage = location.pathname.startsWith("/movies");
-    const searchParams = new URLSearchParams(location.search);
+  const searchParams = new URLSearchParams(location.search);
   const currentPage = parseInt(searchParams.get("page")) || 1;
 
   const [searchResults, setSearchResults] = useState({
