@@ -7,13 +7,21 @@ import {
 import NavigationBar from "../common/NavigationBar";
 import MainPage from "../features/MainPage";
 import PersonList from "../features/PersonList";
-import { toMainPage, toPersonList } from "./routes";
+import { toMainPage, toMoviesSearch, toPeopleSearch, toPersonList } from "./routes";
+import SearchResults from "../features/SearchResults";
 
 function App() {
   return (
     <HashRouter>
       <NavigationBar />
       <Switch>
+      <Route path={toMoviesSearch()}>
+          <SearchResults />
+        </Route>
+
+        <Route path={toPeopleSearch()}>
+          <SearchResults />
+        </Route>
         <Route path={toMainPage()}>
           <MainPage />
         </Route>
