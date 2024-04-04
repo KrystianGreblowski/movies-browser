@@ -1,28 +1,29 @@
 import styled from "styled-components";
 
 export const AboutPersonContainer = styled.div`
-  display: flex;
+  display: grid;
   gap: 40px;
   max-width: 1368px;
   margin: 56px auto;
   background-color: ${({ theme }) => theme.color.white};
   padding: 40px;
+  grid-template-columns: auto 1fr;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     grid-template-columns: auto 1fr;
-    max-width: 550px;
   }
 `;
 
 export const PersonImage = styled.img`
+  max-width: 500px;
   width: 100%;
-  max-height: 564px;
+  max-height: auto;
   object-fit: cover;
   border-radius: 5px;
+  grid-row: span 2;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
-    max-width: 114px;
-    max-height: 300px;
+    max-width: 250px;
   }
 `;
 
