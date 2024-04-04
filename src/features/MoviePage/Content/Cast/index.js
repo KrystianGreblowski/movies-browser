@@ -1,26 +1,60 @@
-import PersonTile from "../../../../common/Tiles/PersonTile/PersonsTile/index";
-import Title from "../../../../common/Tiles/PersonTile/Title/index";
-import {Tiles} from "../../../../common/Tiles/PersonTile/index";
-import personImage from "../../../../images/person-image.png";
+import { useSelector } from "react-redux";
+import { nanoid } from "nanoid";
+import PersonTile from "../../../../common/Tiles/PersonTilesContainer/PersonTile";
+import { TilesHeader } from "../../../../common/Tiles/TilesHeader/styled";
+import { TilesContainer } from "../../../../common/Tiles/PersonTilesContainer/styled";
+import noPersonImage from "../../images/no-person-image.png";
+import {
+  selectMovieDetailsData,
+  selectMovieDetailsStatus,
+} from "../../movieDetailsSlice";
 
 const Cast = () => {
+  const movieDetailsData = useSelector(selectMovieDetailsData);
+  const movieDetailsStatus = useSelector(selectMovieDetailsStatus);
+
+  const imageBaseUrl = "https://image.tmdb.org/t/p/w185";
+  const maxNumberOfTiles = 12;
+
   return (
     <>
-      <Title title={"Cast"} />
-      <Tiles>
-        <PersonTile image={personImage} name={"Liu Yifei"} />
-        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
-        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
-        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
-        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
-        <PersonTile image={personImage} name={"Liu Yifei"} />
-        <PersonTile image={personImage} name={"Jason Scott Lee"} />
-        <PersonTile image={personImage} name={"Jason Scott Lee"} />
-        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
-        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
-        <PersonTile image={personImage} name={"Liu Yifei"} />
-        <PersonTile image={personImage} name={"Jason Scott Lee Long name"} />
-      </Tiles>
+      {movieDetailsStatus === "loading" ? (
+        <>
+          <TilesHeader>Cast</TilesHeader>
+          <TilesContainer>
+            {[...Array(maxNumberOfTiles)].map(() => (
+              <PersonTile
+                key={nanoid()}
+                image={noPersonImage}
+                name=""
+                extraInfo=""
+              />
+            ))}
+          </TilesContainer>
+        </>
+      ) : movieDetailsStatus === "done" ? (
+        <>
+          <TilesHeader>Cast</TilesHeader>
+          <TilesContainer>
+            {movieDetailsData.credits.cast
+              .slice(0, maxNumberOfTiles)
+              .map((cast) => (
+                <PersonTile
+                  key={nanoid()}
+                  image={
+                    cast.profile_path === null
+                      ? noPersonImage
+                      : imageBaseUrl + cast.profile_path
+                  }
+                  name={cast.name}
+                  extraInfo={cast.character}
+                />
+              ))}
+          </TilesContainer>
+        </>
+      ) : (
+        "ErrorPage"
+      )}
     </>
   );
 };

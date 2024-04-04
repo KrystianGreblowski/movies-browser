@@ -79,8 +79,8 @@ export const MoviePageLink = styled(NavLink)`
   font-size: 14px;
   font-weight: 600;
   padding: 14px 24px;
-  border: 1px solid ${({ theme }) => theme.color.woodsmoke};
-  background-color: ${({ theme }) => theme.color.woodsmoke};
+  border: 1px solid ${({ theme }) => theme.color.black};
+  background-color: ${({ theme }) => theme.color.black};
   color: ${({ theme }) => theme.color.white};
   border-radius: 24px;
   text-decoration: none;
@@ -97,8 +97,7 @@ export const MoviePageLink = styled(NavLink)`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     font-size: 12px;
     padding: 8px 12px;
-    border: 1px solid ${({ theme }) => theme.color.black};
-    background-color: ${({ theme }) => theme.color.black};
+
     &:hover {
       color: ${({ theme }) => theme.color.white};
     }

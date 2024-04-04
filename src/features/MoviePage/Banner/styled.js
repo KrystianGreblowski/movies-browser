@@ -1,32 +1,62 @@
 import styled from "styled-components";
 
-export const PosterContainer = styled.div`
+export const LoadingBanner = styled.div`
+  height: 770px;
   margin: 0 auto;
   background-color: ${({ theme }) => theme.color.black};
 `;
-export const ImagesWrapper = styled.div`
-  max-width: 1356px;
-  position: relative;
+
+export const PosterContainer = styled.div`
   max-height: 770px;
   margin: 0 auto;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.narrow}) {
-    width: 90%;
-  }
+  background-color: ${({ theme }) => theme.color.black};
+  position: relative;
+  z-index: -3;
 `;
 
-export const Shadow = styled.img`
+export const ImagesWrapper = styled.div`
   max-width: 1356px;
-  height: 100%;
-  z-index: 1;
-  position: absolute;
-  top: 0;
-  left: 0;
+  max-height: 770px;
+  position: relative;
+  margin: 0 auto;
+`;
+
+export const StyledPoster = styled.div`
+  max-width: 1356px;
+  max-height: 770px;
+  box-shadow: inset 0 0 100px 90px rgba(0, 0, 0);
+  z-index: -1;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    box-shadow: inset 0 0 100px 80px rgba(0, 0, 0);
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallTablet}) {
+    box-shadow: inset 0 0 92px 70px rgba(0, 0, 0);
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    box-shadow: inset 0 0 84px 60px rgba(0, 0, 0);
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
+    box-shadow: inset 0 0 67px 50px rgba(0, 0, 0);
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
+    box-shadow: inset 0 0 44px 33px rgba(0, 0, 0);
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
+    box-shadow: inset 0 0 39px 25px rgba(0, 0, 0);
+  }
 `;
 
 export const Poster = styled.img`
   max-width: 1356px;
-  z-index: 2;
+  max-height: 770px;
+  position: relative;
+  z-index: -2;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
     width: 100%;
@@ -40,10 +70,11 @@ export const TitleWrapper = styled.div`
   z-index: 3;
   position: absolute;
   text-align: left;
+  padding: 0 16px;
   padding-bottom: 56px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
-    padding-bottom: 10px;
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallLaptop}) {
+    padding-bottom: 20px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
@@ -80,15 +111,16 @@ export const Rating = styled.div`
   align-items: center;
   flex-wrap: wrap;
   margin: 20px 0;
-  gap: 6px;
+  margin-bottom: 0;
+  gap: 8px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     margin: 5px 0;
     max-width: 100%;
   }
-  
+
   @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
-    margin:0;
+    margin: 0;
   }
 `;
 
@@ -115,8 +147,8 @@ export const StarImage = styled.img`
 export const Rate = styled.p`
   font-size: 30px;
   font-weight: 500;
-
   margin: 0;
+
   @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
     font-size: 25px;
   }
@@ -142,8 +174,7 @@ export const RateMax = styled.p`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
-    margin:0;
-    
+    margin: 0;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
@@ -152,6 +183,9 @@ export const RateMax = styled.p`
 `;
 
 export const Votes = styled.p`
+  margin-top: 4px;
+  margin-bottom: 0;
+
   @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
     font-size: 14px;
   }
@@ -163,12 +197,11 @@ export const Votes = styled.p`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
-    margin:0;
+    margin: 0;
     padding-top: 2px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
     font-size: 10px;
-    
   }
 `;

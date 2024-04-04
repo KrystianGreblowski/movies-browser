@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom/cjs/react-router-dom";
 
 export const Container = styled.div`
   max-width: 1400px;
@@ -9,6 +10,11 @@ export const Container = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     margin-bottom: 31px;
   }
+`;
+
+export const MoviePageLink = styled(NavLink)`
+  text-decoration: none;
+  color: inherit;
 `;
 
 export const LoadingPage = styled.div``;
