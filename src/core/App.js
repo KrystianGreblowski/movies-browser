@@ -5,7 +5,6 @@ import {
   Switch,
 } from "react-router-dom/cjs/react-router-dom";
 import NavigationBar from "../common/NavigationBar";
-
 import MainPage from "../features/MainPage";
 import PersonList from "../features/PersonList";
 import { toMainPage, toPersonList } from "./routes";
