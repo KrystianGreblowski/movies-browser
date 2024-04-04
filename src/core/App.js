@@ -7,7 +7,7 @@ import {
 import NavigationBar from "../common/NavigationBar";
 import MainPage from "../features/MainPage";
 import PersonList from "../features/PersonList";
-import { toMainPage, toPersonList } from "./routes";
+import { toMainPage, toMovieDetails, toPersonList } from "./routes";
 import MoviePage from "../features/MoviePage";
 import ScrollToTop from "../common/ScrollToTop";
 
@@ -19,7 +19,7 @@ function App() {
       <NavigationBar />
 
       <Switch>
-        <Route path="/movies/:movieId">
+        <Route path={toMovieDetails()}>
           <MoviePage />
         </Route>
 
