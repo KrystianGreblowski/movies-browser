@@ -24,11 +24,17 @@ import {
   goToNextPage,
   goToLastPage,
 } from "./paginationSlice";
+import { useHistory } from "react-router-dom/cjs/react-router-dom";
 
-const Pagination = ({ currentPage, minPageLimit, maxPageLimit }) => {
+const Pagination = ({ currentPage, minPageLimit, maxPageLimit, url }) => {
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
   const dispatch = useDispatch();
+  const history = useHistory();
+
+  useEffect(() => {
+    history.replace(`${url}/page/${currentPage}`);
+  }, [currentPage, url, history]);
 
   useEffect(() => {
     dispatch(initCurrentPage(minPageLimit));

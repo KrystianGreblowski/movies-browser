@@ -53,6 +53,7 @@ const PersonList = () => {
             currentPage={currentPage}
             minPageLimit={1}
             maxPageLimit={100}
+            url="/personlist"
           />
         </Container>
       ) : (

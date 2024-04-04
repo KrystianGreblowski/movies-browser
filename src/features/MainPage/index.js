@@ -83,6 +83,7 @@ function MainPage() {
             currentPage={currentPage}
             minPageLimit={1}
             maxPageLimit={100}
+            url="/movies"
           />
         </Container>
       ) : (
