@@ -1,3 +1,4 @@
+import { nanoid } from "nanoid";
 import {
   TileButton,
   Tile,
@@ -25,11 +26,9 @@ export const MovieTile = ({ image, title, year, type, rate, votes }) => {
             <MovieTitle>{title}</MovieTitle>
             <MovieYear>{year}</MovieYear>
             <MovieTypes>
-              {type
-                ? type.map((typeName, index) => (
-                    <MovieType key={index}>{typeName}</MovieType>
-                  ))
-                : ""}
+              {type.map((movieType) => (
+                <MovieType key={nanoid()}> {movieType} </MovieType>
+              ))}
             </MovieTypes>
           </MainInfo>
           <Rating>
