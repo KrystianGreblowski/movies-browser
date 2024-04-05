@@ -7,7 +7,7 @@ import noMovieImage from "../../images/no-movie-image.svg";
 import noPersonImage from "../../images/not-found-person.svg";
 import Pagination from "../../common/Pagination";
 import LoadingPade from "../../common/LoadingPage";
-import { MovieTile } from "../../common/Tiles/MovieTilesContainer/MovieTile";
+import { MovieTile } from "../../common/Tiles/MovieTilesContainer/SearchMovieTile";
 import PersonsTile from "../../common/Tiles/PersonTile/PersonsTile";
 import NoResults from "../../common/NoResults";
 import Error from "../../common/ErrorPage";
