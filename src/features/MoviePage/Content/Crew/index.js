@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { nanoid } from "nanoid";
 import PersonTile from "../../../../common/Tiles/PersonTilesContainer/PersonTile";
 import { TilesHeader } from "../../../../common/Tiles/TilesHeader/styled";
-import { TilesContainer } from "../../../../common/Tiles/PersonTilesContainer/styled";
+import { PersonTilesContainer } from "../../../../common/Tiles/PersonTilesContainer/styled";
 import noPersonImage from "../../images/no-person-image.png";
 import {
   selectMovieDetailsData,
@@ -21,7 +21,7 @@ const Crew = () => {
       {movieDetailsStatus === "loading" ? (
         <>
           <TilesHeader>Crew</TilesHeader>
-          <TilesContainer>
+          <PersonTilesContainer>
             {[...Array(maxNumberOfTiles)].map(() => (
               <PersonTile
                 key={nanoid()}
@@ -30,12 +30,12 @@ const Crew = () => {
                 extraInfo=""
               />
             ))}
-          </TilesContainer>
+          </PersonTilesContainer>
         </>
       ) : movieDetailsStatus === "done" ? (
         <>
           <TilesHeader>Crew</TilesHeader>
-          <TilesContainer>
+          <PersonTilesContainer>
             {movieDetailsData.credits.crew
               .slice(0, maxNumberOfTiles)
               .map((crew) => (
@@ -50,7 +50,7 @@ const Crew = () => {
                   extraInfo={crew.job}
                 />
               ))}
-          </TilesContainer>
+          </PersonTilesContainer>
         </>
       ) : (
         "ErrorPage"

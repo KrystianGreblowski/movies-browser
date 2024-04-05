@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import Pagination from "../../common/Pagination";
 import PersonTile from "../../common/Tiles/PersonTilesContainer/PersonTile";
 import { Container, LoadingPage, ErrorPage } from "./styled";
-import { TilesContainer } from "../../common/Tiles/PersonTilesContainer/styled";
+import { PersonTilesContainer } from "../../common/Tiles/PersonTilesContainer/styled";
 import { TilesHeader } from "../../common/Tiles/TilesHeader/styled";
 import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
 import {
@@ -35,7 +35,7 @@ const PersonList = () => {
         <Container>
           <TilesHeader>Popular people</TilesHeader>
 
-          <TilesContainer>
+          <PersonTilesContainer>
             {popularPeopleData.map((popularPeople) => (
               <PersonTile
                 key={nanoid()}
@@ -47,7 +47,7 @@ const PersonList = () => {
                 name={popularPeople.name}
               />
             ))}
-          </TilesContainer>
+          </PersonTilesContainer>
 
           <Pagination
             currentPage={currentPage}

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const TilesContainer = styled.div`
+export const PersonTilesContainer = styled.div`
   display: grid;
   grid-gap: 24px;
   grid-template-columns: repeat(6, 1fr);

@@ -1,25 +1,19 @@
 import { useLocation } from "react-router-dom/cjs/react-router-dom";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { TilesContainer } from "../../common/Tiles/MovieTilesContainer/styled";
 import { TilesHeader } from "../../common/Tiles/TilesHeader/styled";
 import noMovieImage from "../../images/no-movie-image.svg";
 import noPersonImage from "../../images/not-found-person.svg";
-import Pagination from "../../common/Pagination";
 import LoadingPade from "../../common/LoadingPage";
 import { MovieTile } from "../../common/Tiles/MovieTilesContainer/SearchMovieTile";
-import PersonsTile from "../../common/Tiles/PersonTile/PersonsTile";
+import PersonsTile from "../../common/Tiles/PersonTilesContainer/PersonTile";
 import NoResults from "../../common/NoResults";
 import Error from "../../common/ErrorPage";
-import { Container } from "../MainPage/Container";
+import { Container } from "../../common/Container/styled";
 import { useSearchResults } from "./useSearchResults";
-import { Tiles } from "../../common/Tiles/PersonTile/TilesContainer";
+import { PersonTilesContainer } from "../../common/Tiles/PersonTilesContainer/styled";
 import { useGenres } from "./useGenres";
 import { useQueryParameter } from "../../common/NavigationBar/SearchBar/queryParameters";
-import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
-import {
-  fetchCurrentPage,
-  } from "../MainPage/popularMoviesSlice";
+// import Pagination from "../../common/Pagination";
 
 function SearchResults() {
   const query = useQueryParameter("search");
@@ -35,13 +29,6 @@ function SearchResults() {
 
   const { genres } = useGenres();
   const genre_list = genres.data;
-  const currentPage = useSelector(selectCurrentPage);
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchCurrentPage(currentPage));
-  }, [currentPage, dispatch]);
 
   return (
     <>
@@ -86,7 +73,7 @@ function SearchResults() {
           <TilesHeader>
             Search results for “{query} ({search_quantity})”
           </TilesHeader>
-          <Tiles>
+          <PersonTilesContainer>
             {search_list &&
               search_list.map((popularPeople) => (
                 <PersonsTile
@@ -99,14 +86,14 @@ function SearchResults() {
                   name={popularPeople.original_name}
                 />
               ))}
-          </Tiles>
+          </PersonTilesContainer>
         </Container>
       )}
-      <Pagination
+      {/* <Pagination
         currentPage={currentPage}
         minPageLimit={1}
         maxPageLimit={100}
-      />
+      /> */}
     </>
   );
 }
