@@ -19,9 +19,7 @@ import { useQueryParameter } from "../../common/NavigationBar/SearchBar/queryPar
 import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
 import {
   fetchCurrentPage,
-  selectSearchMoviesData,
-  selectSearchMoviesStatus,
-} from "../MainPage/popularMoviesSlice";
+  } from "../MainPage/popularMoviesSlice";
 
 function SearchResults() {
   const query = useQueryParameter("search");
