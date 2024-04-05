@@ -8,28 +8,30 @@ export const AboutPersonContainer = styled.div`
   background-color: ${({ theme }) => theme.color.white};
   padding: 40px;
   grid-template-columns: auto 1fr;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
-    grid-template-columns: auto 1fr;
-  }
 `;
 
 export const PersonImage = styled.img`
   max-width: 500px;
   width: 100%;
-  max-height: auto;
+  height: auto;
   object-fit: cover;
   border-radius: 5px;
   grid-row: span 2;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     max-width: 250px;
+    grid-row: auto;
   }
 `;
 
 export const PersonDescription = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     margin-left: 16px;
+    margin-top: 100px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
+    grid-column: span 2;
   }
 `;
 
@@ -83,5 +85,6 @@ export const PersonInformation = styled.p`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     font-size: 16px;
+    grid-column: span 2;
   }
 `;
