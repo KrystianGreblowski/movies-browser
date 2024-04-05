@@ -1,11 +1,5 @@
 import styled from "styled-components";
 
-export const TileButton = styled.button`
-  border: none;
-  padding: 0;
-  cursor: pointer;
-`;
-
 export const Tile = styled.div`
   max-width: 208px;
   width: 100%;
@@ -49,5 +43,20 @@ export const Name = styled.h1`
     font-size: 14px;
     line-height: 18.2px;
     margin-top: 8px;
+  }
+`;
+
+export const ExtraInfo = styled.h2`
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
+  text-align: center;
+  color: ${({ theme }) => theme.color.waterloo};
+  margin: 0;
+  margin-top: 8px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    font-size: 13px;
+    line-height: 16.9px;
   }
 `;

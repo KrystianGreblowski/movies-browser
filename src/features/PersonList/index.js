@@ -1,16 +1,18 @@
+import { nanoid } from "nanoid";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import Pagination from "../../common/Pagination";
-import PersonTile from "../../common/Tiles/PersonTile";
-import Title from "./Title";
-import { Container, Tiles, LoadingPage, ErrorPage } from "./styled";
+import PersonTile from "../../common/Tiles/PersonTilesContainer/PersonTile";
+import { Container, LoadingPage, ErrorPage } from "./styled";
+import { TilesContainer } from "../../common/Tiles/PersonTilesContainer/styled";
+import { TilesHeader } from "../../common/Tiles/TilesHeader/styled";
 import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
 import {
-  fetchCurrentPage,
+  fetchCurrentPeoplePage,
   selectPopularPeopleData,
   selectPopularPeopleStatus,
 } from "./popularPeopleSlice";
-import noPersonImage from "./images/no-person-image.png";
+import noPersonImage from "./no-person-image.png";
 
 const PersonList = () => {
   const popularPeopleData = useSelector(selectPopularPeopleData);
@@ -22,7 +24,7 @@ const PersonList = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchCurrentPage(currentPage));
+    dispatch(fetchCurrentPeoplePage(currentPage));
   }, [currentPage, dispatch]);
 
   return (
@@ -31,12 +33,12 @@ const PersonList = () => {
         <LoadingPage />
       ) : popularPeopleStatus === "done" ? (
         <Container>
-          <Title title={"Popular people"} />
+          <TilesHeader>Popular people</TilesHeader>
 
-          <Tiles>
+          <TilesContainer>
             {popularPeopleData.map((popularPeople) => (
               <PersonTile
-                key={popularPeople.id}
+                key={nanoid()}
                 image={
                   popularPeople.profile_path === null
                     ? noPersonImage
@@ -45,7 +47,7 @@ const PersonList = () => {
                 name={popularPeople.name}
               />
             ))}
-          </Tiles>
+          </TilesContainer>
 
           <Pagination
             currentPage={currentPage}

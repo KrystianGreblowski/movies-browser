@@ -15,6 +15,6 @@ function* fetchMovieTypesHandler() {
   }
 }
 
-export function* watchFetchMovieTypes() {
+export function* watchFetchMovieTypesInit() {
   yield takeEvery(fetchMovieTypesInit, fetchMovieTypesHandler);
 }
