@@ -7,7 +7,12 @@ import {
 import NavigationBar from "../common/NavigationBar";
 import MainPage from "../features/MainPage";
 import PersonList from "../features/PersonList";
-import { toMainPage, toMoviesSearch, toPeopleSearch, toPersonList } from "./routes";
+import {
+  toMainPage,
+  toMoviesSearch,
+  toPeopleSearch,
+  toPersonList,
+} from "./routes";
 import MoviePage from "../features/MoviePage";
 import ScrollToTop from "../common/ScrollToTop";
 import SearchResults from "../features/SearchResults";
@@ -16,21 +21,20 @@ function App() {
   return (
     <HashRouter>
       <ScrollToTop />
-
       <NavigationBar />
-
       <Switch>
-        <Route path="/movies/:movieId">
-          <MoviePage />
-        </Route>
-
-      <Route path={toMoviesSearch()}>
+        <Route path={toMoviesSearch()}>
           <SearchResults />
         </Route>
 
         <Route path={toPeopleSearch()}>
           <SearchResults />
         </Route>
+
+        <Route path="/movies/:movieId">
+          <MoviePage />
+        </Route>
+
         <Route path={toMainPage()}>
           <MainPage />
         </Route>
