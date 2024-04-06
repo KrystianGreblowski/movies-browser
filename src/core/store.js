@@ -4,7 +4,6 @@ import rootSaga from "./rootSaga";
 import paginationReducer from "../common/Pagination/paginationSlice";
 import popularMoviesReducer from "../features/MainPage/popularMoviesSlice";
 import popularPeopleReducer from "../features/PersonList/popularPeopleSlice";
-import movieTypesReducer from "../common/movieTypes/movieTypesSlice";
 import movieDetailsReducer from "../features/MoviePage/movieDetailsSlice";
 
 const sagaMiddleware = createSagaMiddleware();
@@ -14,7 +13,6 @@ const store = configureStore({
     pagination: paginationReducer,
     popularMovies: popularMoviesReducer,
     popularPeople: popularPeopleReducer,
-    movieTypes: movieTypesReducer,
     movieDetails: movieDetailsReducer,
   },
   middleware: (getDefaultMiddleware) =>
