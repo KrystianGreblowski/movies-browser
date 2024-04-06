@@ -29,7 +29,7 @@ const Banner = () => {
     <>
       {movieDetailsStatus === "loading" ? (
         <LoadingBanner />
-      ) : movieDetailsStatus === "done" ? (
+      ) : movieDetailsStatus === "success" ? (
         <PosterContainer>
           <ImagesWrapper>
             <StyledPoster>

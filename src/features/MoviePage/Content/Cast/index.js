@@ -32,7 +32,7 @@ const Cast = () => {
             ))}
           </TilesContainer>
         </>
-      ) : movieDetailsStatus === "done" ? (
+      ) : movieDetailsStatus === "success" ? (
         <>
           <TilesHeader>Cast</TilesHeader>
           <TilesContainer>

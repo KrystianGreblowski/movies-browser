@@ -39,7 +39,7 @@ const MainInfo = () => {
         <Container>
           <Post src={noMovieImage} alt={"No Movie Image"} />
         </Container>
-      ) : movieDetailsStatus === "done" ? (
+      ) : movieDetailsStatus === "success" ? (
         <Container>
           <Post
             src={
