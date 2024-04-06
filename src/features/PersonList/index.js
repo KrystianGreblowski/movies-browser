@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import Pagination from "../../common/Pagination";
 import PersonTile from "../../common/Tiles/PersonTilesContainer/PersonTile";
-import { Container, LoadingPage, ErrorPage } from "./styled";
+import { Container } from "./styled";
 import { TilesContainer } from "../../common/Tiles/PersonTilesContainer/styled";
 import { TilesHeader } from "../../common/Tiles/TilesHeader/styled";
 import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
@@ -30,7 +30,7 @@ const PersonList = () => {
   return (
     <>
       {popularPeopleStatus === "loading" ? (
-        <LoadingPage />
+        "Loading"
       ) : popularPeopleStatus === "done" ? (
         <Container>
           <TilesHeader>Popular people</TilesHeader>
@@ -57,7 +57,7 @@ const PersonList = () => {
           />
         </Container>
       ) : (
-        <ErrorPage />
+        "Error"
       )}
     </>
   );
