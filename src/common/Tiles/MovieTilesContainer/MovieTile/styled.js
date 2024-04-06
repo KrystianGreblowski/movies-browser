@@ -1,11 +1,5 @@
 import styled from "styled-components";
 
-export const TileButton = styled.button`
-  border: none;
-  padding: 0;
-  cursor: pointer;
-`;
-
 export const Tile = styled.div`
   background-color: ${({ theme }) => theme.color.white};
   max-width: 324px;
