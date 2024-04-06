@@ -29,8 +29,6 @@ import noMovieImage from "../../images/no-movie-image.svg";
 const MainInfo = () => {
   const movieDetailsData = useSelector(selectMovieDetailsData);
   const movieDetailsStatus = useSelector(selectMovieDetailsStatus);
-
-  const posterBaseUrl = "http://image.tmdb.org/t/p/w342";
   const numberOfMovieTypes = 3;
 
   return (
@@ -45,7 +43,8 @@ const MainInfo = () => {
             src={
               movieDetailsData.poster_path === null
                 ? noMovieImage
-                : posterBaseUrl + movieDetailsData.poster_path
+                : "http://image.tmdb.org/t/p/w342" +
+                  movieDetailsData.poster_path
             }
             alt={movieDetailsData.original_title}
           />

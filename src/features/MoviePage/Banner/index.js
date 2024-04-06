@@ -23,8 +23,6 @@ const Banner = () => {
   const movieDetailsData = useSelector(selectMovieDetailsData);
   const movieDetailsStatus = useSelector(selectMovieDetailsStatus);
 
-  const posterBaseUrl = "http://image.tmdb.org/t/p/original";
-
   return (
     <>
       {movieDetailsStatus === "loading" ? (
@@ -34,7 +32,10 @@ const Banner = () => {
           <ImagesWrapper>
             <StyledPoster>
               <Poster
-                src={posterBaseUrl + movieDetailsData.backdrop_path}
+                src={
+                  "http://image.tmdb.org/t/p/original" +
+                  movieDetailsData.backdrop_path
+                }
                 alt={movieDetailsData.original_title}
               />
             </StyledPoster>
