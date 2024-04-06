@@ -10,7 +10,7 @@ export const popularPeopleSlice = createSlice({
   reducers: {
     fetchPopularPeopleSuccess: (state, { payload: popularPeopleData }) => {
       state.results = popularPeopleData;
-      state.status = "done";
+      state.status = "success";
     },
     fetchPopularPeopleError: (state) => {
       state.status = "error";

@@ -19,7 +19,7 @@ const PersonList = () => {
     <>
       {popularPeopleStatus === "loading" ? (
         ""
-      ) : popularPeopleStatus === "done" ? (
+      ) : popularPeopleStatus === "success" ? (
         <Container>
           <TilesHeader>Popular people</TilesHeader>
 
