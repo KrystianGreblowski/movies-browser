@@ -63,7 +63,7 @@ const MainPage = () => {
           <Pagination
             currentPage={currentPage}
             minPageLimit={1}
-            maxPageLimit={300}
+            maxPageLimit={400}
             url={toMainPage()}
           />
         </Container>
