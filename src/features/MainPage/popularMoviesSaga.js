@@ -8,23 +8,20 @@ import {
 
 function* fetchPopularMoviesHandler({ payload: pageNumber }) {
   try {
-    const firstPageNumberForApi = pageNumber;
-    const secondPageNumberForApi = pageNumber + 1;
-
     const popularMoviesFirstPageFromApi = yield call(
       getPopularMovies,
-      firstPageNumberForApi
+      pageNumber
     );
     const popularMoviesSecondPageFromApi = yield call(
       getPopularMovies,
-      secondPageNumberForApi
+      pageNumber + 1
     );
 
-    const popularMovies = popularMoviesFirstPageFromApi.concat(
+    const popularMoviesData = popularMoviesFirstPageFromApi.concat(
       popularMoviesSecondPageFromApi
     );
 
-    yield put(fetchPopularMoviesSuccess(popularMovies));
+    yield put(fetchPopularMoviesSuccess(popularMoviesData));
   } catch (error) {
     yield put(fetchPopularMoviesError());
   }
