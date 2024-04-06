@@ -11,7 +11,7 @@ export const useCurrentPage = () => {
     const getPageNumberForApi = () =>
       currentPage === 1 ? 1 : Math.floor((currentPage - 1) / 5) * 2 + 1;
 
-    if ((currentPage - 1) % 5 === 0)
+    if ((currentPage - 1) % 5 === 0 || currentPage % 5 === 0)
       dispatch(fetchPageNumberForApi(getPageNumberForApi()));
   }, [currentPage, dispatch]);
 
