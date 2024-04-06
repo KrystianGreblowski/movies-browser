@@ -1,6 +1,6 @@
 import { nanoid } from "nanoid";
 import { useSelector, useDispatch } from "react-redux";
-import { Container, MoviePageLink, LoadingPage, ErrorPage } from "./styled";
+import { Container, MoviePageLink } from "./styled";
 import { TilesContainer } from "../../common/Tiles/MovieTilesContainer/styled";
 import { TilesHeader } from "../../common/Tiles/TilesHeader/styled";
 import { MovieTile } from "../../common/Tiles/MovieTilesContainer/MovieTile";
@@ -23,7 +23,7 @@ const MainPage = () => {
   return (
     <>
       {popularMoviesStatus === "loading" ? (
-        <LoadingPage />
+        "Loading"
       ) : popularMoviesStatus === "success" ? (
         <Container>
           <TilesHeader>Popular movies</TilesHeader>
@@ -68,7 +68,7 @@ const MainPage = () => {
           />
         </Container>
       ) : (
-        <ErrorPage />
+        "Error"
       )}
     </>
   );
