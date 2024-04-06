@@ -1,29 +1,19 @@
 import { nanoid } from "nanoid";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import Pagination from "../../common/Pagination";
 import PersonTile from "../../common/Tiles/PersonTilesContainer/PersonTile";
 import { Container } from "./styled";
 import { TilesContainer } from "../../common/Tiles/PersonTilesContainer/styled";
 import { TilesHeader } from "../../common/Tiles/TilesHeader/styled";
-import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
-import {
-  fetchPopularPeoplePageNumberForApi,
-  selectPopularPeopleData,
-  selectPopularPeopleStatus,
-} from "./popularPeopleSlice";
+import { selectPopularPeopleStatus } from "./popularPeopleSlice";
 import noPersonImage from "./no-person-image.png";
+import { useCurrentPage } from "./useCurrentPage";
+import { usePopularPeopleData } from "./usePopularPeopleData";
 
 const PersonList = () => {
-  const popularPeopleData = useSelector(selectPopularPeopleData);
   const popularPeopleStatus = useSelector(selectPopularPeopleStatus);
-  const currentPage = useSelector(selectCurrentPage);
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchPopularPeoplePageNumberForApi(currentPage));
-  }, [currentPage, dispatch]);
+  const popularPeopleData = usePopularPeopleData();
+  const currentPage = useCurrentPage();
 
   return (
     <>
