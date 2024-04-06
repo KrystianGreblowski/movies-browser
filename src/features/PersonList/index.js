@@ -19,8 +19,6 @@ const PersonList = () => {
   const popularPeopleStatus = useSelector(selectPopularPeopleStatus);
   const currentPage = useSelector(selectCurrentPage);
 
-  const imageBaseUrl = "https://image.tmdb.org/t/p/w185";
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -42,7 +40,8 @@ const PersonList = () => {
                 image={
                   popularPeople.profile_path === null
                     ? noPersonImage
-                    : imageBaseUrl + popularPeople.profile_path
+                    : "https://image.tmdb.org/t/p/w185" +
+                      popularPeople.profile_path
                 }
                 name={popularPeople.name}
               />
