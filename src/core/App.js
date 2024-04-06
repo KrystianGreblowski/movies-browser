@@ -32,7 +32,7 @@ function App() {
         </Route>
 
         <Route path="/">
-          <Redirect to="/movies/page" />
+          <Redirect to={toMainPage()} />
         </Route>
       </Switch>
     </HashRouter>
