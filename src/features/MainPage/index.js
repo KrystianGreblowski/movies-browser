@@ -22,7 +22,7 @@ const MainPage = () => {
   return (
     <>
       {popularMoviesStatus === "loading" ? (
-        "Loading"
+        ""
       ) : popularMoviesStatus === "success" ? (
         <Container>
           <TilesHeader>Popular movies</TilesHeader>
@@ -67,7 +67,7 @@ const MainPage = () => {
           />
         </Container>
       ) : (
-        "Error"
+        ""
       )}
     </>
   );

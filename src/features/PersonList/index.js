@@ -18,7 +18,7 @@ const PersonList = () => {
   return (
     <>
       {popularPeopleStatus === "loading" ? (
-        "Loading"
+        ""
       ) : popularPeopleStatus === "done" ? (
         <Container>
           <TilesHeader>Popular people</TilesHeader>
@@ -46,7 +46,7 @@ const PersonList = () => {
           />
         </Container>
       ) : (
-        "Error"
+        ""
       )}
     </>
   );
