@@ -62,7 +62,7 @@ const MainPage = () => {
           <Pagination
             currentPage={currentPage}
             minPageLimit={1}
-            maxPageLimit={500}
+            maxPageLimit={300}
             url="/movies"
           />
         </Container>
