@@ -41,7 +41,7 @@ const PersonList = () => {
           <Pagination
             currentPage={currentPage}
             minPageLimit={1}
-            maxPageLimit={100}
+            maxPageLimit={400}
             url="/personlist"
           />
         </Container>
