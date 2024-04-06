@@ -14,7 +14,6 @@ import { useMovieTypesData } from "./useMovieTypesData";
 
 const MainPage = () => {
   const dispatch = useDispatch();
-
   const popularMoviesStatus = useSelector(selectPopularMoviesStatus);
   const popularMoviesData = usePopularMoviesData();
   const { movieTypesData, numberOfMovieTypes } = useMovieTypesData();
