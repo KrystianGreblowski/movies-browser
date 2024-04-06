@@ -9,6 +9,7 @@ import { selectPopularPeopleStatus } from "./popularPeopleSlice";
 import noPersonImage from "./no-person-image.png";
 import { useCurrentPage } from "./useCurrentPage";
 import { usePopularPeopleData } from "./usePopularPeopleData";
+import { toPersonList } from "../../core/routes";
 
 const PersonList = () => {
   const popularPeopleStatus = useSelector(selectPopularPeopleStatus);
@@ -42,7 +43,7 @@ const PersonList = () => {
             currentPage={currentPage}
             minPageLimit={1}
             maxPageLimit={300}
-            url="/personlist"
+            url={toPersonList()}
           />
         </Container>
       ) : (

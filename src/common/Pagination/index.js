@@ -33,7 +33,7 @@ const Pagination = ({ currentPage, minPageLimit, maxPageLimit, url }) => {
   const history = useHistory();
 
   useEffect(() => {
-    history.replace(`${url}/page/${currentPage}`);
+    history.replace(`${url}/${currentPage}`);
   }, [currentPage, url, history]);
 
   useEffect(() => {
