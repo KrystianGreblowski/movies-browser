@@ -15,7 +15,7 @@ export const popularMoviesSlice = createSlice({
     fetchPopularMoviesError: (state) => {
       state.status = "error";
     },
-    fetchPageNumberForApi: (state, { payload: pageNumber }) => {
+    fetchPopularMoviesPageNumberForApi: (state, { payload: pageNumber }) => {
       state.page = pageNumber;
     },
   },
@@ -24,7 +24,7 @@ export const popularMoviesSlice = createSlice({
 export const {
   fetchPopularMoviesSuccess,
   fetchPopularMoviesError,
-  fetchPageNumberForApi,
+  fetchPopularMoviesPageNumberForApi,
 } = popularMoviesSlice.actions;
 
 export const selectPopularMoviesData = (state) => state.popularMovies.results;
