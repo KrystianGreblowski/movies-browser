@@ -15,7 +15,7 @@ export const popularPeopleSlice = createSlice({
     fetchPopularPeopleError: (state) => {
       state.status = "error";
     },
-    fetchCurrentPeoplePage: (state, { payload: pageNumber }) => {
+    fetchPopularPeoplePageNumberForApi: (state, { payload: pageNumber }) => {
       state.page = pageNumber;
     },
   },
@@ -24,7 +24,7 @@ export const popularPeopleSlice = createSlice({
 export const {
   fetchPopularPeopleSuccess,
   fetchPopularPeopleError,
-  fetchCurrentPeoplePage,
+  fetchPopularPeoplePageNumberForApi,
 } = popularPeopleSlice.actions;
 
 export const selectPopularPeopleData = (state) => state.popularPeople.results;
