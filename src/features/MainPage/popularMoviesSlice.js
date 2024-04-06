@@ -10,7 +10,7 @@ export const popularMoviesSlice = createSlice({
   reducers: {
     fetchPopularMoviesSuccess: (state, { payload: popularMoviesData }) => {
       state.results = popularMoviesData;
-      state.status = "done";
+      state.status = "success";
     },
     fetchPopularMoviesError: (state) => {
       state.status = "error";

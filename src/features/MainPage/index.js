@@ -24,7 +24,7 @@ const MainPage = () => {
     <>
       {popularMoviesStatus === "loading" ? (
         <LoadingPage />
-      ) : popularMoviesStatus === "done" ? (
+      ) : popularMoviesStatus === "success" ? (
         <Container>
           <TilesHeader>Popular movies</TilesHeader>
 
