@@ -25,7 +25,7 @@ function MainPage() {
   const movieTypesData = useSelector(selectMovieTypesData);
   const currentPage = useSelector(selectCurrentPage);
 
-  const imageBaseUrl = "https://image.tmdb.org/t/p/w300";
+  const imageBaseUrl = "https://image.tmdb.org/t/p/w342";
   const numberOfMovieTypes = 3;
 
   const dispatch = useDispatch();
