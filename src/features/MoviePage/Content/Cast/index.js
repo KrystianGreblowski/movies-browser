@@ -3,7 +3,7 @@ import { nanoid } from "nanoid";
 import PersonTile from "../../../../common/Tiles/PersonTilesContainer/PersonTile";
 import { TilesHeader } from "../../../../common/Tiles/TilesHeader/styled";
 import { PersonTilesContainer } from "../../../../common/Tiles/PersonTilesContainer/styled";
-import noPersonImage from "../../images/no-person-image.png";
+import noPersonImage from "../../../../images/no-person-image.png";
 import {
   selectMovieDetailsData,
   selectMovieDetailsStatus,

@@ -1,8 +1,8 @@
 import { useLocation } from "react-router-dom/cjs/react-router-dom";
 import { TilesContainer } from "../../common/Tiles/MovieTilesContainer/styled";
 import { TilesHeader } from "../../common/Tiles/TilesHeader/styled";
-import noMovieImage from "../../images/no-movie-image.svg";
-import noPersonImage from "../../images/not-found-person.svg";
+import noMovieImage from "../../images/no-movie-image.png";
+import noPersonImage from "../../images/no-person-image.png";
 import LoadingPade from "../../common/LoadingPage";
 import { MovieTile } from "../../common/Tiles/MovieTilesContainer/SearchMovieTile";
 import PersonsTile from "../../common/Tiles/PersonTilesContainer/PersonTile";
@@ -24,7 +24,7 @@ function SearchResults() {
 
   const search_quantity = searchResults.data?.total_results;
   const search_list = searchResults.data?.results;
-  const imageBaseUrlMovies = "https://image.tmdb.org/t/p/w300";
+  const imageBaseUrlMovies = "https://image.tmdb.org/t/p/w342";
   const imageBaseUrlPerson = "https://image.tmdb.org/t/p/w185";
 
   const { genres } = useGenres();
