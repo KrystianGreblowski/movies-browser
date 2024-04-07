@@ -13,7 +13,7 @@ export const StyledNavigation = styled.nav`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     justify-content: space-between;
-    gap: 1px;
+    gap: 0px;
     margin-bottom: 16px;
     width: 100%;
   }
@@ -37,7 +37,7 @@ export const Header = styled(NavLink)`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     gap: 8px;
     margin-left: 0;
-    margin-right: 10px;
+    margin-right: 15px;
   }
 `;
 
@@ -57,15 +57,16 @@ export const Caption = styled.h1`
   letter-spacing: -1.5px;
   width: max-content;
   padding: 0;
+  
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     font-size: 20px;
+    padding-top: 3px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     font-size: 13px;
     letter-spacing: -0.5px;
-    width: 95px;
   }
 `;
 
@@ -109,6 +110,6 @@ export const PeoplePageLink = styled(MoviePageLink)`
   margin-left: 16px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
-    margin-left: 8px;
+    margin-left: 12px;
   }
 `;
