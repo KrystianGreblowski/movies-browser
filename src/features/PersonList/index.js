@@ -12,7 +12,7 @@ import {
   selectPopularPeopleData,
   selectPopularPeopleStatus,
 } from "./popularPeopleSlice";
-import noPersonImage from "./no-person-image.png";
+import noPersonImage from "../../images/no-person-image.png";
 
 const PersonList = () => {
   const popularPeopleData = useSelector(selectPopularPeopleData);

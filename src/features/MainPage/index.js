@@ -16,7 +16,7 @@ import {
   fetchMovieTypesInit,
   selectMovieTypesData,
 } from "../../common/movieTypes/movieTypesSlice";
-import noMovieImage from "./no-movie-image.svg";
+import noMovieImage from "../../images/no-movie-image.png";
 import { fetchMovieId } from "../MoviePage/movieDetailsSlice";
 
 function MainPage() {

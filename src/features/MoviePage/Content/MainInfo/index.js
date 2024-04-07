@@ -24,7 +24,7 @@ import {
   selectMovieDetailsData,
   selectMovieDetailsStatus,
 } from "../../movieDetailsSlice";
-import noMovieImage from "../../images/no-movie-image.svg";
+import noMovieImage from "../../../../images/no-movie-image.png";
 
 const MainInfo = () => {
   const movieDetailsData = useSelector(selectMovieDetailsData);
