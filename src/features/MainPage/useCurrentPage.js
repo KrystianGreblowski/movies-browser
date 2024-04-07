@@ -8,10 +8,20 @@ export const useCurrentPage = () => {
   const currentPage = useSelector(selectCurrentPage);
 
   useEffect(() => {
-    const getPageNumberForApi = () =>
-      currentPage === 1 ? 1 : Math.floor((currentPage - 1) / 5) * 2 + 1;
+    const numberOfPagesToGetFromApi = 2;
+    const numberOfPagesForPagination = 5;
 
-    if ((currentPage - 1) % 5 === 0 || currentPage % 5 === 0)
+    const getPageNumberForApi = () =>
+      currentPage === 1
+        ? 1
+        : Math.floor((currentPage - 1) / numberOfPagesForPagination) *
+            numberOfPagesToGetFromApi +
+          1;
+
+    if (
+      (currentPage - 1) % numberOfPagesForPagination === 0 ||
+      currentPage % numberOfPagesForPagination === 0
+    )
       dispatch(fetchPopularMoviesPageNumberForApi(getPageNumberForApi()));
   }, [currentPage, dispatch]);
 
