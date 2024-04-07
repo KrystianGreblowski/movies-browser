@@ -8,25 +8,20 @@ import {
 
 function* fetchPopularPeopleHandler({ payload: pageNumber }) {
   try {
-    const firstPageFromApi = yield call(getPopularPeople, pageNumber);
+    const numberOfPagesToGetFromApi = 9;
+    const highestNumberOfPageToGetFromApi =
+      pageNumber + numberOfPagesToGetFromApi - 1;
+    let pageNumberForApi = pageNumber;
+    let popularPeopleData = [];
 
-    const secondPageFromApi = yield call(getPopularPeople, pageNumber + 1);
-
-    const thirdPageFromApi = yield call(getPopularPeople, pageNumber + 2);
-
-    const fourthPageFromApi = yield call(getPopularPeople, pageNumber + 3);
-
-    const fifthPageFromApi = yield call(getPopularPeople, pageNumber + 4);
-
-    const sixthPageFromApi = yield call(getPopularPeople, pageNumber + 5);
-
-    const popularPeopleData = firstPageFromApi.concat(
-      secondPageFromApi,
-      thirdPageFromApi,
-      fourthPageFromApi,
-      fifthPageFromApi,
-      sixthPageFromApi
-    );
+    for (
+      pageNumberForApi;
+      pageNumberForApi <= highestNumberOfPageToGetFromApi;
+      pageNumberForApi++
+    ) {
+      let dataFromApi = yield call(getPopularPeople, pageNumberForApi);
+      popularPeopleData = popularPeopleData.concat(dataFromApi);
+    }
 
     yield put(fetchPopularPeopleSuccess(popularPeopleData));
   } catch (error) {
