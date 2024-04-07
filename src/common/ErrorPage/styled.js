@@ -7,24 +7,24 @@ export const StyledDanger = styled(Danger)`
   height: 120px;
   margin-top: 130px;
 
-  @media (max-width: ${({theme}) => theme.breakpoint.mobile}) {
-  margin-top: 50px;
-  width: 90px;
-  height: 90px;
-  } ;
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    margin-top: 50px;
+    width: 90px;
+    height: 90px;
+  }
 
-  @media (max-width: ${({theme}) => theme.breakpoint.mediumMobile}) {
-  margin-top: 20px;
-  } ;
+  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
+    margin-top: 20px;
+  }
 `;
 
 export const ErrorMasege = styled.div`
+  width: 90%;
+  margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 24px;
-  
-  
 `;
 
 export const Warning = styled.h1`
@@ -34,16 +34,15 @@ export const Warning = styled.h1`
   margin: auto;
   text-align: center;
 
-  @media (max-width: ${({theme}) => theme.breakpoint.mobile}) {
-  font-size: 28px;
-  line-height: 35.6px;
-  };
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    font-size: 28px;
+    line-height: 35.6px;
+  }
 
-  
-  @media (max-width: ${({theme}) => theme.breakpoint.smallMobile}) {
-  font-size: 23px;
-  line-height: 28.6px;
-  };
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
+    font-size: 23px;
+    line-height: 28.6px;
+  }
 `;
 
 export const Solution = styled.h2`
@@ -53,14 +52,14 @@ export const Solution = styled.h2`
   text-align: center;
   margin: auto;
 
-  @media (max-width: ${({theme}) => theme.breakpoint.mobile}) {
-  font-size: 20px;
-  };
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    font-size: 20px;
+  }
 
-  @media (max-width: ${({theme}) => theme.breakpoint.smallMobile}) {
-  font-size: 17px;
-  line-height: 20.6px;
-  };
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
+    font-size: 17px;
+    line-height: 20.6px;
+  }
 `;
 
 export const Button = styled(NavLink)`
@@ -73,7 +72,7 @@ export const Button = styled(NavLink)`
   font-size: 14px;
   font-weight: 700;
 
-  @media (max-width: ${({theme}) => theme.breakpoint.mobile}) {
-  font-size: 12px;
-  };
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    font-size: 12px;
+  }
 `;
