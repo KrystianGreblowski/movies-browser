@@ -24,12 +24,16 @@ function App() {
       <ScrollToTop />
       <NavigationBar />
       <Switch>
-        <Route path={toMainPage()}>
-          <MainPage />
-        </Route>
-
         <Route path={toMoviesSearch()}>
           <SearchResults />
+        </Route>
+
+        <Route path={toPeopleSearch()}>
+          <SearchResults />
+        </Route>
+
+        <Route path={toMainPage()}>
+          <MainPage />
         </Route>
 
         <Route path={toMovieDetails()}>
@@ -38,10 +42,6 @@ function App() {
 
         <Route path={toPersonList()}>
           <PersonList />
-        </Route>
-
-        <Route path={toPeopleSearch()}>
-          <SearchResults />
         </Route>
 
         <Route path="/">
