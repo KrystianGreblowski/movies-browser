@@ -32,7 +32,7 @@ const Crew = () => {
             ))}
           </PersonTilesContainer>
         </>
-      ) : movieDetailsStatus === "done" ? (
+      ) : movieDetailsStatus === "success" ? (
         <>
           <TilesHeader>Crew</TilesHeader>
           <PersonTilesContainer>

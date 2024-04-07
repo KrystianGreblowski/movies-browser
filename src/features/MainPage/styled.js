@@ -16,7 +16,3 @@ export const MoviePageLink = styled(NavLink)`
   text-decoration: none;
   color: inherit;
 `;
-
-export const LoadingPage = styled.div``;
-
-export const ErrorPage = styled.div``;

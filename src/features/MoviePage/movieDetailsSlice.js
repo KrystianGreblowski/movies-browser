@@ -11,7 +11,7 @@ export const movieDetailsSlice = createSlice({
     },
     fetchMovieDetailsSuccess: (state, { payload: movieDetailsData }) => {
       state.data = movieDetailsData;
-      state.status = "done";
+      state.status = "success";
     },
     fetchMovieDetailsError: (state) => {
       state.status = "error";

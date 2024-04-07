@@ -3,39 +3,40 @@ import { getPopularPeople } from "../../api/getPopularPeople";
 import {
   fetchPopularPeopleSuccess,
   fetchPopularPeopleError,
-  fetchCurrentPeoplePage,
+  fetchPopularPeoplePageNumberForApi,
 } from "./popularPeopleSlice";
 
 function* fetchPopularPeopleHandler({ payload: pageNumber }) {
   try {
-    const firstPageNumberForApi = pageNumber + (pageNumber - 1) * 2;
-    const secondPageNumberForApi = firstPageNumberForApi + 1;
-    const thirdPageNumberForApi = firstPageNumberForApi + 2;
+    const firstPageFromApi = yield call(getPopularPeople, pageNumber);
 
-    const popularPeopleFirstPage = yield call(
-      getPopularPeople,
-      firstPageNumberForApi
-    );
-    const popularPeopleSecondPage = yield call(
-      getPopularPeople,
-      secondPageNumberForApi
-    );
-    const popularPeopleThirdPage = yield call(
-      getPopularPeople,
-      thirdPageNumberForApi
-    );
+    const secondPageFromApi = yield call(getPopularPeople, pageNumber + 1);
 
-    const popularPeople = popularPeopleFirstPage.concat(
-      popularPeopleSecondPage,
-      popularPeopleThirdPage
+    const thirdPageFromApi = yield call(getPopularPeople, pageNumber + 2);
+
+    const fourthPageFromApi = yield call(getPopularPeople, pageNumber + 3);
+
+    const fifthPageFromApi = yield call(getPopularPeople, pageNumber + 4);
+
+    const sixthPageFromApi = yield call(getPopularPeople, pageNumber + 5);
+
+    const popularPeopleData = firstPageFromApi.concat(
+      secondPageFromApi,
+      thirdPageFromApi,
+      fourthPageFromApi,
+      fifthPageFromApi,
+      sixthPageFromApi
     );
 
-    yield put(fetchPopularPeopleSuccess(popularPeople));
+    yield put(fetchPopularPeopleSuccess(popularPeopleData));
   } catch (error) {
     yield put(fetchPopularPeopleError());
   }
 }
 
-export function* watchFetchCurrentPeoplePage() {
-  yield takeEvery(fetchCurrentPeoplePage, fetchPopularPeopleHandler);
+export function* watchFetchPopularPeoplePageNumberForApi() {
+  yield takeEvery(
+    fetchPopularPeoplePageNumberForApi,
+    fetchPopularPeopleHandler
+  );
 }

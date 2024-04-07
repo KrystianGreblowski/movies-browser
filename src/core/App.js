@@ -9,6 +9,7 @@ import MainPage from "../features/MainPage";
 import PersonList from "../features/PersonList";
 import {
   toMainPage,
+  toMovieDetails,
   toMoviesSearch,
   toPeopleSearch,
   toPersonList,
@@ -23,28 +24,28 @@ function App() {
       <ScrollToTop />
       <NavigationBar />
       <Switch>
+        <Route path={toMainPage()}>
+          <MainPage />
+        </Route>
+
         <Route path={toMoviesSearch()}>
           <SearchResults />
         </Route>
 
-        <Route path={toPeopleSearch()}>
-          <SearchResults />
-        </Route>
-
-        <Route path="/movies/:movieId">
+        <Route path={toMovieDetails()}>
           <MoviePage />
-        </Route>
-
-        <Route path={toMainPage()}>
-          <MainPage />
         </Route>
 
         <Route path={toPersonList()}>
           <PersonList />
         </Route>
 
+        <Route path={toPeopleSearch()}>
+          <SearchResults />
+        </Route>
+
         <Route path="/">
-          <Redirect to="/movies" />
+          <Redirect to={toMainPage()} />
         </Route>
       </Switch>
     </HashRouter>

@@ -1,37 +1,26 @@
 import { nanoid } from "nanoid";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import Pagination from "../../common/Pagination";
 import PersonTile from "../../common/Tiles/PersonTilesContainer/PersonTile";
-import { Container, LoadingPage, ErrorPage } from "./styled";
+import { Container } from "./styled";
 import { PersonTilesContainer } from "../../common/Tiles/PersonTilesContainer/styled";
 import { TilesHeader } from "../../common/Tiles/TilesHeader/styled";
-import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
-import {
-  fetchCurrentPeoplePage,
-  selectPopularPeopleData,
-  selectPopularPeopleStatus,
-} from "./popularPeopleSlice";
+import { selectPopularPeopleStatus } from "./popularPeopleSlice";
 import noPersonImage from "../../images/no-person-image.png";
+import { useCurrentPage } from "./useCurrentPage";
+import { usePopularPeopleData } from "./usePopularPeopleData";
+import { toPersonList } from "../../core/routes";
 
 const PersonList = () => {
-  const popularPeopleData = useSelector(selectPopularPeopleData);
   const popularPeopleStatus = useSelector(selectPopularPeopleStatus);
-  const currentPage = useSelector(selectCurrentPage);
-
-  const imageBaseUrl = "https://image.tmdb.org/t/p/w185";
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchCurrentPeoplePage(currentPage));
-  }, [currentPage, dispatch]);
+  const popularPeopleData = usePopularPeopleData();
+  const currentPage = useCurrentPage();
 
   return (
     <>
       {popularPeopleStatus === "loading" ? (
-        <LoadingPage />
-      ) : popularPeopleStatus === "done" ? (
+        ""
+      ) : popularPeopleStatus === "success" ? (
         <Container>
           <TilesHeader>Popular people</TilesHeader>
 
@@ -42,7 +31,8 @@ const PersonList = () => {
                 image={
                   popularPeople.profile_path === null
                     ? noPersonImage
-                    : imageBaseUrl + popularPeople.profile_path
+                    : "https://image.tmdb.org/t/p/w185" +
+                      popularPeople.profile_path
                 }
                 name={popularPeople.name}
               />
@@ -52,11 +42,12 @@ const PersonList = () => {
           <Pagination
             currentPage={currentPage}
             minPageLimit={1}
-            maxPageLimit={100}
+            maxPageLimit={400}
+            url={toPersonList()}
           />
         </Container>
       ) : (
-        <ErrorPage />
+        ""
       )}
     </>
   );

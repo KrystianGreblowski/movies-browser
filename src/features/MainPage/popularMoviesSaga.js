@@ -3,18 +3,33 @@ import { getPopularMovies } from "../../api/getPopularMovies";
 import {
   fetchPopularMoviesSuccess,
   fetchPopularMoviesError,
-  fetchCurrentMoviesPage,
+  fetchPopularMoviesPageNumberForApi,
 } from "./popularMoviesSlice";
 
 function* fetchPopularMoviesHandler({ payload: pageNumber }) {
   try {
-    const popularMovies = yield call(getPopularMovies, pageNumber);
-    yield put(fetchPopularMoviesSuccess(popularMovies));
+    const popularMoviesFirstPageFromApi = yield call(
+      getPopularMovies,
+      pageNumber
+    );
+    const popularMoviesSecondPageFromApi = yield call(
+      getPopularMovies,
+      pageNumber + 1
+    );
+
+    const popularMoviesData = popularMoviesFirstPageFromApi.concat(
+      popularMoviesSecondPageFromApi
+    );
+
+    yield put(fetchPopularMoviesSuccess(popularMoviesData));
   } catch (error) {
     yield put(fetchPopularMoviesError());
   }
 }
 
-export function* watchFetchCurrentMoviesPage() {
-  yield takeEvery(fetchCurrentMoviesPage, fetchPopularMoviesHandler);
+export function* watchFetchPopularMoviesPageNumberForApi() {
+  yield takeEvery(
+    fetchPopularMoviesPageNumberForApi,
+    fetchPopularMoviesHandler
+  );
 }
