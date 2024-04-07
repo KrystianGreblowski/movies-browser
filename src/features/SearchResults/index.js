@@ -1,8 +1,8 @@
 import { useLocation } from "react-router-dom/cjs/react-router-dom";
 import { TilesContainer } from "../../common/Tiles/MovieTilesContainer/styled";
 import { TilesHeader } from "../../common/Tiles/TilesHeader/styled";
-import noMovieImage from "../../images/no-movie-image.svg";
-import noPersonImage from "../../images/not-found-person.svg";
+import noMovieImage from "./no-movie-image.svg";
+import noPersonImage from "./no-person-image.png";
 import LoadingPade from "../../common/LoadingPage";
 import { MovieTile } from "../../common/Tiles/MovieTilesContainer/SearchMovieTile";
 import PersonsTile from "../../common/Tiles/PersonTilesContainer/PersonTile";
