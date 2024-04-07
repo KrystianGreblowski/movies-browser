@@ -37,6 +37,7 @@ export const Header = styled(NavLink)`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     gap: 8px;
     margin-left: 0;
+    margin-right: 10px;
   }
 `;
 
@@ -108,6 +109,6 @@ export const PeoplePageLink = styled(MoviePageLink)`
   margin-left: 16px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
-    margin-left: 12px;
+    margin-left: 8px;
   }
 `;
