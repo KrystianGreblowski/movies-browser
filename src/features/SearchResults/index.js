@@ -26,6 +26,7 @@ function SearchResults() {
 
   const imageBaseUrlMovies = "https://image.tmdb.org/t/p/w342";
   const imageBaseUrlPerson = "https://image.tmdb.org/t/p/w185";
+  const numberOfMovieGenres = 3;
 
   const search_quantity = searchResults.data?.total_results;
   const search_list = searchResults.data?.results;
@@ -60,10 +61,12 @@ function SearchResults() {
                       ? noMovieImage
                       : imageBaseUrlMovies + searchedMovie.poster_path
                   }
-                  type={searchedMovie.genre_ids.map(
-                    (index) =>
-                      genre_list?.find((item) => item.id === index).name
-                  )}
+                  type={searchedMovie.genre_ids
+                    .map(
+                      (index) =>
+                        genre_list?.find((item) => item.id === index).name
+                    )
+                    .slice(0, numberOfMovieGenres)}
                   title={searchedMovie.title}
                   year={searchedMovie.release_date.slice(0, 4)}
                   rate={searchedMovie.vote_average.toFixed(1).replace(".", ",")}
