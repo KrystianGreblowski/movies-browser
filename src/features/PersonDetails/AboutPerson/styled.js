@@ -22,9 +22,20 @@ export const PersonImage = styled.img`
   border-radius: 5px;
   grid-row: span 2;
 
+  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    max-width: 300px;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     max-width: 250px;
-    grid-row: auto;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
+    max-width: 200px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
+    max-width: 150px;
   }
 `;
 
@@ -86,7 +97,6 @@ export const SpanInfo = styled.p`
 export const PersonInformation = styled.p`
   font-weight: 400;
   font-size: 20px;
-  margin-top: -226px;
   line-height: 32px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
