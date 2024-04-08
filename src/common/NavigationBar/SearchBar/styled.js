@@ -22,7 +22,7 @@ export const StyledSearchBar = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     max-width: 100%;
     width: 100%;
-    min-height: 44px;
+    max-height: 44px;
   }
 `;
 
