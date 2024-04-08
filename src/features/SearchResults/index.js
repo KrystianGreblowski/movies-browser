@@ -1,4 +1,5 @@
 import { useLocation } from "react-router-dom/cjs/react-router-dom";
+import { useSelector } from "react-redux";
 import { TilesContainer } from "../../common/Tiles/MovieTilesContainer/styled";
 import { TilesHeader } from "../../common/Tiles/TilesHeader/styled";
 import noMovieImage from "../../images/no-movie-image.png";
@@ -13,12 +14,14 @@ import { useSearchResults } from "./useSearchResults";
 import { PersonTilesContainer } from "../../common/Tiles/PersonTilesContainer/styled";
 import { useGenres } from "./useGenres";
 import { useQueryParameter } from "../../common/NavigationBar/SearchBar/queryParameters";
-// import Pagination from "../../common/Pagination";
+import Pagination from "../../common/Pagination";
+import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
 
 function SearchResults() {
   const query = useQueryParameter("search");
   const location = useLocation();
   const isMoviesPage = location.pathname.startsWith("/movies");
+  const currentPage = useSelector(selectCurrentPage);
 
   const { searchResults } = useSearchResults();
 
@@ -67,6 +70,12 @@ function SearchResults() {
                 />
               ))}
           </TilesContainer>
+
+          <Pagination
+            currentPage={currentPage}
+            minPageLimit={1}
+            maxPageLimit={500}
+          />
         </Container>
       ) : (
         <Container>
@@ -87,13 +96,14 @@ function SearchResults() {
                 />
               ))}
           </PersonTilesContainer>
+
+          <Pagination
+            currentPage={currentPage}
+            minPageLimit={1}
+            maxPageLimit={500}
+          />
         </Container>
       )}
-      {/* <Pagination
-        currentPage={currentPage}
-        minPageLimit={1}
-        maxPageLimit={100}
-      /> */}
     </>
   );
 }
