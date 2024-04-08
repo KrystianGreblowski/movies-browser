@@ -7,7 +7,7 @@ const NoResults = () => {
   const query = useQueryParameter("search");
   return (
     <NoResultsWrapper>
-      <TilesHeader>Sorry, there are no results for "{query}"</TilesHeader>
+      <TilesHeader>Sorry, there are no results for “{query}”</TilesHeader>
       <NoResultsImage src={NoResult} alt="No Results Image" />
     </NoResultsWrapper>
   );

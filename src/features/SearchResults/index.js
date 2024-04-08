@@ -39,7 +39,7 @@ function SearchResults() {
     <>
       {searchResults.status === "loading" ? (
         <Container>
-          <TilesHeader>Search results for "{query}"</TilesHeader>
+          <TilesHeader>Search results for “{query}”</TilesHeader>
           <LoadingPade />
         </Container>
       ) : searchResults.status === "error" ? (
@@ -49,7 +49,7 @@ function SearchResults() {
       ) : isMoviesPage ? (
         <Container>
           <TilesHeader>
-            Search results for “{query}" ({search_quantity})
+            Search results for “{query}” ({search_quantity})
           </TilesHeader>
           <TilesContainer>
             {search_list &&
@@ -85,7 +85,7 @@ function SearchResults() {
       ) : (
         <Container>
           <TilesHeader>
-            Search results for “{query} ({search_quantity})”
+            Search results for “{query}” ({search_quantity})
           </TilesHeader>
           <PersonTilesContainer>
             {search_list &&
