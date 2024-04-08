@@ -22,13 +22,14 @@ function SearchResults() {
   const location = useLocation();
   const isMoviesPage = location.pathname.startsWith("/movies");
   const currentPage = useSelector(selectCurrentPage);
-
   const { searchResults } = useSearchResults();
+
+  const imageBaseUrlMovies = "https://image.tmdb.org/t/p/w342";
+  const imageBaseUrlPerson = "https://image.tmdb.org/t/p/w185";
 
   const search_quantity = searchResults.data?.total_results;
   const search_list = searchResults.data?.results;
-  const imageBaseUrlMovies = "https://image.tmdb.org/t/p/w342";
-  const imageBaseUrlPerson = "https://image.tmdb.org/t/p/w185";
+  const search_totalPages = searchResults.data?.total_pages;
 
   const { genres } = useGenres();
   const genre_list = genres.data;
@@ -70,12 +71,13 @@ function SearchResults() {
                 />
               ))}
           </TilesContainer>
-
-          <Pagination
-            currentPage={currentPage}
-            minPageLimit={1}
-            maxPageLimit={500}
-          />
+          {search_totalPages > 1 && (
+            <Pagination
+              currentPage={currentPage}
+              minPageLimit={1}
+              maxPageLimit={search_totalPages}
+            />
+          )}
         </Container>
       ) : (
         <Container>
@@ -97,11 +99,13 @@ function SearchResults() {
               ))}
           </PersonTilesContainer>
 
-          <Pagination
-            currentPage={currentPage}
-            minPageLimit={1}
-            maxPageLimit={500}
-          />
+          {search_totalPages > 1 && (
+            <Pagination
+              currentPage={currentPage}
+              minPageLimit={1}
+              maxPageLimit={search_totalPages}
+            />
+          )}
         </Container>
       )}
     </>
