@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom/cjs/react-router-dom";
-import { useQueryParameter } from "../../common/NavigationBar/SearchBar/queryParameters";
+import {
+  useQueryParameter,
+  useReplaceQueryParameter,
+} from "../../common/NavigationBar/SearchBar/queryParameters";
 import axios from "axios";
 import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
 
@@ -16,6 +19,12 @@ export const useSearchResults = () => {
     status: "loading",
     data: [],
   });
+
+  const replaceQueryParameter = useReplaceQueryParameter();
+
+  useEffect(() => {
+    replaceQueryParameter({ key: "page", value: currentPage });
+  }, [currentPage]);
 
   useEffect(() => {
     const debounce = setTimeout(async () => {
