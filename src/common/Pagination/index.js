@@ -27,7 +27,6 @@ import {
 
 const Pagination = ({ currentPage, minPageLimit, maxPageLimit }) => {
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
-
   const dispatch = useDispatch();
 
   useEffect(() => {
