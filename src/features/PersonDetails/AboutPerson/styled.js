@@ -98,6 +98,23 @@ export const PersonInformation = styled.p`
   font-weight: 400;
   font-size: 20px;
   line-height: 32px;
+  margin-top: -226px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallLaptop}) {
+    margin-top: -226px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    font-size: 16px;
+    grid-column: span 2;
+    margin-top: 16px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallTablet}) {
+    font-size: 16px;
+    grid-column: span 2;
+    margin-top: 16px;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     font-size: 16px;
