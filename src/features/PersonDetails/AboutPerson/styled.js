@@ -8,6 +8,10 @@ export const AboutPersonContainer = styled.div`
   background-color: ${({ theme }) => theme.color.white};
   padding: 40px;
   grid-template-columns: auto 1fr;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    margin-top: 0px;
+  }
 `;
 
 export const PersonImage = styled.img`
@@ -32,6 +36,8 @@ export const PersonDescription = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
     grid-column: span 2;
+    margin-top: 0px;
+    margin-left: 0px;
   }
 `;
 
@@ -80,11 +86,16 @@ export const SpanInfo = styled.p`
 export const PersonInformation = styled.p`
   font-weight: 400;
   font-size: 20px;
-  margin-top: 24px;
+  margin-top: -226px;
   line-height: 32px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     font-size: 16px;
     grid-column: span 2;
+    margin-top: 16px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
+    margin-top: 0px;
   }
 `;
