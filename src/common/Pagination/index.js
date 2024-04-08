@@ -1,7 +1,6 @@
 import { useMediaQuery } from "react-responsive";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { useHistory } from "react-router-dom/cjs/react-router-dom";
 import {
   Container,
   FirstPage,
@@ -26,15 +25,10 @@ import {
   goToLastPage,
 } from "./paginationSlice";
 
-const Pagination = ({ currentPage, minPageLimit, maxPageLimit, url }) => {
+const Pagination = ({ currentPage, minPageLimit, maxPageLimit }) => {
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
   const dispatch = useDispatch();
-  const history = useHistory();
-
-  useEffect(() => {
-    history.replace(`${url}/${currentPage}`);
-  }, [currentPage, url, history]);
 
   useEffect(() => {
     dispatch(initCurrentPage(minPageLimit));

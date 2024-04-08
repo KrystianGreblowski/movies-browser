@@ -11,7 +11,7 @@ import { fetchMovieId } from "../MoviePage/movieDetailsSlice";
 import { usePopularMoviesData } from "./usePopularMoviesData";
 import { useCurrentPage } from "./useCurrentPage";
 import { useMovieTypesData } from "./useMovieTypesData";
-import { toMainPage } from "../../core/routes";
+import { toMovieDetails } from "../../core/routes";
 
 const MainPage = () => {
   const dispatch = useDispatch();
@@ -31,7 +31,7 @@ const MainPage = () => {
           <TilesContainer>
             {popularMoviesData.map((popularMovie) => (
               <MoviePageLink
-                to={`/movies/${popularMovie.id}`}
+                to={`${toMovieDetails()}/${popularMovie.id}`}
                 onClick={() => dispatch(fetchMovieId(popularMovie.id))}
                 key={nanoid()}
               >
@@ -64,7 +64,6 @@ const MainPage = () => {
             currentPage={currentPage}
             minPageLimit={1}
             maxPageLimit={500}
-            url={toMainPage()}
           />
         </Container>
       ) : (
