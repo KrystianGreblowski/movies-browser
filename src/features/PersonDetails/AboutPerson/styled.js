@@ -40,15 +40,13 @@ export const PersonImage = styled.img`
 `;
 
 export const PersonDescription = styled.div`
-  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
-    margin-left: 16px;
-    margin-top: 100px;
-  }
-
   @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
-    grid-column: span 2;
     margin-top: 0px;
     margin-left: 0px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    margin-top: 5px;
   }
 `;
 
@@ -59,6 +57,10 @@ export const Caption = styled.h1`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     font-size: 25px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
+    font-size: 18px;
   }
 `;
 
@@ -73,6 +75,14 @@ export const BirthDetails = styled.div`
   flex-direction: row;
   margin-top: -25px;
   gap: 10px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
+    flex-direction: column;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
+    flex-direction: column;
+  }
 `;
 
 export const Span = styled.p`
@@ -83,6 +93,15 @@ export const Span = styled.p`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     font-size: 16px;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
+    margin-top: 30px;
+    font-size: 12px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
+    margin-top: 30px;
+  }
 `;
 
 export const SpanInfo = styled.p`
@@ -91,6 +110,15 @@ export const SpanInfo = styled.p`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     font-size: 16px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
+    margin-top: -20px;
+    font-size: 12px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
+    margin-top: -20px;
   }
 `;
 
@@ -105,24 +133,27 @@ export const PersonInformation = styled.p`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
-    font-size: 16px;
-    grid-column: span 2;
-    margin-top: 16px;
+    font-size: 18px;
+    margin-top: -140px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.smallTablet}) {
     font-size: 16px;
-    grid-column: span 2;
-    margin-top: 16px;
+    margin-top: -120px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     font-size: 16px;
+    margin-top: 0px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
     grid-column: span 2;
-    margin-top: 16px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
     margin-top: 0px;
+    font-size: 12px;
+    line-height: 25px;
   }
 `;
