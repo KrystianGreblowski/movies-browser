@@ -56,7 +56,7 @@ export const Caption = styled.h1`
   margin: 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
-    font-size: 25px;
+    font-size: 22px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
@@ -91,7 +91,7 @@ export const Span = styled.p`
   font-size: 18px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
@@ -109,7 +109,7 @@ export const SpanInfo = styled.p`
   font-weight: 400;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
@@ -143,7 +143,7 @@ export const PersonInformation = styled.p`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
-    font-size: 16px;
+    font-size: 14px;
     margin-top: 0px;
   }
 
