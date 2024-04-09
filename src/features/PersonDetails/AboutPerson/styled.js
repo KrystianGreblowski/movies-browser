@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const AboutPersonContainer = styled.div`
   display: grid;
-  gap: 40px;
+  grid-gap: 40px;
   max-width: 1368px;
   margin: 56px auto;
   background-color: ${({ theme }) => theme.color.white};
@@ -11,6 +11,12 @@ export const AboutPersonContainer = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     margin-top: 0px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
+    grid-gap: 16px;
+    padding: 16px;
+    margin: 24px auto;
   }
 `;
 
@@ -35,7 +41,8 @@ export const PersonImage = styled.img`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
-    max-width: 150px;
+    max-width: 100px;
+    grid-row: auto;
   }
 `;
 
@@ -125,7 +132,7 @@ export const SpanInfo = styled.p`
 export const PersonInformation = styled.p`
   font-weight: 400;
   font-size: 20px;
-  line-height: 32px;
+  line-height: 28px;
   margin-top: -226px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.smallLaptop}) {
@@ -138,7 +145,7 @@ export const PersonInformation = styled.p`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.smallTablet}) {
-    font-size: 16px;
+    font-size: 15px;
     margin-top: -120px;
   }
 
@@ -152,7 +159,6 @@ export const PersonInformation = styled.p`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
-    margin-top: 0px;
     font-size: 12px;
     line-height: 25px;
   }
