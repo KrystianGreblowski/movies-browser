@@ -1,9 +1,9 @@
 import { CircleWrapper, CircleLoader } from "./styled";
 
-const LoadingPade = () => (
+const LoadingPage = () => (
     <CircleWrapper>
         <CircleLoader/>
     </CircleWrapper>
 );
 
-export default LoadingPade;
+export default LoadingPage;
