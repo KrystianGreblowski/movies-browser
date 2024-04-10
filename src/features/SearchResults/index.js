@@ -61,15 +61,23 @@ function SearchResults() {
                       ? noMovieImage
                       : imageBaseUrlMovies + searchedMovie.poster_path
                   }
-                  type={searchedMovie.genre_ids
-                    .map(
-                      (index) =>
-                        genre_list?.find((item) => item.id === index).name
-                    )
-                    .slice(0, numberOfMovieTypes)}
+                  type={
+                    searchedMovie.genre_ids &&
+                    Array.isArray(searchedMovie.genre_ids)
+                      ? searchedMovie.genre_ids
+                          .map(
+                            (index) =>
+                              genre_list?.find((item) => item.id === index)
+                                ?.name
+                          )
+                          .slice(0, numberOfMovieTypes)
+                      : []
+                  }
                   title={searchedMovie.title}
-                  year={searchedMovie.release_date.slice(0, 4)}
-                  rate={searchedMovie.vote_average.toFixed(1).replace(".", ",")}
+                  year={searchedMovie.release_date?.slice(0, 4)}
+                  rate={searchedMovie.vote_average
+                    ?.toFixed(1)
+                    .replace(".", ",")}
                   votes={searchedMovie.vote_count}
                 />
               ))}
