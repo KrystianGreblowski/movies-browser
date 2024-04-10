@@ -83,7 +83,7 @@ export const Caption = styled.h1`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
-    font-size: 22px;
+    font-size: 24px;
   }
   @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
     font-size: 16px;
@@ -98,6 +98,10 @@ export const MovieYear = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
+    color: ${({ theme }) => theme.color.stormGray};
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
     font-size: 13px;
     color: ${({ theme }) => theme.color.stormGray};
   }
