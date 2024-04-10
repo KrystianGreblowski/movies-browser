@@ -1,6 +1,6 @@
 import { nanoid } from "nanoid";
 import { useSelector, useDispatch } from "react-redux";
-import { Container, MoviePageLink } from "./styled";
+import { Container } from "./styled";
 import { TilesContainer } from "../../common/Tiles/MovieTilesContainer/styled";
 import { TilesHeader } from "../../common/Tiles/TilesHeader/styled";
 import { MovieTile } from "../../common/Tiles/MovieTilesContainer/MovieTile";
@@ -12,6 +12,7 @@ import { usePopularMoviesData } from "./usePopularMoviesData";
 import { useCurrentPage } from "./useCurrentPage";
 import { useMovieTypesData } from "../../api/useMovieTypesData";
 import { toMainPage } from "../../core/routes";
+import { MoviePageLink } from "../../common/MoviePageLink/styled";
 
 const MainPage = () => {
   const dispatch = useDispatch();
