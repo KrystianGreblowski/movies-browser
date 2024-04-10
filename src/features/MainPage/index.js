@@ -12,6 +12,8 @@ import { usePopularMoviesData } from "./usePopularMoviesData";
 import { useCurrentPage } from "./useCurrentPage";
 import { useMovieTypesData } from "./useMovieTypesData";
 import { toMainPage } from "../../core/routes";
+import LoadingPage from "../../common/LoadingPage";
+import ErrorPage from "../../common/ErrorPage";
 
 const MainPage = () => {
   const dispatch = useDispatch();
@@ -23,7 +25,7 @@ const MainPage = () => {
   return (
     <>
       {popularMoviesStatus === "loading" ? (
-        ""
+        <LoadingPage />
       ) : popularMoviesStatus === "success" ? (
         <Container>
           <TilesHeader>Popular movies</TilesHeader>
@@ -68,7 +70,7 @@ const MainPage = () => {
           />
         </Container>
       ) : (
-        ""
+        <ErrorPage />
       )}
     </>
   );

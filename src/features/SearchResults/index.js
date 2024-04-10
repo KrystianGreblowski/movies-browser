@@ -3,7 +3,7 @@ import { TilesContainer } from "../../common/Tiles/MovieTilesContainer/styled";
 import { TilesHeader } from "../../common/Tiles/TilesHeader/styled";
 import noMovieImage from "../../images/no-movie-image.png";
 import noPersonImage from "../../images/no-person-image.png";
-import LoadingPade from "../../common/LoadingPage";
+import LoadingPage from "../../common/LoadingPage";
 import { MovieTile } from "../../common/Tiles/MovieTilesContainer/SearchMovieTile";
 import PersonsTile from "../../common/Tiles/PersonTilesContainer/PersonTile";
 import NoResults from "../../common/NoResults";
@@ -35,7 +35,7 @@ function SearchResults() {
       {searchResults.status === "loading" ? (
         <Container>
           <TilesHeader>Search results for "{query}"</TilesHeader>
-          <LoadingPade />
+          <LoadingPage />
         </Container>
       ) : searchResults.status === "error" ? (
         <Error />
