@@ -18,41 +18,50 @@ const Cast = () => {
 
   return (
     <>
-      <TilesHeader>Movies - cast ({numberOfTiles})</TilesHeader>
-      <TilesContainer>
-        {personDetailsData.movie_credits.cast.map((cast) => (
-          <MoviePageLink
-            to={`/movies/${cast.id}`}
-            onClick={() => dispatch(fetchMovieId(cast.id))}
-            key={nanoid()}
-          >
-            <MovieTile
-              key={nanoid()}
-              image={
-                cast.poster_path === null
-                  ? noMovieImage
-                  : "https://image.tmdb.org/t/p/w300" + cast.poster_path
-              }
-              title={cast.original_title}
-              year={
-                cast.character && cast.release_date
-                  ? `${cast.character} (${cast.release_date.slice(0, 4)})`
-                  : cast.character
-                  ? cast.character
-                  : cast.release_date
-                  ? `(${cast.release_date.slice(0, 4)})`
-                  : ""
-              }
-              type={movieTypesData
-                .filter((movieType) => cast.genre_ids.includes(movieType.id))
-                .map((movieType) => movieType.name)
-                .slice(0, numberOfMovieTypes)}
-              rate={cast.vote_average.toFixed(1).toString().replace(".", ",")}
-              votes={cast.vote_count}
-            />
-          </MoviePageLink>
-        ))}
-      </TilesContainer>
+      {personDetailsData.movie_credits.cast.length > 0 && (
+        <>
+          <TilesHeader>Movies - cast ({numberOfTiles})</TilesHeader>
+          <TilesContainer>
+            {personDetailsData.movie_credits.cast.map((cast) => (
+              <MoviePageLink
+                to={`/movies/${cast.id}`}
+                onClick={() => dispatch(fetchMovieId(cast.id))}
+                key={nanoid()}
+              >
+                <MovieTile
+                  key={nanoid()}
+                  image={
+                    cast.poster_path === null
+                      ? noMovieImage
+                      : "https://image.tmdb.org/t/p/w300" + cast.poster_path
+                  }
+                  title={cast.original_title}
+                  year={
+                    cast.character && cast.release_date
+                      ? `${cast.character} (${cast.release_date.slice(0, 4)})`
+                      : cast.character
+                      ? cast.character
+                      : cast.release_date
+                      ? `(${cast.release_date.slice(0, 4)})`
+                      : ""
+                  }
+                  type={movieTypesData
+                    .filter((movieType) =>
+                      cast.genre_ids.includes(movieType.id)
+                    )
+                    .map((movieType) => movieType.name)
+                    .slice(0, numberOfMovieTypes)}
+                  rate={cast.vote_average
+                    .toFixed(1)
+                    .toString()
+                    .replace(".", ",")}
+                  votes={cast.vote_count}
+                />
+              </MoviePageLink>
+            ))}
+          </TilesContainer>
+        </>
+      )}
     </>
   );
 };
