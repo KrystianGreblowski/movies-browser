@@ -10,7 +10,7 @@ import noMovieImage from "../../images/no-movie-image.png";
 import { fetchMovieId } from "../MoviePage/movieDetailsSlice";
 import { usePopularMoviesData } from "./usePopularMoviesData";
 import { useCurrentPage } from "./useCurrentPage";
-import { useMovieTypesData } from "./useMovieTypesData";
+import { useMovieTypesData } from "../../api/useMovieTypesData";
 import { toMainPage } from "../../core/routes";
 
 const MainPage = () => {
