@@ -13,10 +13,12 @@ import {
   toMoviesSearch,
   toPeopleSearch,
   toPersonList,
+  toPersonDetails,
 } from "./routes";
 import MoviePage from "../features/MoviePage";
 import ScrollToTop from "../common/ScrollToTop";
 import SearchResults from "../features/SearchResults";
+import PersonDetails from "../features/PersonDetails";
 
 function App() {
   return (
@@ -42,6 +44,10 @@ function App() {
 
         <Route path={toPersonList()}>
           <PersonList />
+        </Route>
+
+        <Route path={toPersonDetails()}>
+          <PersonDetails />
         </Route>
 
         <Route path="/">
