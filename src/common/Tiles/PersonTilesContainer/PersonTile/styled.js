@@ -13,6 +13,11 @@ export const Tile = styled.div`
   justify-content: flex-start;
   padding: 16px;
 
+  &:hover {
+    transition: 0.3s;
+    transform: scale(105%);
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     max-width: 136px;
     padding: 8px;
