@@ -11,9 +11,8 @@ export const useCurrentPage = () => {
   const currentPage = useSelector(selectCurrentPage);
 
   useEffect(() => {
-    currentPage === 1
-      ? history.replace(`${toMainPage()}`)
-      : history.replace(`${toMainPage()}/page/${currentPage}`);
+    const pageQueryParameter = currentPage === 1 ? "" : `?page=${currentPage}`;
+    history.replace(`${toMainPage()}${pageQueryParameter}`);
   }, [currentPage, history]);
 
   useEffect(() => {
