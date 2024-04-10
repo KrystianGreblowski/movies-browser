@@ -3,6 +3,7 @@ import { watchFetchPopularMoviesPageNumberForApi } from "../features/MainPage/po
 import { watchFetchPopularPeoplePageNumberForApi } from "../features/PersonList/popularPeopleSaga";
 import { watchFetchMovieId } from "../features/MoviePage/movieDetailsSaga";
 import { watchFetchMovieDetailsSuccess } from "../features/MoviePage/localStorageSaga";
+import { watchFetchPersonId } from "../features/PersonDetails/personDetailsSaga";
 
 export default function* rootSaga() {
   yield all([
@@ -10,5 +11,6 @@ export default function* rootSaga() {
     watchFetchPopularPeoplePageNumberForApi(),
     watchFetchMovieId(),
     watchFetchMovieDetailsSuccess(),
+    watchFetchPersonId(),
   ]);
 }

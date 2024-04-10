@@ -1,47 +1,50 @@
-import { CrewContainer, CrewTitle } from "./styled";
+import { useSelector } from "react-redux";
+import { nanoid } from "nanoid";
 import { MovieTile } from "../../../common/Tiles/MovieTilesContainer/MovieTile/index";
-import posterMovie from "../../../images/poster-movie.png";
+import noMovieImage from "../../../images/no-movie-image.png";
 import { TilesContainer } from "../../../common/Tiles/MovieTilesContainer/styled";
+import { TilesHeader } from "../../../common/Tiles/TilesHeader/styled";
+import { selectPersonDetailsData } from "../personDetailsSlice";
+import { useMovieTypesData } from "../../../api/useMovieTypesData";
 
 const Crew = () => {
+  const personDetailsData = useSelector(selectPersonDetailsData);
+  const { movieTypesData, numberOfMovieTypes } = useMovieTypesData();
+
+  const numberOfTiles = personDetailsData?.movie_credits?.crew?.length || 0;
+
   return (
-    <CrewContainer>
-      <CrewTitle>Movies - cast (4)</CrewTitle>
+    <>
+      <TilesHeader>Movies - crew ({numberOfTiles})</TilesHeader>
       <TilesContainer>
-        <MovieTile
-          image={posterMovie}
-          title={"Mulan"}
-          year={"2024"}
-          type={["Action", "Sci-Fi"]}
-          rate={"9.5"}
-          votes={"105"}
-        />
-        <MovieTile
-          image={posterMovie}
-          title={"Mulan"}
-          year={"2024"}
-          type={["Action", "Sci-Fi"]}
-          rate={"9.5"}
-          votes={"105"}
-        />
-        <MovieTile
-          image={posterMovie}
-          title={"Mulan"}
-          year={"2024"}
-          type={["Action", "Sci-Fi"]}
-          rate={"9.5"}
-          votes={"105"}
-        />
-        <MovieTile
-          image={posterMovie}
-          title={"Mulan"}
-          year={"2024"}
-          type={["Action", "Sci-Fi"]}
-          rate={"9.5"}
-          votes={"105"}
-        />
+        {personDetailsData.movie_credits.crew.map((crew) => (
+          <MovieTile
+            key={nanoid()}
+            image={
+              crew.poster_path === null
+                ? noMovieImage
+                : "https://image.tmdb.org/t/p/w300" + crew.poster_path
+            }
+            title={crew.original_title}
+            year={
+              crew.character && crew.release_date
+                ? `${crew.character} (${crew.release_date.slice(0, 4)})`
+                : crew.character
+                ? crew.character
+                : crew.release_date
+                ? `(${crew.release_date.slice(0, 4)})`
+                : ""
+            }
+            type={movieTypesData
+              .filter((movieType) => crew.genre_ids.includes(movieType.id))
+              .map((movieType) => movieType.name)
+              .slice(0, numberOfMovieTypes)}
+            rate={crew.vote_average.toFixed(1).toString().replace(".", ",")}
+            votes={crew.vote_count}
+          />
+        ))}
       </TilesContainer>
-    </CrewContainer>
+    </>
   );
 };
 

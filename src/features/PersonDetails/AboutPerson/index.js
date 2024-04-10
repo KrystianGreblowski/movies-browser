@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import {
   AboutPersonContainer,
   BirthDetails,
@@ -9,31 +10,42 @@ import {
   Span,
   SpanInfo,
 } from "./styled";
-import personImage from "../../../images/PersonImage.png";
+import { selectPersonDetailsData } from "../personDetailsSlice";
+import noPersonImage from "../../../images/no-person-profile-image.png";
 
 const AboutPerson = () => {
+  const personDetailsData = useSelector(selectPersonDetailsData);
+
   return (
     <AboutPersonContainer>
-      <PersonImage src={personImage} alt="Example Person Image" />
+      <PersonImage
+        src={
+          personDetailsData.profile_path === null
+            ? noPersonImage
+            : "http://image.tmdb.org/t/p/h632" + personDetailsData.profile_path
+        }
+        alt={personDetailsData.name}
+      />
+
       <PersonDescription>
-        <Caption>Liu Yifei</Caption>
+        <Caption>{personDetailsData.name}</Caption>
+
         <Details>
           <BirthDetails>
             <Span>Date of birth: </Span>
-            <SpanInfo>25.08.1987</SpanInfo>
+            <SpanInfo>
+              {personDetailsData.birthday.split("-").reverse().join(".")}
+            </SpanInfo>
           </BirthDetails>
+
           <BirthDetails>
             <Span>Place of birth: </Span>
-            <SpanInfo>Wuhan, Hubei, China</SpanInfo>
+            <SpanInfo>{personDetailsData.place_of_birth}</SpanInfo>
           </BirthDetails>
         </Details>
       </PersonDescription>
-      <PersonInformation>
-        Liu Yifei was born in Wuhan, Hubei, Province of China on August 25th,
-        1987. She began modeling at the age of 8 and was trained in singing,
-        dancing and the piano. Moving to the United States at 10 with her
-        mother, Liu lived there for four years.
-      </PersonInformation>
+
+      <PersonInformation>{personDetailsData.biography}</PersonInformation>
     </AboutPersonContainer>
   );
 };
