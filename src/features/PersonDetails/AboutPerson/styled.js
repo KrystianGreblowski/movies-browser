@@ -34,7 +34,7 @@ export const PersonImage = styled.img`
   height: auto;
   object-fit: cover;
   border-radius: 5px;
-  grid-row: span 2;
+  grid-row: span 4;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     max-width: 250px;
@@ -54,11 +54,11 @@ export const PersonDescription = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   margin-top: 8px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
-    justify-content: start;
+    grid-column: span 2;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
@@ -162,9 +162,10 @@ export const PersonInformation = styled.p`
   line-height: 32px;
   margin: 0;
   text-align: justify;
+  grid-row: span 2;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
-    grid-column: span 2;
+    grid-column: span 3;
     font-size: 18px;
     line-height: 24px;
   }
