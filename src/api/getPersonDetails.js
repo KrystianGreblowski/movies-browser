@@ -8,7 +8,5 @@ export const getPersonDetails = async (personId) => {
 
   const response = await axios.get(apiUrl);
 
-  console.log(response.data);
-
   return response.data;
 };
