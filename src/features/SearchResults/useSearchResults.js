@@ -24,6 +24,7 @@ export const useSearchResults = () => {
 
   useEffect(() => {
     replaceQueryParameter({ key: "page", value: currentPage });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage]);
 
   useEffect(() => {
