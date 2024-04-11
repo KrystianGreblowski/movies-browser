@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const AboutPersonContainer = styled.div`
   display: grid;
@@ -36,6 +36,12 @@ export const PersonImage = styled.img`
   border-radius: 5px;
   grid-row: span 4;
 
+  ${({ $longPersonInformation }) =>
+    $longPersonInformation &&
+    css`
+      grid-row: auto;
+    `}
+
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     max-width: 250px;
     grid-row: auto;
@@ -56,6 +62,12 @@ export const PersonDescription = styled.div`
   gap: 24px;
   justify-content: flex-start;
   margin-top: 8px;
+
+  ${({ $longPersonInformation }) =>
+    $longPersonInformation &&
+    css`
+      grid-column: span 2;
+    `}
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     grid-column: span 2;
@@ -163,6 +175,12 @@ export const PersonInformation = styled.p`
   margin: 0;
   text-align: justify;
   grid-row: span 2;
+
+  ${({ $longPersonInformation }) =>
+    $longPersonInformation &&
+    css`
+      grid-column: span 3;
+    `}
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     grid-column: span 3;

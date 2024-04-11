@@ -15,10 +15,12 @@ import noPersonImage from "../../../images/no-person-profile-image.png";
 
 const AboutPerson = () => {
   const personDetailsData = useSelector(selectPersonDetailsData);
+  const isPersonInfomationLong = personDetailsData.biography.length > 1050;
 
   return (
     <AboutPersonContainer>
       <PersonImage
+        $longPersonInformation={isPersonInfomationLong}
         src={
           personDetailsData.profile_path === null
             ? noPersonImage
@@ -27,7 +29,7 @@ const AboutPerson = () => {
         alt={personDetailsData.name}
       />
 
-      <PersonDescription>
+      <PersonDescription $longPersonInformation={isPersonInfomationLong}>
         <Caption>{personDetailsData.name}</Caption>
 
         <Details>
@@ -45,7 +47,9 @@ const AboutPerson = () => {
         </Details>
       </PersonDescription>
 
-      <PersonInformation>{personDetailsData.biography}</PersonInformation>
+      <PersonInformation $longPersonInformation={isPersonInfomationLong}>
+        {personDetailsData.biography}
+      </PersonInformation>
     </AboutPersonContainer>
   );
 };
