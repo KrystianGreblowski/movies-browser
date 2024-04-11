@@ -1,8 +1,8 @@
 import { nanoid } from "nanoid";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Pagination from "../../common/Pagination";
 import PersonTile from "../../common/Tiles/PersonTilesContainer/PersonTile";
-import { Container } from "./styled";
+import { Container, PersonPageLink } from "./styled";
 import { PersonTilesContainer } from "../../common/Tiles/PersonTilesContainer/styled";
 import { TilesHeader } from "../../common/Tiles/TilesHeader/styled";
 import { selectPopularPeopleStatus } from "./popularPeopleSlice";
@@ -10,8 +10,10 @@ import noPersonImage from "../../images/no-person-image.png";
 import { useCurrentPage } from "./useCurrentPage";
 import { usePopularPeopleData } from "./usePopularPeopleData";
 import { toPersonList } from "../../core/routes";
+import { fetchPersonId } from "../PersonDetails/personDetailsSlice";
 
 const PersonList = () => {
+  const dispatch = useDispatch();
   const popularPeopleStatus = useSelector(selectPopularPeopleStatus);
   const popularPeopleData = usePopularPeopleData();
   const currentPage = useCurrentPage();
@@ -25,17 +27,23 @@ const PersonList = () => {
           <TilesHeader>Popular people</TilesHeader>
 
           <PersonTilesContainer>
-            {popularPeopleData.map((popularPeople) => (
-              <PersonTile
+            {popularPeopleData.map((popularPerson) => (
+              <PersonPageLink
+                to={`/people/${popularPerson.id}`}
+                onClick={() => dispatch(fetchPersonId(popularPerson.id))}
                 key={nanoid()}
-                image={
-                  popularPeople.profile_path === null
-                    ? noPersonImage
-                    : "https://image.tmdb.org/t/p/w185" +
-                      popularPeople.profile_path
-                }
-                name={popularPeople.name}
-              />
+              >
+                <PersonTile
+                  key={nanoid()}
+                  image={
+                    popularPerson.profile_path === null
+                      ? noPersonImage
+                      : "https://image.tmdb.org/t/p/w185" +
+                        popularPerson.profile_path
+                  }
+                  name={popularPerson.name}
+                />
+              </PersonPageLink>
             ))}
           </PersonTilesContainer>
 
