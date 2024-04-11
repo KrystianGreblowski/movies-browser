@@ -9,7 +9,7 @@ import { selectPopularPeopleStatus } from "./popularPeopleSlice";
 import noPersonImage from "../../images/no-person-image.png";
 import { useCurrentPage } from "./useCurrentPage";
 import { usePopularPeopleData } from "./usePopularPeopleData";
-import { toPersonList } from "../../core/routes";
+import { toPersonDetails } from "../../core/routes";
 import { fetchPersonId } from "../PersonDetails/personDetailsSlice";
 
 const PersonList = () => {
@@ -29,7 +29,7 @@ const PersonList = () => {
           <PersonTilesContainer>
             {popularPeopleData.map((popularPerson) => (
               <PersonPageLink
-                to={`/people/${popularPerson.id}`}
+                to={`${toPersonDetails()}/${popularPerson.id}`}
                 onClick={() => dispatch(fetchPersonId(popularPerson.id))}
                 key={nanoid()}
               >
@@ -51,7 +51,6 @@ const PersonList = () => {
             currentPage={currentPage}
             minPageLimit={1}
             maxPageLimit={500}
-            url={toPersonList()}
           />
         </Container>
       ) : (
