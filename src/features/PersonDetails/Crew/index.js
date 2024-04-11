@@ -8,6 +8,7 @@ import { selectPersonDetailsData } from "../personDetailsSlice";
 import { useMovieTypesData } from "../../../api/useMovieTypesData";
 import { fetchMovieId } from "../../MoviePage/movieDetailsSlice";
 import { MoviePageLink } from "../../../common/MoviePageLink/styled";
+import { toMovieDetails } from "../../../core/routes";
 
 const Crew = () => {
   const dispatch = useDispatch();
@@ -24,7 +25,7 @@ const Crew = () => {
           <TilesContainer>
             {personDetailsData.movie_credits.crew.map((crew) => (
               <MoviePageLink
-                to={`/movies/${crew.id}`}
+                to={`${toMovieDetails()}/${crew.id}`}
                 onClick={() => dispatch(fetchMovieId(crew.id))}
                 key={nanoid()}
               >
