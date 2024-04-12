@@ -36,7 +36,8 @@ const AboutPerson = () => {
           <BirthDetails>
             <Span>Date of birth: </Span>
             <SpanInfo>
-              {personDetailsData.birthday.split("-").reverse().join(".")}
+              {personDetailsData.birthday &&
+                personDetailsData.birthday.split("-").reverse().join(".")}
             </SpanInfo>
           </BirthDetails>
 
