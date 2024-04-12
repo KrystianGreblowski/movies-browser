@@ -27,7 +27,7 @@ function* fetchPopularPeopleHandler({ payload: pageNumber }) {
       fifthPageFromApi,
       sixthPageFromApi
     );
-      yield delay(400)
+      yield delay(500)
     yield put(fetchPopularPeopleSuccess(popularPeopleData));
   } catch (error) {
     yield put(fetchPopularPeopleError());

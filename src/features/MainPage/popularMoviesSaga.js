@@ -20,7 +20,7 @@ function* fetchPopularMoviesHandler({ payload: pageNumber }) {
     const popularMoviesData = popularMoviesFirstPageFromApi.concat(
       popularMoviesSecondPageFromApi
     );
-    yield delay(200);
+    yield delay(500);
     yield put(fetchPopularMoviesSuccess(popularMoviesData));
   } catch (error) {
     yield put(fetchPopularMoviesError());
