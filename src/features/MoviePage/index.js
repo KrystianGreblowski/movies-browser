@@ -1,14 +1,17 @@
 import Banner from "./Banner";
 import Content from "./Content";
 import { Container } from "./styled";
+import ErrorLoadingHandlingWrapper from "./ErrorLoadingHandlingWrapper";
 
 function MoviePage() {
   
   return (
-    <Container>
-      <Banner />
-      <Content />
-    </Container>
+    <ErrorLoadingHandlingWrapper>
+      <Container>
+        <Banner />
+        <Content />
+      </Container>
+    </ErrorLoadingHandlingWrapper>
   );
 }
 
