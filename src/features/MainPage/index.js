@@ -30,11 +30,9 @@ const MainPage = () => {
   useEffect(() => {
     const pageQueryParameter = currentPage === 1 ? "" : `?page=${currentPage}`;
     history.replace(`${toMainPage()}${pageQueryParameter}`);
-  }, [currentPage, history]);
 
-  useEffect(() => {
     dispatch(fetchPopularMoviesPageNumberForApi(currentPage));
-  }, [currentPage, dispatch]);
+  }, [currentPage, history, dispatch]);
 
   return (
     <>
