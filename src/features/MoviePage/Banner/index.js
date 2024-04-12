@@ -1,5 +1,4 @@
 import {
-  LoadingBanner,
   ImagesWrapper,
   PosterContainer,
   Poster,
@@ -18,17 +17,22 @@ import {
   selectMovieDetailsData,
   selectMovieDetailsStatus,
 } from "../movieDetailsSlice";
+import ErrorPage from "../../../common/ErrorPage";
+import { useState } from "react";
 
 const Banner = () => {
+  const [errorShown, setErrorShown] = useState(false);
   const movieDetailsData = useSelector(selectMovieDetailsData);
   const movieDetailsStatus = useSelector(selectMovieDetailsStatus);
-
+  if (movieDetailsStatus === "error" || !movieDetailsData) {
+    if (!errorShown) {
+      setErrorShown(true);
+      return <ErrorPage />;
+    }
+    return null;
+  }
   return (
-    <>
-      {movieDetailsStatus === "loading" ? (
-        <LoadingBanner />
-      ) : movieDetailsStatus === "success" ? (
-        <PosterContainer>
+            <PosterContainer>
           <ImagesWrapper>
             <StyledPoster>
               <Poster
@@ -55,10 +59,7 @@ const Banner = () => {
             </TitleWrapper>
           </ImagesWrapper>
         </PosterContainer>
-      ) : (
-        "ErrorPage"
-      )}
-    </>
+      
   );
 };
 

@@ -25,19 +25,16 @@ import {
   selectMovieDetailsStatus,
 } from "../../movieDetailsSlice";
 import noMovieImage from "../../../../images/no-movie-image.png";
+import ErrorPage from "../../../../common/ErrorPage";
 
 const MainInfo = () => {
   const movieDetailsData = useSelector(selectMovieDetailsData);
   const movieDetailsStatus = useSelector(selectMovieDetailsStatus);
   const numberOfMovieTypes = 3;
-
+  if (movieDetailsStatus === "error" || !movieDetailsData) {
+    return <ErrorPage />;}
   return (
-    <>
-      {movieDetailsStatus === "loading" ? (
-        <Container>
-          <Post src={noMovieImage} alt={"No Movie Image"} />
-        </Container>
-      ) : movieDetailsStatus === "success" ? (
+    
         <Container>
           <Post
             src={
@@ -96,10 +93,7 @@ const MainInfo = () => {
 
           <Information>{movieDetailsData.overview}</Information>
         </Container>
-      ) : (
-        "ErrorPage"
-      )}
-    </>
+      
   );
 };
 

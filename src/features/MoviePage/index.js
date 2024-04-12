@@ -3,6 +3,7 @@ import Content from "./Content";
 import { Container } from "./styled";
 
 function MoviePage() {
+  
   return (
     <Container>
       <Banner />

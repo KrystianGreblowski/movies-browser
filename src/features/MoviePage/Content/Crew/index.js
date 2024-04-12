@@ -8,32 +8,25 @@ import {
   selectMovieDetailsData,
   selectMovieDetailsStatus,
 } from "../../movieDetailsSlice";
+import ErrorPage from "../../../../common/ErrorPage";
+import { useState } from "react";
 
 const Crew = () => {
+  const [errorShown, setErrorShown] = useState(false);
   const movieDetailsData = useSelector(selectMovieDetailsData);
   const movieDetailsStatus = useSelector(selectMovieDetailsStatus);
 
   const imageBaseUrl = "https://image.tmdb.org/t/p/w185";
   const maxNumberOfTiles = 12;
-
+  if (movieDetailsStatus === "error" || !movieDetailsData) {
+    if (!errorShown) {
+      setErrorShown(true);
+      return <ErrorPage />;
+    }
+    return null;
+  }
   return (
-    <>
-      {movieDetailsStatus === "loading" ? (
-        <>
-          <TilesHeader>Crew</TilesHeader>
-          <PersonTilesContainer>
-            {[...Array(maxNumberOfTiles)].map(() => (
-              <PersonTile
-                key={nanoid()}
-                image={noPersonImage}
-                name=""
-                extraInfo=""
-              />
-            ))}
-          </PersonTilesContainer>
-        </>
-      ) : movieDetailsStatus === "success" ? (
-        <>
+            <>
           <TilesHeader>Crew</TilesHeader>
           <PersonTilesContainer>
             {movieDetailsData.credits.crew
@@ -52,10 +45,7 @@ const Crew = () => {
               ))}
           </PersonTilesContainer>
         </>
-      ) : (
-        "ErrorPage"
-      )}
-    </>
+      
   );
 };
 
