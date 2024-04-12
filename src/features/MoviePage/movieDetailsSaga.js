@@ -9,7 +9,7 @@ import { getMovieDetails } from "../../api/getMovieDetails";
 function* fetchMovieDetailsHandler({ payload: movieId }) {
   try {
     const movieDetails = yield call(getMovieDetails, movieId);
-    yield delay(400);
+    yield delay(500);
     yield put(fetchMovieDetailsSuccess(movieDetails));
   } catch (error) {
     yield put(fetchMovieDetailsError());
