@@ -10,7 +10,6 @@ import { selectPopularPeopleStatus } from "./popularPeopleSlice";
 import noPersonImage from "../../images/no-person-image.png";
 import { useCurrentPage } from "./useCurrentPage";
 import { usePopularPeopleData } from "./usePopularPeopleData";
-import { toPersonList } from "../../core/routes";
 import LoadingPage from "../../common/LoadingPage";
 import ErrorPage from "../../common/ErrorPage";
 import { toPersonDetails } from "../../core/routes";
