@@ -56,17 +56,7 @@ const MainPage = () => {
               </MoviePageLink>
             ))}
           </TilesContainer>
-            <Pagination
-              currentPage={currentPage}
-              minPageLimit={1}
-              maxPageLimit={400}
-              url={toMainPage()}
-            />
-          </Container>
-        ) : (
-          ""
-        )}
-      </>
+        </>
         <Pagination
           currentPage={currentPage}
           minPageLimit={1}
