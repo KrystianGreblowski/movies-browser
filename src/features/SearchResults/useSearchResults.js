@@ -10,7 +10,7 @@ import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
 
 export const useSearchResults = () => {
   const query = useQueryParameter("search");
-  const apiKey = "5b5837d1c9bb80f117b57d1d4ef3d375";
+  const apiKey = "41ffdcbc63d2d58e19c2ae7bdcfaef4d";
   const location = useLocation();
   const isMoviesPage = location.pathname.startsWith("/movies");
   const currentPage = useSelector(selectCurrentPage);
@@ -46,7 +46,7 @@ export const useSearchResults = () => {
           console.log(error.message);
         }
       }
-    }, 300);
+    }, 500);
     return () => clearTimeout(debounce);
   }, [query, isMoviesPage, currentPage]);
 

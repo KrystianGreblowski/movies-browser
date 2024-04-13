@@ -27,7 +27,7 @@ const Banner = () => {
     <>
       {movieDetailsStatus === "loading" ? (
         <LoadingBanner />
-      ) : movieDetailsStatus === "success" ? (
+      ) : (
         <PosterContainer>
           <ImagesWrapper>
             <StyledPoster>
@@ -55,8 +55,6 @@ const Banner = () => {
             </TitleWrapper>
           </ImagesWrapper>
         </PosterContainer>
-      ) : (
-        "ErrorPage"
       )}
     </>
   );

@@ -18,7 +18,7 @@ export const StyledDanger = styled(Danger)`
   }
 `;
 
-export const ErrorMasege = styled.div`
+export const ErrorMessage = styled.div`
   width: 90%;
   margin: auto;
   display: flex;

@@ -12,5 +12,4 @@ const Content = () => {
     </MoviesContainer>
   );
 };
-
 export default Content;
