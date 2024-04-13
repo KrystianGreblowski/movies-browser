@@ -228,6 +228,7 @@ export const RateMax = styled.p`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
     font-size: 11px;
+    padding:0;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
