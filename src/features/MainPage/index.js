@@ -1,6 +1,6 @@
 import { nanoid } from "nanoid";
 import { useSelector, useDispatch } from "react-redux";
-import { Container, MoviePageLink } from "./styled";
+import { Container } from "./styled";
 import { TilesContainer } from "../../common/Tiles/MovieTilesContainer/styled";
 import { TilesHeader } from "../../common/Tiles/TilesHeader/styled";
 import { MovieTile } from "../../common/Tiles/MovieTilesContainer/MovieTile";
@@ -14,6 +14,8 @@ import { useCurrentPage } from "./useCurrentPage";
 import { useMovieTypesData } from "./useMovieTypesData";
 import ErrorPage from "../../common/ErrorPage";
 import LoadingPage from "../../common/LoadingPage";
+import { toMovieDetails } from "../../core/routes";
+import { MoviePageLink } from "../../common/MoviePageLink/styled";
 
 const MainPage = () => {
   const dispatch = useDispatch();
@@ -32,7 +34,7 @@ const MainPage = () => {
           <TilesContainer>
             {popularMoviesData.map((popularMovie) => (
               <MoviePageLink
-                to={`/movies/${popularMovie.id}`}
+                to={`${toMovieDetails()}/${popularMovie.id}`}
                 onClick={() => dispatch(fetchMovieId(popularMovie.id))}
                 key={nanoid()}
               >
@@ -63,8 +65,7 @@ const MainPage = () => {
           <Pagination
             currentPage={currentPage}
             minPageLimit={1}
-            maxPageLimit={400}
-            url={toMainPage()}
+            maxPageLimit={500}
           />
         </Container>
       ) : (
