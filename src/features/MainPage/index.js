@@ -9,7 +9,11 @@ import { selectPopularMoviesStatus } from "./popularMoviesSlice";
 import noMovieImage from "../../images/no-movie-image.png";
 import { fetchMovieId } from "../MoviePage/movieDetailsSlice";
 import { usePopularMoviesData } from "./usePopularMoviesData";
-@@ -15,62 +14,52 @@ import { toMainPage } from "../../core/routes";
+import { toMainPage } from "../../core/routes";
+import { useCurrentPage } from "./useCurrentPage";
+import { useMovieTypesData } from "./useMovieTypesData";
+import ErrorPage from "../../common/ErrorPage";
+import LoadingPage from "../../common/LoadingPage";
 
 const MainPage = () => {
   const dispatch = useDispatch();
@@ -21,11 +25,11 @@ const MainPage = () => {
   return (
     <>
       {popularMoviesStatus === "loading" ? (
-        ""
+        <LoadingPage/>
       ) : popularMoviesStatus === "success" ? (
         <Container>
           <TilesHeader>Popular movies</TilesHeader>
-             <TilesContainer>
+          <TilesContainer>
             {popularMoviesData.map((popularMovie) => (
               <MoviePageLink
                 to={`/movies/${popularMovie.id}`}
@@ -56,13 +60,17 @@ const MainPage = () => {
               </MoviePageLink>
             ))}
           </TilesContainer>
-               <Pagination
-          currentPage={currentPage}
-          minPageLimit={1}
-          maxPageLimit={400}
-          url={toMainPage()}
-        />
-        </>
-       </Container>
+          <Pagination
+            currentPage={currentPage}
+            minPageLimit={1}
+            maxPageLimit={400}
+            url={toMainPage()}
+          />
+        </Container>
+      ) : (
+        <ErrorPage />
+      )}
+    </>
   );
 };
+export default MainPage;
