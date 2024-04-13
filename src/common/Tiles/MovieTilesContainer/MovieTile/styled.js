@@ -12,6 +12,11 @@ export const Tile = styled.div`
   border-radius: 5px;
   text-align: left;
 
+  &:hover {
+    transition: 0.3s;
+    transform: scale(105%);
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     grid-template-columns: auto 1fr;
     max-width: 360px;

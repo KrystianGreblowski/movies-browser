@@ -8,18 +8,21 @@ import {
 
 function* fetchPopularMoviesHandler({ payload: pageNumber }) {
   try {
-    const popularMoviesFirstPageFromApi = yield call(
-      getPopularMovies,
-      pageNumber
-    );
-    const popularMoviesSecondPageFromApi = yield call(
-      getPopularMovies,
-      pageNumber + 1
-    );
+    const numberOfPagesToGetFromApi = 2;
+    const highestNumberOfPageToGetFromApi =
+      pageNumber + numberOfPagesToGetFromApi - 1;
+    let pageNumberForApi = pageNumber;
+    let popularMoviesData = [];
 
-    const popularMoviesData = popularMoviesFirstPageFromApi.concat(
-      popularMoviesSecondPageFromApi
-    );
+    for (
+      pageNumberForApi;
+      pageNumberForApi <= highestNumberOfPageToGetFromApi;
+      pageNumberForApi++
+    ) {
+      let dataFromApi = yield call(getPopularMovies, pageNumberForApi);
+      popularMoviesData = popularMoviesData.concat(dataFromApi);
+    }
+
     yield delay(500);
     yield put(fetchPopularMoviesSuccess(popularMoviesData));
   } catch (error) {
