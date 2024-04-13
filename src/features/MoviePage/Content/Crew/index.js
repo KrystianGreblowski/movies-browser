@@ -23,16 +23,22 @@ const Crew = () => {
         {movieDetailsData.credits.crew
           .slice(0, maxNumberOfTiles)
           .map((crew) => (
-            <PersonTile
+            <PersonPageLink
+              to={`${toPersonDetails()}/${crew.id}`}
+              onClick={() => dispatch(fetchPersonId(crew.id))}
               key={nanoid()}
-              image={
-                crew.profile_path === null
-                  ? noPersonImage
-                  : imageBaseUrl + crew.profile_path
-              }
-              name={crew.name}
-              extraInfo={crew.job}
-            />
+            >
+              <PersonTile
+                key={nanoid()}
+                image={
+                  crew.profile_path === null
+                    ? noPersonImage
+                    : imageBaseUrl + crew.profile_path
+                }
+                name={crew.name}
+                extraInfo={crew.job}
+              />
+            </PersonPageLink>
           ))}
       </PersonTilesContainer>
     </>

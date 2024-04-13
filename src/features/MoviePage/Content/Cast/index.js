@@ -23,16 +23,22 @@ const Cast = () => {
         {movieDetailsData.credits.cast
           .slice(0, maxNumberOfTiles)
           .map((cast) => (
-            <PersonTile
+            <PersonPageLink
+              to={`${toPersonDetails()}/${cast.id}`}
+              onClick={() => dispatch(fetchPersonId(cast.id))}
               key={nanoid()}
-              image={
-                cast.profile_path === null
-                  ? noPersonImage
-                  : imageBaseUrl + cast.profile_path
-              }
-              name={cast.name}
-              extraInfo={cast.character}
-            />
+            >
+              <PersonTile
+                key={nanoid()}
+                image={
+                  cast.profile_path === null
+                    ? noPersonImage
+                    : imageBaseUrl + cast.profile_path
+                }
+                name={cast.name}
+                extraInfo={cast.character}
+              />
+            </PersonPageLink>
           ))}
       </PersonTilesContainer>
     </>

@@ -5,7 +5,7 @@ import { TilesHeader } from "../../common/Tiles/TilesHeader/styled";
 import noMovieImage from "../../images/no-movie-image.png";
 import noPersonImage from "../../images/no-person-image.png";
 import LoadingPage from "../../common/LoadingPage";
-import { MovieTile } from "../../common/Tiles/MovieTilesContainer/SearchMovieTile";
+import { MovieTile } from "../../common/Tiles/MovieTilesContainer/MovieTile";
 import PersonsTile from "../../common/Tiles/PersonTilesContainer/PersonTile";
 import NoResults from "../../common/NoResults";
 import Error from "../../common/ErrorPage";
