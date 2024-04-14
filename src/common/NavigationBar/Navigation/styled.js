@@ -56,12 +56,11 @@ export const Caption = styled.h1`
   font-weight: 500;
   letter-spacing: -1.5px;
   width: max-content;
-  padding: 0;
-  
+  padding-top: 3px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     font-size: 20px;
-    padding-top: 3px;
+    padding-top: 0px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
@@ -77,7 +76,7 @@ export const List = styled.ul`
   padding: 0;
 `;
 
-export const MoviePageLink = styled(NavLink)`
+export const MoviesPageLink = styled(NavLink)`
   font-size: 14px;
   font-weight: 600;
   padding: 14px 24px;
@@ -106,7 +105,7 @@ export const MoviePageLink = styled(NavLink)`
   }
 `;
 
-export const PeoplePageLink = styled(MoviePageLink)`
+export const PeoplePageLink = styled(MoviesPageLink)`
   margin-left: 16px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {

@@ -4,6 +4,8 @@ import Cast from "./Cast";
 import Crew from "./Crew";
 import { selectPersonDetailsStatus } from "./personDetailsSlice";
 import { DetailsContainer } from "./styled";
+import LoadingPage from "../../common/LoadingPage";
+import ErrorLoadingHandlingWrapper from "./ErrorLoadingHandlingWrapper";
 
 function PersonDetails() {
   const personDetailsStatus = useSelector(selectPersonDetailsStatus);
@@ -11,16 +13,16 @@ function PersonDetails() {
   return (
     <>
       {personDetailsStatus === "loading" ? (
-        "LoadingPage"
-      ) : personDetailsStatus === "success" ? (
-        <DetailsContainer>
+        <LoadingPage />
+      ) : 
+        <ErrorLoadingHandlingWrapper>
+          <DetailsContainer>
           <AboutPerson />
           <Cast />
           <Crew />
         </DetailsContainer>
-      ) : (
-        "ErrorPage"
-      )}
+        </ErrorLoadingHandlingWrapper>
+      }
     </>
   );
 }
