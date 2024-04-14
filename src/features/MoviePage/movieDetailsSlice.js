@@ -7,10 +7,20 @@ export const movieDetailsSlice = createSlice({
   reducers: {
     fetchMovieId: (state, { payload: movieId }) => {
       state.movieId = movieId;
+    },
+    fetchMovieDetailsData: (state, { payload: movieDetailsData }) => {
+      state.data = movieDetailsData;
+    },
+    fetchMovieDetailsLoading: (state) => {
       state.status = "loading";
     },
-    fetchMovieDetailsSuccess: (state, { payload: movieDetailsData }) => {
-      state.data = movieDetailsData;
+    fetchMovieDetailsPlaceholders: (state) => {
+      state.status = "placeholders";
+    },
+    fetchBannerSuccess: (state) => {
+      state.status = "bannerSuccess";
+    },
+    fetchMovieDetailsSuccess: (state) => {
       state.status = "success";
     },
     fetchMovieDetailsError: (state) => {
@@ -20,6 +30,10 @@ export const movieDetailsSlice = createSlice({
 });
 
 export const {
+  fetchMovieDetailsData,
+  fetchMovieDetailsLoading,
+  fetchMovieDetailsPlaceholders,
+  fetchBannerSuccess,
   fetchMovieDetailsSuccess,
   fetchMovieDetailsError,
   fetchMovieId,
