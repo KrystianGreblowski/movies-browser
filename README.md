@@ -1,5 +1,5 @@
 # MOVIES BROWSER
-Welcome to our Movies Browser project! The Movies Browser project is created for the YouCode course, we have 4 weeks to complete the task. We work in Scrum, we save all tasks on Trello. The application is created based on a project in Figma.
+Welcome to our Movies Browser project! Project is created for the YouCode course, we have 4 weeks to complete the task. We work in Scrum, we save all tasks on Trello. The application is created based on a project in Figma.
 Discover countless movie titles. Immerse yourself in the richness of film art, browsing through various genres and thematic categories. Whether you're looking for new releases, classic masterpieces or hidden gems, our browser puts the fascinating world of film at your fingertips. Easily view videos on various devices - computer, smartphone or TV - wherever you are.
 
 ## Authors
