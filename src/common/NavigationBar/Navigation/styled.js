@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { ReactComponent as LogoIcon } from "../../../images/Video.svg";
 import { NavLink } from "react-router-dom/cjs/react-router-dom";
 
@@ -91,9 +91,14 @@ export const MoviesPageLink = styled(NavLink)`
     color: ${({ theme }) => theme.color.silver};
   }
 
-  &.active {
+  ${({ $moviesState }) =>
+    $moviesState &&
+    css`
+      border-color: ${({ theme }) => theme.color.white};
+    `}
+  /* &.active {
     border-color: ${({ theme }) => theme.color.white};
-  }
+  } */
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     font-size: 12px;
@@ -111,4 +116,10 @@ export const PeoplePageLink = styled(MoviesPageLink)`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     margin-left: 12px;
   }
+
+  ${({ $peopleState }) =>
+    $peopleState &&
+    css`
+      border-color: ${({ theme }) => theme.color.white};
+    `}
 `;
