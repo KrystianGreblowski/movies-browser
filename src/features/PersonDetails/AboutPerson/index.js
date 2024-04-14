@@ -1,5 +1,7 @@
 import { useSelector } from "react-redux";
 import {
+  AboutPersonContainerPlaceholder,
+  PersonImagePlaceholder,
   AboutPersonContainer,
   BirthDetails,
   Caption,
@@ -10,20 +12,31 @@ import {
   Span,
   SpanInfo,
 } from "./styled";
-import { selectPersonDetailsData } from "../personDetailsSlice";
-import noPersonImage from "../../../images/no-person-profile-image.png";
+import {
+  selectPersonDetailsData,
+  selectPersonDetailsStatus,
+} from "../personDetailsSlice";
+import noPersonProfileImage from "../../../images/no-person-profile-image.png";
 
 const AboutPerson = () => {
   const personDetailsData = useSelector(selectPersonDetailsData);
-  const isPersonInfomationLong = personDetailsData.biography.length > 1050;
+  const personDetailsStatus = useSelector(selectPersonDetailsStatus);
+  const isPersonInfomationLong = personDetailsData.biography.length > 1000;
 
-  return (
+  return personDetailsStatus === "placeholders" ? (
+    <AboutPersonContainerPlaceholder>
+      <PersonImagePlaceholder
+        src={noPersonProfileImage}
+        alt={"noPersonProfileImage"}
+      />
+    </AboutPersonContainerPlaceholder>
+  ) : (
     <AboutPersonContainer>
       <PersonImage
         $longPersonInformation={isPersonInfomationLong}
         src={
           personDetailsData.profile_path === null
-            ? noPersonImage
+            ? noPersonProfileImage
             : "http://image.tmdb.org/t/p/h632" + personDetailsData.profile_path
         }
         alt={personDetailsData.name}

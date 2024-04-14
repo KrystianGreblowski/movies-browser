@@ -14,15 +14,15 @@ function PersonDetails() {
     <>
       {personDetailsStatus === "loading" ? (
         <LoadingPage />
-      ) : 
+      ) : (
         <ErrorLoadingHandlingWrapper>
           <DetailsContainer>
-          <AboutPerson />
-          <Cast />
-          <Crew />
-        </DetailsContainer>
+            <AboutPerson />
+            <Cast />
+            <Crew />
+          </DetailsContainer>
         </ErrorLoadingHandlingWrapper>
-      }
+      )}
     </>
   );
 }

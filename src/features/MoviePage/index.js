@@ -2,7 +2,7 @@ import Banner from "./Banner";
 import Content from "./Content";
 import { Container } from "./styled";
 import LoadingPage from "../../common/LoadingPage";
-import ErrorLoadingHandlingWrapper from"./ErrorLoadingHandlingWrapper"
+import ErrorLoadingHandlingWrapper from "./ErrorLoadingHandlingWrapper";
 import { useSelector } from "react-redux";
 import { selectMovieDetailsStatus } from "./movieDetailsSlice";
 
@@ -13,14 +13,20 @@ function MoviePage() {
     <>
       {movieDetailsStatus === "loading" ? (
         <LoadingPage />
+      ) : movieDetailsStatus === "bannerSuccess" ? (
+        <ErrorLoadingHandlingWrapper>
+          <Container>
+            <Banner />
+          </Container>
+        </ErrorLoadingHandlingWrapper>
       ) : (
         <ErrorLoadingHandlingWrapper>
           <Container>
-          <Banner />
-          <Content />
-        </Container>
+            <Banner />
+            <Content />
+          </Container>
         </ErrorLoadingHandlingWrapper>
-      ) }
+      )}
     </>
   );
 }

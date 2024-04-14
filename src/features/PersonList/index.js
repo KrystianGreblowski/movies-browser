@@ -19,6 +19,7 @@ import ErrorPage from "../../common/ErrorPage";
 import { toPersonDetails, toPersonList } from "../../core/routes";
 import { fetchPersonId } from "../PersonDetails/personDetailsSlice";
 import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
+import PersonTilePlaceholder from "../../common/Tiles/PersonTilesContainer/PersonTilePlaceholder";
 
 const PersonList = () => {
   const dispatch = useDispatch();
@@ -38,6 +39,15 @@ const PersonList = () => {
     <>
       {popularPeopleStatus === "loading" ? (
         <LoadingPage />
+      ) : popularPeopleStatus === "placeholders" ? (
+        <Container>
+          <TilesHeader>Popular people</TilesHeader>
+          <PersonTilesContainer>
+            {popularPeopleData.map(() => (
+              <PersonTilePlaceholder image={noPersonImage} key={nanoid()} />
+            ))}
+          </PersonTilesContainer>
+        </Container>
       ) : popularPeopleStatus === "success" ? (
         <Container>
           <TilesHeader>Popular people</TilesHeader>
@@ -50,7 +60,6 @@ const PersonList = () => {
                 key={nanoid()}
               >
                 <PersonTile
-                  key={nanoid()}
                   image={
                     popularPerson.profile_path === null
                       ? noPersonImage

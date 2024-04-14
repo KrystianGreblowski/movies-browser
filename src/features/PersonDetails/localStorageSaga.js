@@ -10,7 +10,7 @@ function* savePersonDetailsInLocalStorageHandler() {
   yield call(savePersonDetailsInLocalStorage, personDetails);
 }
 
-export function* watchFetchPersoneDetailsSuccess() {
+export function* watchFetchPersonDetailsSuccess() {
   yield takeEvery(
     fetchPersonDetailsSuccess.type,
     savePersonDetailsInLocalStorageHandler

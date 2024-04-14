@@ -8,8 +8,16 @@ export const popularPeopleSlice = createSlice({
     status: "loading",
   },
   reducers: {
-    fetchPopularPeopleSuccess: (state, { payload: popularPeopleData }) => {
+    fetchPopularPeopleData: (state, { payload: popularPeopleData }) => {
       state.results = popularPeopleData;
+    },
+    fetchPopularPeopleLoading: (state) => {
+      state.status = "loading";
+    },
+    fetchPopularPeoplePlaceholders: (state) => {
+      state.status = "placeholders";
+    },
+    fetchPopularPeopleSuccess: (state) => {
       state.status = "success";
     },
     fetchPopularPeopleError: (state) => {
@@ -22,6 +30,9 @@ export const popularPeopleSlice = createSlice({
 });
 
 export const {
+  fetchPopularPeopleData,
+  fetchPopularPeopleLoading,
+  fetchPopularPeoplePlaceholders,
   fetchPopularPeopleSuccess,
   fetchPopularPeopleError,
   fetchPopularPeoplePageNumberForApi,

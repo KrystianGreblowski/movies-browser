@@ -1,5 +1,47 @@
 import styled, { css } from "styled-components";
 
+export const AboutPersonContainerPlaceholder = styled.div`
+  margin: 56px auto;
+  background-color: ${({ theme }) => theme.color.white};
+  padding: 40px;
+  box-shadow: 0px 4px 12px 0px #bac7d580;
+  border-radius: 5px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    padding: 32px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    padding: 24px;
+    margin: 32px auto;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
+    padding: 16px;
+    margin: 24px auto;
+  }
+`;
+
+export const PersonImagePlaceholder = styled.img`
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 5px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    max-width: 250px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    max-width: 180px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
+    max-width: 116px;
+  }
+`;
+
 export const AboutPersonContainer = styled.div`
   display: grid;
   grid-template-columns: auto 1fr;

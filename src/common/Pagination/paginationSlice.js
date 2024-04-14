@@ -8,8 +8,8 @@ export const paginationSlice = createSlice({
     maxPageLimit: 1,
   },
   reducers: {
-    initCurrentPage: (state, { payload: minPageLimit }) => {
-      state.currentPage = minPageLimit;
+    initCurrentPage: (state, { payload: currentPage }) => {
+      state.currentPage = currentPage;
     },
     initMinPageLimit: (state, { payload: minPageLimit }) => {
       state.minPageLimit = minPageLimit;
