@@ -9,7 +9,6 @@ import { selectMovieDetailsStatus } from "./movieDetailsSlice";
 function MoviePage() {
   const movieDetailsStatus = useSelector(selectMovieDetailsStatus);
 
-  console.log(movieDetailsStatus);
   return (
     <>
       {movieDetailsStatus === "loading" ? (
