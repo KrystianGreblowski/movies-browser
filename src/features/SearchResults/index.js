@@ -17,9 +17,11 @@ import { useGenres } from "./useGenres";
 import { useQueryParameter } from "../../common/NavigationBar/SearchBar/queryParameters";
 import Pagination from "../../common/Pagination";
 import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
-import { toMovieDetails } from "../../core/routes";
+import { toMovieDetails, toPersonDetails } from "../../core/routes";
 import { MoviePageLink } from "../../common/MoviePageLink/styled";
 import { fetchMovieId } from "../MoviePage/movieDetailsSlice";
+import { PersonPageLink } from "../../common/PersonPageLink/styled";
+import { fetchPersonId } from "../PersonDetails/personDetailsSlice";
 
 function SearchResults() {
   const dispatch = useDispatch();
@@ -108,16 +110,22 @@ function SearchResults() {
           </TilesHeader>
           <PersonTilesContainer>
             {search_list &&
-              search_list.map((popularPeople) => (
-                <PersonsTile
-                  key={popularPeople.id}
-                  image={
-                    popularPeople.profile_path === null
-                      ? noPersonImage
-                      : imageBaseUrlPerson + popularPeople.profile_path
-                  }
-                  name={popularPeople.original_name}
-                />
+              search_list.map((searchedPerson) => (
+                <PersonPageLink
+                  to={`${toPersonDetails()}/${searchedPerson.id}`}
+                  onClick={() => dispatch(fetchPersonId(searchedPerson.id))}
+                  key={nanoid()}
+                >
+                  <PersonsTile
+                    key={searchedPerson.id}
+                    image={
+                      searchedPerson.profile_path === null
+                        ? noPersonImage
+                        : imageBaseUrlPerson + searchedPerson.profile_path
+                    }
+                    name={searchedPerson.original_name}
+                  />
+                </PersonPageLink>
               ))}
           </PersonTilesContainer>
 
