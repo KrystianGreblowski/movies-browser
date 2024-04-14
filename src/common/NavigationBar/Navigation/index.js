@@ -1,15 +1,23 @@
+import { useDispatch } from "react-redux";
 import {
   Caption,
   Header,
   List,
   Logo,
-  MoviePageLink,
+  MoviesPageLink,
   PeoplePageLink,
   StyledNavigation,
 } from "./styled";
 import { toMainPage, toPersonList } from "../../../core/routes";
+import { goToFirstPage } from "../../Pagination/paginationSlice";
 
 const Navigation = () => {
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(goToFirstPage());
+  };
+
   return (
     <StyledNavigation>
       <Header to="/">
@@ -18,10 +26,14 @@ const Navigation = () => {
       </Header>
       <List>
         <li>
-          <MoviePageLink to={toMainPage()}>MOVIES</MoviePageLink>
+          <MoviesPageLink to={toMainPage()} onClick={handleClick}>
+            MOVIES
+          </MoviesPageLink>
         </li>
         <li>
-          <PeoplePageLink to={toPersonList()}>PEOPLE</PeoplePageLink>
+          <PeoplePageLink to={toPersonList()} onClick={handleClick}>
+            PEOPLE
+          </PeoplePageLink>
         </li>
       </List>
     </StyledNavigation>

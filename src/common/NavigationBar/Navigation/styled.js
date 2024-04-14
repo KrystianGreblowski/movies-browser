@@ -57,7 +57,6 @@ export const Caption = styled.h1`
   letter-spacing: -1.5px;
   width: max-content;
   padding: 0;
-  
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     font-size: 20px;
@@ -77,7 +76,7 @@ export const List = styled.ul`
   padding: 0;
 `;
 
-export const MoviePageLink = styled(NavLink)`
+export const MoviesPageLink = styled(NavLink)`
   font-size: 14px;
   font-weight: 600;
   padding: 14px 24px;
@@ -106,7 +105,7 @@ export const MoviePageLink = styled(NavLink)`
   }
 `;
 
-export const PeoplePageLink = styled(MoviePageLink)`
+export const PeoplePageLink = styled(MoviesPageLink)`
   margin-left: 16px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
