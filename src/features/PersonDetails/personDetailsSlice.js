@@ -7,10 +7,17 @@ export const personDetailsSlice = createSlice({
   reducers: {
     fetchPersonId: (state, { payload: personId }) => {
       state.personId = personId;
+    },
+    fetchPersonDetailsData: (state, { payload: personDetailsData }) => {
+      state.data = personDetailsData;
+    },
+    fetchPersonDetailsLoading: (state) => {
       state.status = "loading";
     },
-    fetchPersonDetailsSuccess: (state, { payload: personDetailsData }) => {
-      state.data = personDetailsData;
+    fetchPersonDetailsPlaceholders: (state) => {
+      state.status = "placeholders";
+    },
+    fetchPersonDetailsSuccess: (state) => {
       state.status = "success";
     },
     fetchPersonDetailsError: (state) => {
@@ -20,6 +27,9 @@ export const personDetailsSlice = createSlice({
 });
 
 export const {
+  fetchPersonDetailsData,
+  fetchPersonDetailsLoading,
+  fetchPersonDetailsPlaceholders,
   fetchPersonDetailsSuccess,
   fetchPersonDetailsError,
   fetchPersonId,

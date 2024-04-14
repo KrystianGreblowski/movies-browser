@@ -4,6 +4,7 @@ import { watchFetchPopularPeoplePageNumberForApi } from "../features/PersonList/
 import { watchFetchMovieId } from "../features/MoviePage/movieDetailsSaga";
 import { watchFetchMovieDetailsSuccess } from "../features/MoviePage/localStorageSaga";
 import { watchFetchPersonId } from "../features/PersonDetails/personDetailsSaga";
+import { watchFetchPersonDetailsSuccess } from "../features/PersonDetails/localStorageSaga";
 
 export default function* rootSaga() {
   yield all([
@@ -12,5 +13,6 @@ export default function* rootSaga() {
     watchFetchMovieId(),
     watchFetchMovieDetailsSuccess(),
     watchFetchPersonId(),
+    watchFetchPersonDetailsSuccess(),
   ]);
 }
