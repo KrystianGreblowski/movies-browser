@@ -5,18 +5,32 @@ import { TilesHeader } from "../../../../common/Tiles/TilesHeader/styled";
 import { PersonTilesContainer } from "../../../../common/Tiles/PersonTilesContainer/styled";
 import { PersonPageLink } from "../../../../common/PersonPageLink/styled";
 import noPersonImage from "../../../../images/no-person-image.png";
-import { selectMovieDetailsData } from "../../movieDetailsSlice";
+import {
+  selectMovieDetailsData,
+  selectMovieDetailsStatus,
+} from "../../movieDetailsSlice";
 import { toPersonDetails } from "../../../../core/routes";
 import { fetchPersonId } from "../../../PersonDetails/personDetailsSlice";
+import PersonTilePlaceholder from "../../../../common/Tiles/PersonTilesContainer/PersonTilePlaceholder";
 
 const Crew = () => {
   const dispatch = useDispatch();
   const movieDetailsData = useSelector(selectMovieDetailsData);
+  const movieDetailsStatus = useSelector(selectMovieDetailsStatus);
 
   const imageBaseUrl = "https://image.tmdb.org/t/p/w185";
   const maxNumberOfTiles = 10;
 
-  return (
+  return movieDetailsStatus === "placeholders" ? (
+    <>
+      <TilesHeader>Crew</TilesHeader>
+      <PersonTilesContainer>
+        {movieDetailsData.credits.crew.slice(0, maxNumberOfTiles).map(() => (
+          <PersonTilePlaceholder key={nanoid()} image={noPersonImage} />
+        ))}
+      </PersonTilesContainer>
+    </>
+  ) : (
     <>
       <TilesHeader>Crew</TilesHeader>
       <PersonTilesContainer>
@@ -29,14 +43,13 @@ const Crew = () => {
               key={nanoid()}
             >
               <PersonTile
-                key={nanoid()}
                 image={
                   crew.profile_path === null
                     ? noPersonImage
                     : imageBaseUrl + crew.profile_path
                 }
                 name={crew.name}
-                extraInfo={crew.job}
+                extraInfo={crew.character}
               />
             </PersonPageLink>
           ))}

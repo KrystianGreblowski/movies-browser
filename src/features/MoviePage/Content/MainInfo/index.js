@@ -24,7 +24,7 @@ import {
   selectMovieDetailsData,
   selectMovieDetailsStatus,
 } from "../../movieDetailsSlice";
-import noMovieImage from "../../../../images/no-movie-image.png";
+import noMovieProfilePage from "../../../../images/no-movie-profile-image.png";
 import ErrorPage from "../../../../common/ErrorPage";
 
 const MainInfo = () => {
@@ -36,14 +36,14 @@ const MainInfo = () => {
   }
   return movieDetailsStatus === "placeholders" ? (
     <Container>
-      <Post src={noMovieImage} alt={"noMovieImage"} />
+      <Post src={noMovieProfilePage} alt={"noMovieImage"} />
     </Container>
   ) : (
     <Container>
       <Post
         src={
           movieDetailsData.poster_path === null
-            ? noMovieImage
+            ? noMovieProfilePage
             : "http://image.tmdb.org/t/p/w342" + movieDetailsData.poster_path
         }
         alt={movieDetailsData.original_title}
