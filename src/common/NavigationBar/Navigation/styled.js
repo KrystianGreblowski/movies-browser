@@ -96,9 +96,6 @@ export const MoviesPageLink = styled(NavLink)`
     css`
       border-color: ${({ theme }) => theme.color.white};
     `}
-  /* &.active {
-    border-color: ${({ theme }) => theme.color.white};
-  } */
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     font-size: 12px;
