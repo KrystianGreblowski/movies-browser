@@ -9,9 +9,9 @@ Welcome to our Movies Browser project! We are currently in the process of creati
 
 ## Demo
 Here is a demo of our project:
-[Movies Browser](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzM0ajU3aHYwMjlnZHd3bjBmc2k3ZjF0enZlbWdqNGVxeWtscWJkbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/0JvIuXLGuIc0uxb7sc/giphy.gif)
+[Movies Browser](https://krystiangreblowski.github.io/movies-browser/#/movies/main)
 
-![Photo](https://i.imgur.com/Pekc2pd.png)
+![Photo](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzM0ajU3aHYwMjlnZHd3bjBmc2k3ZjF0enZlbWdqNGVxeWtscWJkbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/0JvIuXLGuIc0uxb7sc/giphy.gif)
 
 ## General Info
 The Movies Browser project is created for the YouCode course, we have 4 weeks to complete the task. We work in Scrum, we save all tasks on Trello. The application is created based on a project in Figma.
