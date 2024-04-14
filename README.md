@@ -1,20 +1,18 @@
 # MOVIES BROWSER
-Welcome to our Movies Browser project! We are currently in the process of creating the application, so it may change every day!
+Welcome to our Movies Browser project! The Movies Browser project is created for the YouCode course, we have 4 weeks to complete the task. We work in Scrum, we save all tasks on Trello. The application is created based on a project in Figma.
+Discover countless movie titles. Immerse yourself in the richness of film art, browsing through various genres and thematic categories. Whether you're looking for new releases, classic masterpieces or hidden gems, our browser puts the fascinating world of film at your fingertips. Easily view videos on various devices - computer, smartphone or TV - wherever you are.
 
 ## Authors
 
-- Damian Niklasiński
-- Krystian Gręblowski
-- Oleksandr Riaboshapka
+- Damian Niklasiński - [GitHub Profile](https://github.com/Damian-Niklasinski)
+- Krystian Gręblowski - [GitHub Profile](https://github.com/KrystianGreblowski)
+- Oleksandr Riaboshapka - [GitHub Profile](https://github.com/Alekzann)
 
 ## Demo
 Here is a demo of our project:
 [Movies Browser](https://krystiangreblowski.github.io/movies-browser/#/movies/main)
 
 ![Photo](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzM0ajU3aHYwMjlnZHd3bjBmc2k3ZjF0enZlbWdqNGVxeWtscWJkbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/0JvIuXLGuIc0uxb7sc/giphy.gif)
-
-## General Info
-The Movies Browser project is created for the YouCode course, we have 4 weeks to complete the task. We work in Scrum, we save all tasks on Trello. The application is created based on a project in Figma.
 
 ## Features
 1. Navigation allows you to move between the video home page and popular people.
@@ -40,4 +38,10 @@ The Movies Browser project is created for the YouCode course, we have 4 weeks to
 - Media Query
 - API
 - BEM
+- Custom Hooks
+- 
+
+## API
+
+The website uses data from [The Movie Data Base](https://developer.themoviedb.org/)!
 
