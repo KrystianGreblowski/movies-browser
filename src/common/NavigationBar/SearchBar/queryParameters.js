@@ -1,18 +1,21 @@
+import { useHistory, useLocation } from "react-router-dom/cjs/react-router-dom";
 import {
-  useHistory,
-  useLocation,
-} from "react-router-dom/cjs/react-router-dom";
+  toMainPage,
+  toPersonList,
+  toMoviesSearch,
+  toPeopleSearch,
+} from "../../../core/routes";
 
 export const useQueryParameter = (search) => {
   const location = useLocation();
-  return (new URLSearchParams(location.search).get(search))
+  return new URLSearchParams(location.search).get(search);
 };
 
 export const useReplaceQueryParameter = () => {
   const location = useLocation();
   const history = useHistory();
 
-  const searchParams = new URLSearchParams(location.search || ``);
+  const searchParams = new URLSearchParams(location.search || "");
   const isMoviePage = location.pathname.startsWith("/movies");
 
   return ({ key, value, resetPage }) => {
@@ -22,9 +25,11 @@ export const useReplaceQueryParameter = () => {
       searchParams.set(key, value);
     }
 
-    let newPath = isMoviePage ? "/movies/search" : "/people/search";
+    let newPath;
     if (key === "search" && !value) {
-      newPath = isMoviePage ? "/movies" : "/people";
+      newPath = isMoviePage ? toMainPage() : toPersonList();
+    } else {
+      newPath = isMoviePage ? toMoviesSearch() : toPeopleSearch();
     }
 
     if (key === "search" && resetPage === true) {
@@ -35,8 +40,8 @@ export const useReplaceQueryParameter = () => {
     const currentQuery = searchParams.get("search");
     let urlParams = `page=${currentPage}`;
 
-    if (currentQuery){
-      urlParams+= `&search=${currentQuery}`;
+    if (currentQuery) {
+      urlParams += `&search=${currentQuery}`;
     }
 
     history.replace(`${newPath}?${urlParams}`);
