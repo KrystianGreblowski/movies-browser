@@ -54,7 +54,6 @@ function SearchResults() {
     }
   }, [currentPage, currentPageInitialized, dispatch]);
 
-  console.log(currentPage);
   return (
     <>
       {searchResults.status === "loading" ? (
