@@ -30,10 +30,10 @@ const Pagination = ({ currentPage, minPageLimit, maxPageLimit }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(initCurrentPage(minPageLimit));
+    dispatch(initCurrentPage(currentPage));
     dispatch(initMinPageLimit(minPageLimit));
     dispatch(initMaxPageLimit(maxPageLimit));
-  }, [minPageLimit, maxPageLimit, dispatch]);
+  }, [currentPage, minPageLimit, maxPageLimit, dispatch]);
 
   return (
     <Container>
