@@ -20,7 +20,7 @@ import { MoviePageLink } from "../../common/MoviePageLink/styled";
 import ErrorPage from "../../common/ErrorPage";
 import LoadingPage from "../../common/LoadingPage";
 import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
-import { MovieTilePlaceholder } from "../../common/Tiles/MovieTilesContainer/MovieTilePlaceholder/styled";
+import { MovieTilePlaceholder } from "../../common/Tiles/MovieTilesContainer/MovieTilePlaceholder";
 
 const MainPage = () => {
   const dispatch = useDispatch();
@@ -46,7 +46,7 @@ const MainPage = () => {
           <TilesHeader>Popular movies</TilesHeader>
           <TilesContainer>
             {popularMoviesData.map(() => (
-              <MovieTilePlaceholder key={nanoid()} />
+              <MovieTilePlaceholder image={noMovieImage} key={nanoid()} />
             ))}
           </TilesContainer>
         </Container>

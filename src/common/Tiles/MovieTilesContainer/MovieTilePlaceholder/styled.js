@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const MovieTilePlaceholder = styled.div`
+export const Tile = styled.div`
   background-color: ${({ theme }) => theme.color.white};
   max-width: 324px;
   width: 100%;
@@ -36,5 +36,17 @@ export const MovieTilePlaceholder = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
     max-width: 640px;
+  }
+`;
+
+export const Image = styled.img`
+  width: 100%;
+  max-height: 434px;
+  object-fit: cover;
+  border-radius: 5px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
+    max-width: 114px;
+    max-height: 169px;
   }
 `;
