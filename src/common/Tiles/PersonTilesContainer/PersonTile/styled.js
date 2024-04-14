@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Tile = styled.div`
   max-width: 256px;
   width: 100%;
-  height: 100%;
+  height: 400px;
   border-radius: 5px;
   background-color: ${({ theme }) => theme.color.white};
   box-shadow: 0px 4px 12px 0px #bac7d550;
@@ -18,8 +18,25 @@ export const Tile = styled.div`
     transform: scale(105%);
   }
 
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallLaptop}) {
+    height: 370px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
+    height: 335px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallTablet}) {
+    height: 370px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.extraSmallTablet}) {
+    height: 340px;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     max-width: 136px;
+    height: 235px;
     padding: 8px;
   }
 `;
