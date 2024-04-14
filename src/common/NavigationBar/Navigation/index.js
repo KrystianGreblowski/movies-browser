@@ -20,7 +20,7 @@ const Navigation = () => {
 
   return (
     <StyledNavigation>
-      <Header to="/">
+      <Header to={toMainPage()} onClick={handleClick}>
         <Logo />
         <Caption>Movies Browser</Caption>
       </Header>
