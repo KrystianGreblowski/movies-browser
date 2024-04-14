@@ -60,7 +60,6 @@ const PersonList = () => {
                 key={nanoid()}
               >
                 <PersonTile
-                  key={nanoid()}
                   image={
                     popularPerson.profile_path === null
                       ? noPersonImage
