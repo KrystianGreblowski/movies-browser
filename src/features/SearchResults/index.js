@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom/cjs/react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { nanoid } from "nanoid";
@@ -16,7 +17,10 @@ import { PersonTilesContainer } from "../../common/Tiles/PersonTilesContainer/st
 import { useGenres } from "./useGenres";
 import { useQueryParameter } from "../../common/NavigationBar/SearchBar/queryParameters";
 import Pagination from "../../common/Pagination";
-import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
+import {
+  initCurrentPage,
+  selectCurrentPage,
+} from "../../common/Pagination/paginationSlice";
 import { toMovieDetails, toPersonDetails } from "../../core/routes";
 import { MoviePageLink } from "../../common/MoviePageLink/styled";
 import { fetchMovieId } from "../MoviePage/movieDetailsSlice";
@@ -28,7 +32,8 @@ function SearchResults() {
   const query = useQueryParameter("search");
   const location = useLocation();
   const isMoviesPage = location.pathname.startsWith("/movies");
-  const currentPage = useSelector(selectCurrentPage);
+  const [currentPageInitialized, setCurrentPageInitialized] = useState(false);
+  const currentPage = useSelector(selectCurrentPage) || 1;
   const { searchResults } = useSearchResults();
 
   const imageBaseUrlMovies = "https://image.tmdb.org/t/p/w342";
@@ -42,6 +47,14 @@ function SearchResults() {
   const { genres } = useGenres();
   const genre_list = genres.data;
 
+  useEffect(() => {
+    if (!currentPageInitialized && currentPage !== 1) {
+      dispatch(initCurrentPage(1));
+      setCurrentPageInitialized(true);
+    }
+  }, [currentPage, currentPageInitialized, dispatch]);
+
+  console.log(currentPage);
   return (
     <>
       {searchResults.status === "loading" ? (
