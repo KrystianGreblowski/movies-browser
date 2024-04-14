@@ -1,32 +1,45 @@
 import { nanoid } from "nanoid";
 import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom/cjs/react-router-dom";
+import { useEffect } from "react";
 import { Container } from "./styled";
 import { TilesContainer } from "../../common/Tiles/MovieTilesContainer/styled";
 import { TilesHeader } from "../../common/Tiles/TilesHeader/styled";
 import { MovieTile } from "../../common/Tiles/MovieTilesContainer/MovieTile";
 import Pagination from "../../common/Pagination";
-import { selectPopularMoviesStatus } from "./popularMoviesSlice";
+import {
+  fetchPopularMoviesPageNumberForApi,
+  selectPopularMoviesData,
+  selectPopularMoviesStatus,
+} from "./popularMoviesSlice";
 import noMovieImage from "../../images/no-movie-image.png";
 import { fetchMovieId } from "../MoviePage/movieDetailsSlice";
-import { usePopularMoviesData } from "./usePopularMoviesData";
-import { useCurrentPage } from "./useCurrentPage";
 import { useMovieTypesData } from "../../api/useMovieTypesData";
+import { toMainPage, toMovieDetails } from "../../core/routes";
+import { MoviePageLink } from "../../common/MoviePageLink/styled";
 import ErrorPage from "../../common/ErrorPage";
 import LoadingPage from "../../common/LoadingPage";
-import { toMovieDetails } from "../../core/routes";
-import { MoviePageLink } from "../../common/MoviePageLink/styled";
+import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
 
 const MainPage = () => {
   const dispatch = useDispatch();
   const popularMoviesStatus = useSelector(selectPopularMoviesStatus);
-  const popularMoviesData = usePopularMoviesData();
+  const popularMoviesData = useSelector(selectPopularMoviesData);
   const { movieTypesData, numberOfMovieTypes } = useMovieTypesData();
-  const currentPage = useCurrentPage();
+  const currentPage = useSelector(selectCurrentPage);
+  const history = useHistory();
+
+  useEffect(() => {
+    const pageQueryParameter = currentPage === 1 ? "" : `?page=${currentPage}`;
+    history.replace(`${toMainPage()}${pageQueryParameter}`);
+
+    dispatch(fetchPopularMoviesPageNumberForApi(currentPage));
+  }, [currentPage, history, dispatch]);
 
   return (
     <>
       {popularMoviesStatus === "loading" ? (
-        <LoadingPage/>
+        <LoadingPage />
       ) : popularMoviesStatus === "success" ? (
         <Container>
           <TilesHeader>Popular movies</TilesHeader>
