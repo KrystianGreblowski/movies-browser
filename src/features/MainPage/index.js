@@ -20,6 +20,7 @@ import { MoviePageLink } from "../../common/MoviePageLink/styled";
 import ErrorPage from "../../common/ErrorPage";
 import LoadingPage from "../../common/LoadingPage";
 import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
+import { MovieTilePlaceholder } from "../../common/Tiles/MovieTilesContainer/MovieTilePlaceholder/styled";
 
 const MainPage = () => {
   const dispatch = useDispatch();
@@ -40,6 +41,15 @@ const MainPage = () => {
     <>
       {popularMoviesStatus === "loading" ? (
         <LoadingPage />
+      ) : popularMoviesStatus === "placeholders" ? (
+        <Container>
+          <TilesHeader>Popular movies</TilesHeader>
+          <TilesContainer>
+            {popularMoviesData.map(() => (
+              <MovieTilePlaceholder key={nanoid()} />
+            ))}
+          </TilesContainer>
+        </Container>
       ) : popularMoviesStatus === "success" ? (
         <Container>
           <TilesHeader>Popular movies</TilesHeader>
