@@ -3,7 +3,7 @@ import {
   Header,
   List,
   Logo,
-  MoviePageLink,
+  MoviesPageLink,
   PeoplePageLink,
   StyledNavigation,
 } from "./styled";
@@ -18,7 +18,7 @@ const Navigation = () => {
       </Header>
       <List>
         <li>
-          <MoviePageLink to={toMainPage()}>MOVIES</MoviePageLink>
+          <MoviesPageLink to={toMainPage()}>MOVIES</MoviesPageLink>
         </li>
         <li>
           <PeoplePageLink to={toPersonList()}>PEOPLE</PeoplePageLink>
