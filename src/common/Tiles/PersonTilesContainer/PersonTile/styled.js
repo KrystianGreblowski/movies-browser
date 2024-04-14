@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Tile = styled.div`
-  max-width: 208px;
+  max-width: 256px;
   width: 100%;
   height: 100%;
   border-radius: 5px;
@@ -26,7 +26,7 @@ export const Tile = styled.div`
 
 export const Image = styled.img`
   width: 100%;
-  max-height: 231px;
+  max-height: 282px;
   object-fit: cover;
   border-radius: 5px;
 
@@ -42,7 +42,7 @@ export const Name = styled.h1`
   text-align: center;
   color: ${({ theme }) => theme.color.woodsmoke};
   margin: 0;
-  margin-top: 12px;
+  margin-top: 14px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     font-size: 14px;

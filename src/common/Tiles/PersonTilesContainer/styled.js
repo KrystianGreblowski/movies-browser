@@ -3,12 +3,8 @@ import styled from "styled-components";
 export const PersonTilesContainer = styled.div`
   display: grid;
   grid-gap: 24px;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   margin-bottom: 56px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.smallLaptop}) {
-    grid-template-columns: repeat(5, 1fr);
-  }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.smallTablet}) {
     grid-template-columns: repeat(4, 1fr);

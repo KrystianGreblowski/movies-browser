@@ -1,25 +1,38 @@
 import { nanoid } from "nanoid";
 import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom/cjs/react-router-dom";
+import { useEffect } from "react";
 import Pagination from "../../common/Pagination";
 import PersonTile from "../../common/Tiles/PersonTilesContainer/PersonTile";
 import { Container } from "./styled";
 import { PersonPageLink } from "../../common/PersonPageLink/styled";
 import { PersonTilesContainer } from "../../common/Tiles/PersonTilesContainer/styled";
 import { TilesHeader } from "../../common/Tiles/TilesHeader/styled";
-import { selectPopularPeopleStatus } from "./popularPeopleSlice";
+import {
+  fetchPopularPeoplePageNumberForApi,
+  selectPopularPeopleData,
+  selectPopularPeopleStatus,
+} from "./popularPeopleSlice";
 import noPersonImage from "../../images/no-person-image.png";
-import { useCurrentPage } from "./useCurrentPage";
-import { usePopularPeopleData } from "./usePopularPeopleData";
 import LoadingPage from "../../common/LoadingPage";
 import ErrorPage from "../../common/ErrorPage";
-import { toPersonDetails } from "../../core/routes";
+import { toPersonDetails, toPersonList } from "../../core/routes";
 import { fetchPersonId } from "../PersonDetails/personDetailsSlice";
+import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
 
 const PersonList = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
+  const popularPeopleData = useSelector(selectPopularPeopleData);
   const popularPeopleStatus = useSelector(selectPopularPeopleStatus);
-  const popularPeopleData = usePopularPeopleData();
-  const currentPage = useCurrentPage();
+  const currentPage = useSelector(selectCurrentPage);
+
+  useEffect(() => {
+    const pageQueryParameter = currentPage === 1 ? "" : `?page=${currentPage}`;
+    history.replace(`${toPersonList()}${pageQueryParameter}`);
+
+    dispatch(fetchPopularPeoplePageNumberForApi(currentPage));
+  }, [currentPage, history, dispatch]);
 
   return (
     <>

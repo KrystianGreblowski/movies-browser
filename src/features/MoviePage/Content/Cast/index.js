@@ -14,7 +14,7 @@ const Cast = () => {
   const movieDetailsData = useSelector(selectMovieDetailsData);
 
   const imageBaseUrl = "https://image.tmdb.org/t/p/w185";
-  const maxNumberOfTiles = 12;
+  const maxNumberOfTiles = 10;
 
   return (
     <>
