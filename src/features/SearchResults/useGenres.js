@@ -25,7 +25,7 @@ export const useGenres = () => {
         console.error(err.message);
       }
     };
-    setTimeout(getGenres, 0);
+    setTimeout(getGenres, 500);
   }, []);
 
   return { genres };

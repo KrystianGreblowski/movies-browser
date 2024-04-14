@@ -56,14 +56,8 @@ export const Caption = styled.h1`
   font-weight: 500;
   letter-spacing: -1.5px;
   width: max-content;
-  padding: 0;
+  padding-top: 3px;
   
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
-    font-size: 20px;
-    padding-top: 3px;
-  }
-
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     font-size: 13px;
     letter-spacing: -0.5px;
