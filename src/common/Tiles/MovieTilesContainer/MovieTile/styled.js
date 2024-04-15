@@ -64,9 +64,13 @@ export const Description = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
+  
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     margin-left: 16px;
+  }
+  
+  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
+    justify-content: flex-start;
   }
 `;
 
@@ -92,9 +96,9 @@ export const MovieTitle = styled.h1`
     line-height: 20.8px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.smallMbile}) {
-    font-size: 12px;
-    line-height: 16.8px;
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
+    font-size: 16px;
+    line-height: 17.8px;
   }
 `;
 
@@ -107,12 +111,12 @@ export const MovieYear = styled.p`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     font-size: 13px;
-    line-height: 16.9px;
+    line-height: 18.9px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
-    font-size: 10px;
-    line-height: 12.8px;
+    font-size: 13px;
+    line-height: 16.8px;
   }
 `;
 
@@ -172,9 +176,7 @@ export const StarImage = styled.img`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
-    width: 12px;
-    height: 12px;
-    margin-top: 8px;
+    margin-top: 10px;
   }
 `;
 
@@ -192,7 +194,6 @@ export const Rate = styled.p`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.smallMobile}) {
-    font-size: 11px;
     line-height: 14.9px;
   }
 `;

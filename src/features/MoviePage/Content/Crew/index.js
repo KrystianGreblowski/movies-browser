@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { nanoid } from "nanoid";
-import PersonTile from "../../../../common/Tiles/PersonTilesContainer/PersonTile";
+import PersonTile from "./PersonTilesContainer/PersonTile";
 import { TilesHeader } from "../../../../common/Tiles/TilesHeader/styled";
 import { PersonTilesContainer } from "../../../../common/Tiles/PersonTilesContainer/styled";
 import { PersonPageLink } from "../../../../common/PersonPageLink/styled";
@@ -49,7 +49,7 @@ const Crew = () => {
                     : imageBaseUrl + crew.profile_path
                 }
                 name={crew.name}
-                extraInfo={crew.character}
+                extraInfo={crew.job}
               />
             </PersonPageLink>
           ))}
