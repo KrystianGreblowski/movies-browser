@@ -63,9 +63,14 @@ export const Image = styled.img`
 export const Description = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     margin-left: 16px;
+  }
+  
+  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
+    justify-content: flex-start;
   }
 `;
 
