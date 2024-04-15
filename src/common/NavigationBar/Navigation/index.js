@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   Caption,
   Header,
@@ -10,6 +10,7 @@ import {
 } from "./styled";
 import { toMainPage, toPersonList } from "../../../core/routes";
 import { goToFirstPage } from "../../Pagination/paginationSlice";
+import { selectMoviesState, selectPeopleState } from "./navigationSlice";
 
 const Navigation = () => {
   const dispatch = useDispatch();
@@ -17,6 +18,9 @@ const Navigation = () => {
   const handleClick = () => {
     dispatch(goToFirstPage());
   };
+
+  const moviesState = useSelector(selectMoviesState);
+  const peopleState = useSelector(selectPeopleState);
 
   return (
     <StyledNavigation>
@@ -26,12 +30,20 @@ const Navigation = () => {
       </Header>
       <List>
         <li>
-          <MoviesPageLink to={toMainPage()} onClick={handleClick}>
+          <MoviesPageLink
+            to={toMainPage()}
+            onClick={handleClick}
+            $moviesState={moviesState}
+          >
             MOVIES
           </MoviesPageLink>
         </li>
         <li>
-          <PeoplePageLink to={toPersonList()} onClick={handleClick}>
+          <PeoplePageLink
+            to={toPersonList()}
+            onClick={handleClick}
+            $peopleState={peopleState}
+          >
             PEOPLE
           </PeoplePageLink>
         </li>

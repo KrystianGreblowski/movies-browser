@@ -21,6 +21,10 @@ import ErrorPage from "../../common/ErrorPage";
 import LoadingPage from "../../common/LoadingPage";
 import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
 import MovieTilePlaceholder from "../../common/Tiles/MovieTilesContainer/MovieTilePlaceholder";
+import {
+  setMovies,
+  setPeople,
+} from "../../common/NavigationBar/Navigation/navigationSlice";
 
 const MainPage = () => {
   const dispatch = useDispatch();
@@ -36,6 +40,11 @@ const MainPage = () => {
 
     dispatch(fetchPopularMoviesPageNumberForApi(currentPage));
   }, [currentPage, history, dispatch]);
+
+  useEffect(() => {
+    dispatch(setMovies(true));
+    dispatch(setPeople(false));
+  }, [dispatch]);
 
   return (
     <>

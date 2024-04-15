@@ -26,6 +26,10 @@ import { MoviePageLink } from "../../common/MoviePageLink/styled";
 import { fetchMovieId } from "../MoviePage/movieDetailsSlice";
 import { PersonPageLink } from "../../common/PersonPageLink/styled";
 import { fetchPersonId } from "../PersonDetails/personDetailsSlice";
+import {
+  setMovies,
+  setPeople,
+} from "../../common/NavigationBar/Navigation/navigationSlice";
 
 function SearchResults() {
   const dispatch = useDispatch();
@@ -53,6 +57,16 @@ function SearchResults() {
       setCurrentPageInitialized(true);
     }
   }, [currentPage, currentPageInitialized, dispatch]);
+
+  useEffect(() => {
+    if (isMoviesPage) {
+      dispatch(setMovies(true));
+      dispatch(setPeople(false));
+    } else {
+      dispatch(setMovies(false));
+      dispatch(setPeople(true));
+    }
+  }, [dispatch, isMoviesPage]);
 
   return (
     <>
