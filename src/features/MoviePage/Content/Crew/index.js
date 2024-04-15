@@ -49,7 +49,7 @@ const Crew = () => {
                     : imageBaseUrl + crew.profile_path
                 }
                 name={crew.name}
-                extraInfo={crew.character}
+                extraInfo={crew.job}
               />
             </PersonPageLink>
           ))}
