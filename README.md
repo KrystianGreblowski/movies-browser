@@ -15,7 +15,7 @@ Discover countless film titles. Immerse yourself in the wealth of film art and b
 Here is a demo of our project:
 [Movies Browser](https://krystiangreblowski.github.io/movies-browser/#/movies/main)
 
-![Photo](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzM0ajU3aHYwMjlnZHd3bjBmc2k3ZjF0enZlbWdqNGVxeWtscWJkbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/0JvIuXLGuIc0uxb7sc/giphy.gif)
+![MovieBrowserGif](https://i.postimg.cc/cH5ZNwmT/Movie-Browser.gif)
 
 ## Features
 
