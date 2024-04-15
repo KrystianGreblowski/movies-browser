@@ -60,8 +60,7 @@ export const Caption = styled.h1`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     font-size: 20px;
-    padding-top: 0px;
-  }
+    }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     font-size: 13px;
