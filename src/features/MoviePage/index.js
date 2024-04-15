@@ -6,7 +6,10 @@ import { Container } from "./styled";
 import LoadingPage from "../../common/LoadingPage";
 import ErrorLoadingHandlingWrapper from "./ErrorLoadingHandlingWrapper";
 import { useSelector } from "react-redux";
-import { selectMovieDetailsStatus } from "./movieDetailsSlice";
+import {
+  selectMovieDetailsData,
+  selectMovieDetailsStatus,
+} from "./movieDetailsSlice";
 import {
   setMovies,
   setPeople,
@@ -14,6 +17,7 @@ import {
 
 function MoviePage() {
   const movieDetailsStatus = useSelector(selectMovieDetailsStatus);
+  const movieDetailsData = useSelector(selectMovieDetailsData);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -25,17 +29,11 @@ function MoviePage() {
     <>
       {movieDetailsStatus === "loading" ? (
         <LoadingPage />
-      ) : movieDetailsStatus === "bannerSuccess" ? (
-        <ErrorLoadingHandlingWrapper>
-          <Container>
-            <Banner />
-          </Container>
-        </ErrorLoadingHandlingWrapper>
       ) : (
         <ErrorLoadingHandlingWrapper>
           <Container>
-            <Banner />
-            <Content />
+            {movieDetailsData.backdrop_path && <Banner />}
+            {movieDetailsStatus !== "bannerSuccess" && <Content />}
           </Container>
         </ErrorLoadingHandlingWrapper>
       )}

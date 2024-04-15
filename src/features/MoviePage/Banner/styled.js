@@ -163,10 +163,6 @@ export const RateMax = styled.p`
   font-size: 16px;
   padding-top: 2px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.laptop}) {
-    font-size: 13px;
-  }
-
   @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {
     margin: 0;
   }

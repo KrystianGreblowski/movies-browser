@@ -46,18 +46,21 @@ const AboutPerson = () => {
         <Caption>{personDetailsData.name}</Caption>
 
         <Details>
-          <BirthDetails>
-            <Span>Date of birth: </Span>
-            <SpanInfo>
-              {personDetailsData.birthday &&
-                personDetailsData.birthday.split("-").reverse().join(".")}
-            </SpanInfo>
-          </BirthDetails>
-
-          <BirthDetails>
-            <Span>Place of birth: </Span>
-            <SpanInfo>{personDetailsData.place_of_birth}</SpanInfo>
-          </BirthDetails>
+          {personDetailsData.birthday && (
+            <BirthDetails>
+              <Span>Date of birth: </Span>
+              <SpanInfo>
+                {personDetailsData.birthday &&
+                  personDetailsData.birthday.split("-").reverse().join(".")}
+              </SpanInfo>
+            </BirthDetails>
+          )}
+          {personDetailsData.place_of_birth && (
+            <BirthDetails>
+              <Span>Place of birth: </Span>
+              <SpanInfo>{personDetailsData.place_of_birth}</SpanInfo>
+            </BirthDetails>
+          )}
         </Details>
       </PersonDescription>
 
