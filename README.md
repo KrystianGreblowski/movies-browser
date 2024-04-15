@@ -28,9 +28,10 @@ Here is a demo of our project:
 
 - Create React App
 - React
-- React Router
 - Redux
-- Redux Saga
+- JavaScript(ES6+)
+- React-Router
+- Redux-Saga
 - Redux Toolkit
 - Flexbox
 - Grid
@@ -38,7 +39,6 @@ Here is a demo of our project:
 - JSX
 - Axios
 - Async/Await
-- JS ES+6
 - Media Query
 - API
 - BEM
