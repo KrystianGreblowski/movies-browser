@@ -1,7 +1,8 @@
 # MOVIES BROWSER
 
-Welcome to our Movies Browser project! Project is created for the YouCode course, we have 4 weeks to complete the task. We work in Scrum, we save all tasks on Trello. The application is created based on a project in Figma.
-Discover countless movie titles. Immerse yourself in the richness of film art, browsing through various genres and thematic categories. Whether you're looking for new releases, classic masterpieces or hidden gems, our browser puts the fascinating world of film at your fingertips. Easily view videos on various devices - computer, smartphone or TV - wherever you are.
+Welcome to our Movies Browser project! The project is created for the YouCode Frontend Developer course. We work in Scrum, we save all tasks on Trello. The application is created on the basis of a project in Figma.
+
+Discover countless film titles. Immerse yourself in the wealth of film art and browse through various genres and thematic categories. Whether you are looking for new releases, classic masterpieces or hidden gems, our browser makes the fascinating world of film accessible to you. Watch the website easily on different devices - computer, smartphone or TV - wherever you are.
 
 ## Authors
 
@@ -18,12 +19,12 @@ Here is a demo of our project:
 
 ## Features
 
-1. Navigation allows you to move between the video home page and popular people.
-2. Pagination allows you to switch to subsequent pages with videos or people
-3. Movie List is our main website where you can browse the database of the most popular movies
-4. People is a website that allows you to browse a database of actors
+1. Navigation allows you to switch between the movie homepage and favourite people.
+2. Pagination allows you to switch to subsequent pages with movies or people
+3. Movie list is our main website where you can browse the database of the most popular films
+4. People is a website where you can search a database of actors
 
-## What we used to create the website
+## Technologies
 
 - Create React App
 - React
