@@ -47,7 +47,6 @@ const Banner = () => {
           </TitleWrapper>
         </ImagesWrapper>
       </PosterContainer>
-      {/* )} */}
     </>
   );
 };
