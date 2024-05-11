@@ -33,26 +33,30 @@ const Crew = () => {
     </>
   ) : (
     <>
-      <TilesHeader>Crew ({numberOfTiles})</TilesHeader>
-      <PersonTilesContainer>
-        {movieDetailsData.credits.crew.map((crew) => (
-          <PersonPageLink
-            to={`${toPersonDetails()}/${crew.id}`}
-            onClick={() => dispatch(fetchPersonId(crew.id))}
-            key={nanoid()}
-          >
-            <PersonTile
-              image={
-                crew.profile_path === null
-                  ? noPersonImage
-                  : imageBaseUrl + crew.profile_path
-              }
-              name={crew.name}
-              extraInfo={crew.job}
-            />
-          </PersonPageLink>
-        ))}
-      </PersonTilesContainer>
+      {numberOfTiles > 0 && (
+        <>
+          <TilesHeader>Crew ({numberOfTiles})</TilesHeader>
+          <PersonTilesContainer>
+            {movieDetailsData.credits.crew.map((crew) => (
+              <PersonPageLink
+                to={`${toPersonDetails()}/${crew.id}`}
+                onClick={() => dispatch(fetchPersonId(crew.id))}
+                key={nanoid()}
+              >
+                <PersonTile
+                  image={
+                    crew.profile_path === null
+                      ? noPersonImage
+                      : imageBaseUrl + crew.profile_path
+                  }
+                  name={crew.name}
+                  extraInfo={crew.job}
+                />
+              </PersonPageLink>
+            ))}
+          </PersonTilesContainer>
+        </>
+      )}
     </>
   );
 };

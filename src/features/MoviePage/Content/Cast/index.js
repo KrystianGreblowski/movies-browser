@@ -33,26 +33,30 @@ const Cast = () => {
     </>
   ) : (
     <>
-      <TilesHeader>Cast ({numberOfTiles})</TilesHeader>
-      <PersonTilesContainer>
-        {movieDetailsData.credits.cast.map((cast) => (
-          <PersonPageLink
-            to={`${toPersonDetails()}/${cast.id}`}
-            onClick={() => dispatch(fetchPersonId(cast.id))}
-            key={nanoid()}
-          >
-            <PersonTile
-              image={
-                cast.profile_path === null
-                  ? noPersonImage
-                  : imageBaseUrl + cast.profile_path
-              }
-              name={cast.name}
-              extraInfo={cast.character}
-            />
-          </PersonPageLink>
-        ))}
-      </PersonTilesContainer>
+      {numberOfTiles > 0 && (
+        <>
+          <TilesHeader>Cast ({numberOfTiles})</TilesHeader>
+          <PersonTilesContainer>
+            {movieDetailsData.credits.cast.map((cast) => (
+              <PersonPageLink
+                to={`${toPersonDetails()}/${cast.id}`}
+                onClick={() => dispatch(fetchPersonId(cast.id))}
+                key={nanoid()}
+              >
+                <PersonTile
+                  image={
+                    cast.profile_path === null
+                      ? noPersonImage
+                      : imageBaseUrl + cast.profile_path
+                  }
+                  name={cast.name}
+                  extraInfo={cast.character}
+                />
+              </PersonPageLink>
+            ))}
+          </PersonTilesContainer>
+        </>
+      )}
     </>
   );
 };
