@@ -68,10 +68,6 @@ export const Description = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     margin-left: 16px;
   }
-
-  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
-    justify-content: flex-start;
-  }
 `;
 
 export const MainInfo = styled.div`
