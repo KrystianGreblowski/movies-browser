@@ -34,7 +34,9 @@ export const MovieTile = ({ image, title, year, type, rate, votes }) => {
           <Rating>
             <StarImage src={star} />
             <Rate>{rate}</Rate>
-            <Votes>{votes} votes</Votes>
+            <Votes>
+              {votes} {votes === 1 ? "vote" : "votes"}
+            </Votes>
           </Rating>
         ) : (
           <NoVotes>No votes yet</NoVotes>

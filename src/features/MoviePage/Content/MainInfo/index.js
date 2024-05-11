@@ -88,7 +88,10 @@ const MainInfo = () => {
                 .replace(".", ",")}
             </Rate>
             <RateMax>/ 10</RateMax>
-            <Votes>{movieDetailsData.vote_count} votes</Votes>
+            <Votes>
+              {movieDetailsData.vote_count}{" "}
+              {movieDetailsData.vote_count === 1 ? "vote" : "votes"}
+            </Votes>
           </RatingWrapper>
         ) : (
           <Votes>No votes yet</Votes>
