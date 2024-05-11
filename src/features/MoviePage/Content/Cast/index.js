@@ -19,13 +19,12 @@ const Cast = () => {
   const movieDetailsStatus = useSelector(selectMovieDetailsStatus);
 
   const imageBaseUrl = "https://image.tmdb.org/t/p/w185";
-  const maxNumberOfTiles = 10;
 
   return movieDetailsStatus === "placeholders" ? (
     <>
       <TilesHeader>Cast</TilesHeader>
       <PersonTilesContainer>
-        {movieDetailsData.credits.cast.slice(0, maxNumberOfTiles).map(() => (
+        {movieDetailsData.credits.cast.map(() => (
           <PersonTilePlaceholder key={nanoid()} image={noPersonImage} />
         ))}
       </PersonTilesContainer>
@@ -34,25 +33,23 @@ const Cast = () => {
     <>
       <TilesHeader>Cast</TilesHeader>
       <PersonTilesContainer>
-        {movieDetailsData.credits.cast
-          .slice(0, maxNumberOfTiles)
-          .map((cast) => (
-            <PersonPageLink
-              to={`${toPersonDetails()}/${cast.id}`}
-              onClick={() => dispatch(fetchPersonId(cast.id))}
-              key={nanoid()}
-            >
-              <PersonTile
-                image={
-                  cast.profile_path === null
-                    ? noPersonImage
-                    : imageBaseUrl + cast.profile_path
-                }
-                name={cast.name}
-                extraInfo={cast.character}
-              />
-            </PersonPageLink>
-          ))}
+        {movieDetailsData.credits.cast.map((cast) => (
+          <PersonPageLink
+            to={`${toPersonDetails()}/${cast.id}`}
+            onClick={() => dispatch(fetchPersonId(cast.id))}
+            key={nanoid()}
+          >
+            <PersonTile
+              image={
+                cast.profile_path === null
+                  ? noPersonImage
+                  : imageBaseUrl + cast.profile_path
+              }
+              name={cast.name}
+              extraInfo={cast.character}
+            />
+          </PersonPageLink>
+        ))}
       </PersonTilesContainer>
     </>
   );

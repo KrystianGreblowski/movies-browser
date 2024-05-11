@@ -19,13 +19,12 @@ const Crew = () => {
   const movieDetailsStatus = useSelector(selectMovieDetailsStatus);
 
   const imageBaseUrl = "https://image.tmdb.org/t/p/w185";
-  const maxNumberOfTiles = 10;
 
   return movieDetailsStatus === "placeholders" ? (
     <>
       <TilesHeader>Crew</TilesHeader>
       <PersonTilesContainer>
-        {movieDetailsData.credits.crew.slice(0, maxNumberOfTiles).map(() => (
+        {movieDetailsData.credits.crew.map(() => (
           <PersonTilePlaceholder key={nanoid()} image={noPersonImage} />
         ))}
       </PersonTilesContainer>
@@ -34,25 +33,23 @@ const Crew = () => {
     <>
       <TilesHeader>Crew</TilesHeader>
       <PersonTilesContainer>
-        {movieDetailsData.credits.crew
-          .slice(0, maxNumberOfTiles)
-          .map((crew) => (
-            <PersonPageLink
-              to={`${toPersonDetails()}/${crew.id}`}
-              onClick={() => dispatch(fetchPersonId(crew.id))}
-              key={nanoid()}
-            >
-              <PersonTile
-                image={
-                  crew.profile_path === null
-                    ? noPersonImage
-                    : imageBaseUrl + crew.profile_path
-                }
-                name={crew.name}
-                extraInfo={crew.job}
-              />
-            </PersonPageLink>
-          ))}
+        {movieDetailsData.credits.crew.map((crew) => (
+          <PersonPageLink
+            to={`${toPersonDetails()}/${crew.id}`}
+            onClick={() => dispatch(fetchPersonId(crew.id))}
+            key={nanoid()}
+          >
+            <PersonTile
+              image={
+                crew.profile_path === null
+                  ? noPersonImage
+                  : imageBaseUrl + crew.profile_path
+              }
+              name={crew.name}
+              extraInfo={crew.job}
+            />
+          </PersonPageLink>
+        ))}
       </PersonTilesContainer>
     </>
   );
