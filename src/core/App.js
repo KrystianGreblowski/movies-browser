@@ -34,20 +34,20 @@ function App() {
           <SearchResults />
         </Route>
 
-        <Route path={toMainPage()}>
-          <MainPage />
-        </Route>
-
         <Route path={toMovieDetails()}>
           <MoviePage />
         </Route>
 
-        <Route path={toPersonList()}>
-          <PersonList />
+        <Route path={toMainPage()}>
+          <MainPage />
         </Route>
 
         <Route path={toPersonDetails()}>
           <PersonDetails />
+        </Route>
+
+        <Route path={toPersonList()}>
+          <PersonList />
         </Route>
 
         <Route path="/">

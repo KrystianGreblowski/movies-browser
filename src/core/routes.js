@@ -1,6 +1,6 @@
-export const toMainPage = () => "/movies/main";
+export const toMainPage = () => "/movies";
 
-export const toPersonList = () => "/people/main";
+export const toPersonList = () => "/people";
 
 export const toMoviesSearch = () => "/movies/search";
 
