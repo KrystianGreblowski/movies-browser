@@ -20,6 +20,8 @@ const Cast = () => {
 
   const imageBaseUrl = "https://image.tmdb.org/t/p/w185";
 
+  const numberOfTiles = movieDetailsData?.credits?.cast?.length || 0;
+
   return movieDetailsStatus === "placeholders" ? (
     <>
       <TilesHeader>Cast</TilesHeader>
@@ -31,7 +33,7 @@ const Cast = () => {
     </>
   ) : (
     <>
-      <TilesHeader>Cast</TilesHeader>
+      <TilesHeader>Cast ({numberOfTiles})</TilesHeader>
       <PersonTilesContainer>
         {movieDetailsData.credits.cast.map((cast) => (
           <PersonPageLink
