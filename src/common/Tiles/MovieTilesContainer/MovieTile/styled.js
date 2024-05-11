@@ -64,11 +64,11 @@ export const Description = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  
+
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     margin-left: 16px;
   }
-  
+
   @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
     justify-content: flex-start;
   }
@@ -216,4 +216,8 @@ export const Votes = styled.p`
     font-size: 11px;
     line-height: 14.9px;
   }
+`;
+
+export const NoVotes = styled(Votes)`
+  align-self: flex-start;
 `;

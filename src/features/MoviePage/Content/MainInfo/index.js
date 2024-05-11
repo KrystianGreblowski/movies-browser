@@ -78,17 +78,21 @@ const MainInfo = () => {
             ))
             .slice(0, numberOfMovieTypes)}
         </MovieTypes>
-        <RatingWrapper>
-          <RateStar />
-          <Rate>
-            {movieDetailsData.vote_average
-              .toFixed(1)
-              .toString()
-              .replace(".", ",")}
-          </Rate>
-          <RateMax>/ 10</RateMax>
-          <Votes>{movieDetailsData.vote_count} votes</Votes>
-        </RatingWrapper>
+        {movieDetailsData.vote_count > 0 ? (
+          <RatingWrapper>
+            <RateStar />
+            <Rate>
+              {movieDetailsData.vote_average
+                .toFixed(1)
+                .toString()
+                .replace(".", ",")}
+            </Rate>
+            <RateMax>/ 10</RateMax>
+            <Votes>{movieDetailsData.vote_count} votes</Votes>
+          </RatingWrapper>
+        ) : (
+          <Votes>No votes yet</Votes>
+        )}
       </Description>
 
       <Information>{movieDetailsData.overview}</Information>
