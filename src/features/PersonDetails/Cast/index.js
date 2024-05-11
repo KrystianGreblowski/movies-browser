@@ -9,7 +9,7 @@ import {
   selectPersonDetailsStatus,
 } from "../personDetailsSlice";
 import { useMovieTypesData } from "../../../api/useMovieTypesData";
-import { MoviePageLink } from "../../../common/MoviePageLink/styled";
+import { PageLink } from "../../../common/PageLink/styled";
 import { fetchMovieId } from "../../MoviePage/movieDetailsSlice";
 import { toMovieDetails } from "../../../core/routes";
 import MovieTilePlaceholder from "../../../common/Tiles/MovieTilesContainer/MovieTilePlaceholder";
@@ -40,7 +40,7 @@ const Cast = () => {
               <TilesHeader>Movies - cast ({numberOfTiles})</TilesHeader>
               <TilesContainer>
                 {personDetailsData.movie_credits.cast.map((cast) => (
-                  <MoviePageLink
+                  <PageLink
                     to={`${toMovieDetails()}/${cast.id}`}
                     onClick={() => dispatch(fetchMovieId(cast.id))}
                     key={nanoid()}
@@ -76,7 +76,7 @@ const Cast = () => {
                         .replace(".", ",")}
                       votes={cast.vote_count}
                     />
-                  </MoviePageLink>
+                  </PageLink>
                 ))}
               </TilesContainer>
             </>

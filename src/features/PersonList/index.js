@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import Pagination from "../../common/Pagination";
 import PersonTile from "../../common/Tiles/PersonTilesContainer/PersonTile";
 import { Container } from "./styled";
-import { PersonPageLink } from "../../common/PersonPageLink/styled";
+import { PageLink } from "../../common/PageLink/styled";
 import { PersonTilesContainer } from "../../common/Tiles/PersonTilesContainer/styled";
 import { TilesHeader } from "../../common/Tiles/TilesHeader/styled";
 import {
@@ -63,7 +63,7 @@ const PersonList = () => {
 
           <PersonTilesContainer>
             {popularPeopleData.map((popularPerson) => (
-              <PersonPageLink
+              <PageLink
                 to={`${toPersonDetails()}/${popularPerson.id}`}
                 onClick={() => dispatch(fetchPersonId(popularPerson.id))}
                 key={nanoid()}
@@ -77,7 +77,7 @@ const PersonList = () => {
                   }
                   name={popularPerson.name}
                 />
-              </PersonPageLink>
+              </PageLink>
             ))}
           </PersonTilesContainer>
 

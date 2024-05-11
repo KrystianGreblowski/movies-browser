@@ -3,7 +3,7 @@ import { nanoid } from "nanoid";
 import PersonTile from "./PersonTilesContainer/PersonTile";
 import { TilesHeader } from "../../../../common/Tiles/TilesHeader/styled";
 import { PersonTilesContainer } from "../../../../common/Tiles/PersonTilesContainer/styled";
-import { PersonPageLink } from "../../../../common/PersonPageLink/styled";
+import { PageLink } from "../../../../common/PageLink/styled";
 import noPersonImage from "../../../../images/no-person-image.png";
 import {
   selectMovieDetailsData,
@@ -38,7 +38,7 @@ const Crew = () => {
           <TilesHeader>Crew ({numberOfTiles})</TilesHeader>
           <PersonTilesContainer>
             {movieDetailsData.credits.crew.map((crew) => (
-              <PersonPageLink
+              <PageLink
                 to={`${toPersonDetails()}/${crew.id}`}
                 onClick={() => dispatch(fetchPersonId(crew.id))}
                 key={nanoid()}
@@ -52,7 +52,7 @@ const Crew = () => {
                   name={crew.name}
                   extraInfo={crew.job}
                 />
-              </PersonPageLink>
+              </PageLink>
             ))}
           </PersonTilesContainer>
         </>

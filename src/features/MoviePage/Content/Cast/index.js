@@ -3,7 +3,7 @@ import { nanoid } from "nanoid";
 import PersonTile from "./PersonTilesContainer/PersonTile";
 import { TilesHeader } from "../../../../common/Tiles/TilesHeader/styled";
 import { PersonTilesContainer } from "../../../../common/Tiles/PersonTilesContainer/styled";
-import { PersonPageLink } from "../../../../common/PersonPageLink/styled";
+import { PageLink } from "../../../../common/PageLink/styled";
 import noPersonImage from "../../../../images/no-person-image.png";
 import {
   selectMovieDetailsData,
@@ -38,7 +38,7 @@ const Cast = () => {
           <TilesHeader>Cast ({numberOfTiles})</TilesHeader>
           <PersonTilesContainer>
             {movieDetailsData.credits.cast.map((cast) => (
-              <PersonPageLink
+              <PageLink
                 to={`${toPersonDetails()}/${cast.id}`}
                 onClick={() => dispatch(fetchPersonId(cast.id))}
                 key={nanoid()}
@@ -52,7 +52,7 @@ const Cast = () => {
                   name={cast.name}
                   extraInfo={cast.character}
                 />
-              </PersonPageLink>
+              </PageLink>
             ))}
           </PersonTilesContainer>
         </>

@@ -22,9 +22,8 @@ import {
   selectCurrentPage,
 } from "../../common/Pagination/paginationSlice";
 import { toMovieDetails, toPersonDetails } from "../../core/routes";
-import { MoviePageLink } from "../../common/MoviePageLink/styled";
 import { fetchMovieId } from "../MoviePage/movieDetailsSlice";
-import { PersonPageLink } from "../../common/PersonPageLink/styled";
+import { PageLink } from "../../common/PageLink/styled";
 import { fetchPersonId } from "../PersonDetails/personDetailsSlice";
 import {
   setMovies,
@@ -87,7 +86,7 @@ function SearchResults() {
           <TilesContainer>
             {search_list &&
               search_list.map((searchedMovie) => (
-                <MoviePageLink
+                <PageLink
                   to={`${toMovieDetails()}/${searchedMovie.id}`}
                   onClick={() => dispatch(fetchMovieId(searchedMovie.id))}
                   key={nanoid()}
@@ -118,7 +117,7 @@ function SearchResults() {
                       .replace(".", ",")}
                     votes={searchedMovie.vote_count}
                   />
-                </MoviePageLink>
+                </PageLink>
               ))}
           </TilesContainer>
           {search_totalPages > 1 && (
@@ -137,7 +136,7 @@ function SearchResults() {
           <PersonTilesContainer>
             {search_list &&
               search_list.map((searchedPerson) => (
-                <PersonPageLink
+                <PageLink
                   to={`${toPersonDetails()}/${searchedPerson.id}`}
                   onClick={() => dispatch(fetchPersonId(searchedPerson.id))}
                   key={nanoid()}
@@ -151,7 +150,7 @@ function SearchResults() {
                     }
                     name={searchedPerson.original_name}
                   />
-                </PersonPageLink>
+                </PageLink>
               ))}
           </PersonTilesContainer>
 
