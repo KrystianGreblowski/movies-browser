@@ -4,7 +4,7 @@ export const Tile = styled.div`
   background-color: ${({ theme }) => theme.color.white};
   max-width: 324px;
   width: 100%;
-  height: 690px;
+  height: 700px;
   box-shadow: 0px 4px 12px 0px #bac7d580;
   padding: 16px;
   display: grid;
