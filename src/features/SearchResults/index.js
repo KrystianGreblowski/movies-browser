@@ -25,7 +25,6 @@ import { toMovieDetails, toPersonDetails } from "../../core/routes";
 import { fetchMovieId } from "../MoviePage/movieDetailsSlice";
 import { PageLink } from "../../common/PageLink/styled";
 import { fetchPersonId } from "../PersonDetails/personDetailsSlice";
-import { setBorder } from "../../common/NavigationBar/Navigation/navigationBorderSlice";
 
 function SearchResults() {
   const dispatch = useDispatch();
@@ -53,10 +52,6 @@ function SearchResults() {
       setCurrentPageInitialized(true);
     }
   }, [currentPage, currentPageInitialized, dispatch]);
-
-  useEffect(() => {
-    dispatch(setBorder(isMoviesPage ? "movies" : "people"));
-  }, [dispatch, isMoviesPage]);
 
   return (
     <>

@@ -1,5 +1,3 @@
-import { useDispatch } from "react-redux";
-import { useEffect } from "react";
 import Banner from "./Banner";
 import Content from "./Content";
 import { Container } from "./styled";
@@ -10,16 +8,10 @@ import {
   selectMovieDetailsData,
   selectMovieDetailsStatus,
 } from "./movieDetailsSlice";
-import { setBorder } from "../../common/NavigationBar/Navigation/navigationBorderSlice";
 
 function MoviePage() {
   const movieDetailsStatus = useSelector(selectMovieDetailsStatus);
   const movieDetailsData = useSelector(selectMovieDetailsData);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(setBorder("movies"));
-  }, [dispatch]);
 
   return (
     <>

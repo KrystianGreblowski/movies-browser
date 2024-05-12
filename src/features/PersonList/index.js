@@ -20,7 +20,6 @@ import { toPersonDetails, toPersonList } from "../../core/routes";
 import { fetchPersonId } from "../PersonDetails/personDetailsSlice";
 import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
 import PersonTilePlaceholder from "../../common/Tiles/PersonTilesContainer/PersonTilePlaceholder";
-import { setBorder } from "../../common/NavigationBar/Navigation/navigationBorderSlice";
 
 const PersonList = () => {
   const dispatch = useDispatch();
@@ -35,10 +34,6 @@ const PersonList = () => {
 
     dispatch(fetchPopularPeoplePageNumberForApi(currentPage));
   }, [currentPage, history, dispatch]);
-
-  useEffect(() => {
-    dispatch(setBorder("people"));
-  }, [dispatch]);
 
   return (
     <>
