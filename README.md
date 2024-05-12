@@ -16,7 +16,7 @@ The project is created for the YouCode Frontend Developer course.
 
 ## Demo
 Here is a demo of our project:
-[Movies Browser demo link](https://krystiangreblowski.github.io/movies-browser/#/movies/main)
+[Movies Browser](https://krystiangreblowski.github.io/movies-browser/#/movies/main)
 
 ## Features
 - The Movies List is our main website where you can browse the database of the most popular films
