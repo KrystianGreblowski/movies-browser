@@ -70,7 +70,7 @@ const Crew = () => {
                         )
                         .map((movieType) => movieType.name)
                         .slice(0, numberOfMovieTypes)}
-                      rate={crew.vote_average
+                      rate={crew?.vote_average
                         .toFixed(1)
                         .toString()
                         .replace(".", ",")}
