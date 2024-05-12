@@ -1,23 +1,22 @@
 # MOVIES BROWSER
-
 Welcome to our Movies Browser project!
 
 Discover countless film titles. Immerse yourself in the wealth of film art and browse through various genres. Whether you are looking for new releases, classic masterpieces or hidden gems, our browser makes the fascinating world of film accessible to you. Watch the website easily on different devices - computer, smartphone or TV - wherever you are.
 
 The project is created for the YouCode Frontend Developer course. 
 ## Preview
-![Movies Browser Preview](https://i.postimg.cc/P5rzJ2Nc/readme-preview.gif)
+<p align="center">
+  <img src="https://i.postimg.cc/gc5RKmSY/readme-preview-size-600.gif" />
+</p>
 
 ## Authors
-
 - Damian Niklasiński - [GitHub Profile](https://github.com/Damian-Niklasinski)
 - Krystian Gręblowski - [GitHub Profile](https://github.com/KrystianGreblowski)
 - Oleksandr Riaboshapka - [GitHub Profile](https://github.com/Alekzann)
 
 ## Demo
-
 Here is a demo of our project:
-[Movies Browser](https://krystiangreblowski.github.io/movies-browser/#/movies/main)
+[Movies Browser demo link](https://krystiangreblowski.github.io/movies-browser/#/movies/main)
 
 ## Features
 - The Movies List is our main website where you can browse the database of the most popular films
