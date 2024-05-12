@@ -5,9 +5,7 @@ Discover countless film titles. Immerse yourself in the wealth of film art and b
 
 The project is created for the YouCode Frontend Developer course. 
 ## Preview
-<p align="center">
-  <img src="https://i.postimg.cc/gc5RKmSY/readme-preview-size-600.gif" />
-</p>
+![Readme Preview](readme-preview.gif)
 
 ## Authors
 - Damian Niklasiński - [GitHub Profile](https://github.com/Damian-Niklasinski)
@@ -16,11 +14,11 @@ The project is created for the YouCode Frontend Developer course.
 
 ## Demo
 Here is a demo of our project:
-[Movies Browser demo link](https://krystiangreblowski.github.io/movies-browser/#/movies/main)
+[Movies Browser](https://krystiangreblowski.github.io/movies-browser/#/movies/main)
 
 ## Features
 - The Movies List is our main website where you can browse the database of the most popular films
-- The People List is a website where you can find a database of most popular actors
+- The People List is a website where you can find a database of the most popular actors
 - The Search Tool allows you to search movies or people involved in making films
 - The Navigation allows you to switch between the Movies List and People List
 - The Pagination allows you to switch to subsequent pages with movies or people
