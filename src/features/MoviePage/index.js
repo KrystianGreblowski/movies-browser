@@ -10,10 +10,7 @@ import {
   selectMovieDetailsData,
   selectMovieDetailsStatus,
 } from "./movieDetailsSlice";
-import {
-  setMovies,
-  setPeople,
-} from "../../common/NavigationBar/Navigation/navigationSlice";
+import { setBorder } from "../../common/NavigationBar/Navigation/navigationBorderSlice";
 
 function MoviePage() {
   const movieDetailsStatus = useSelector(selectMovieDetailsStatus);
@@ -21,8 +18,7 @@ function MoviePage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(setMovies(true));
-    dispatch(setPeople(false));
+    dispatch(setBorder("movies"));
   }, [dispatch]);
 
   return (

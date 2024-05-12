@@ -7,18 +7,14 @@ import { selectPersonDetailsStatus } from "./personDetailsSlice";
 import { DetailsContainer } from "./styled";
 import LoadingPage from "../../common/LoadingPage";
 import ErrorLoadingHandlingWrapper from "./ErrorLoadingHandlingWrapper";
-import {
-  setMovies,
-  setPeople,
-} from "../../common/NavigationBar/Navigation/navigationSlice";
+import { setBorder } from "../../common/NavigationBar/Navigation/navigationBorderSlice";
 
 function PersonDetails() {
   const personDetailsStatus = useSelector(selectPersonDetailsStatus);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(setMovies(false));
-    dispatch(setPeople(true));
+    dispatch(setBorder("people"));
   }, [dispatch]);
 
   return (

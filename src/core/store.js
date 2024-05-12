@@ -6,7 +6,7 @@ import popularMoviesReducer from "../features/MainPage/popularMoviesSlice";
 import popularPeopleReducer from "../features/PersonList/popularPeopleSlice";
 import movieDetailsReducer from "../features/MoviePage/movieDetailsSlice";
 import personDetailsReducer from "../features/PersonDetails/personDetailsSlice";
-import navigationReducer from "../common/NavigationBar/Navigation/navigationSlice";
+import navigationBorderReducer from "../common/NavigationBar/Navigation/navigationBorderSlice";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -17,7 +17,7 @@ const store = configureStore({
     popularPeople: popularPeopleReducer,
     movieDetails: movieDetailsReducer,
     personDetails: personDetailsReducer,
-    navigation: navigationReducer,
+    navigationBorder: navigationBorderReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(sagaMiddleware),
