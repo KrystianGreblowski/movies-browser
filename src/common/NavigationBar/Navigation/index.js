@@ -1,4 +1,5 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useLocation } from "react-router-dom/cjs/react-router-dom";
 import {
   Caption,
   Header,
@@ -10,17 +11,18 @@ import {
 } from "./styled";
 import { toMainPage, toPersonList } from "../../../core/routes";
 import { goToFirstPage } from "../../Pagination/paginationSlice";
-import { selectMoviesState, selectPeopleState } from "./navigationSlice";
 
 const Navigation = () => {
   const dispatch = useDispatch();
+  const location = useLocation();
 
   const handleClick = () => {
     dispatch(goToFirstPage());
   };
 
-  const moviesState = useSelector(selectMoviesState);
-  const peopleState = useSelector(selectPeopleState);
+  const borderState = location.pathname.includes("/people")
+    ? "people"
+    : "movies";
 
   return (
     <StyledNavigation>
@@ -33,7 +35,7 @@ const Navigation = () => {
           <MoviesPageLink
             to={toMainPage()}
             onClick={handleClick}
-            $moviesState={moviesState}
+            $borderState={borderState === "movies"}
           >
             MOVIES
           </MoviesPageLink>
@@ -42,7 +44,7 @@ const Navigation = () => {
           <PeoplePageLink
             to={toPersonList()}
             onClick={handleClick}
-            $peopleState={peopleState}
+            $borderState={borderState === "people"}
           >
             PEOPLE
           </PeoplePageLink>

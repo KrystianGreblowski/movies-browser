@@ -60,7 +60,7 @@ export const Caption = styled.h1`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.tablet}) {
     font-size: 20px;
-    }
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     font-size: 13px;
@@ -90,8 +90,8 @@ export const MoviesPageLink = styled(NavLink)`
     color: ${({ theme }) => theme.color.silver};
   }
 
-  ${({ $moviesState }) =>
-    $moviesState &&
+  ${({ $borderState }) =>
+    $borderState &&
     css`
       border-color: ${({ theme }) => theme.color.white};
     `}
@@ -113,8 +113,8 @@ export const PeoplePageLink = styled(MoviesPageLink)`
     margin-left: 12px;
   }
 
-  ${({ $peopleState }) =>
-    $peopleState &&
+  ${({ $borderState }) =>
+    $borderState &&
     css`
       border-color: ${({ theme }) => theme.color.white};
     `}

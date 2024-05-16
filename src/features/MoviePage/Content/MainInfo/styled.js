@@ -121,7 +121,7 @@ export const Span = styled.span`
     font-size: 15px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     display: none;
   }
 `;
@@ -146,6 +146,7 @@ export const ProductionInfo = styled.div`
   background-color: ${({ theme }) => theme.color.white};
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 `;
 
 export const CountryName = styled.p`
@@ -228,7 +229,7 @@ export const RateMax = styled.p`
 
   @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
     font-size: 11px;
-    padding:0;
+    padding: 0;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mediumMobile}) {

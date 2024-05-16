@@ -16,15 +16,11 @@ import noMovieImage from "../../images/no-movie-image.png";
 import { fetchMovieId } from "../MoviePage/movieDetailsSlice";
 import { useMovieTypesData } from "../../api/useMovieTypesData";
 import { toMainPage, toMovieDetails } from "../../core/routes";
-import { MoviePageLink } from "../../common/MoviePageLink/styled";
+import { PageLink } from "../../common/PageLink/styled";
 import ErrorPage from "../../common/ErrorPage";
 import LoadingPage from "../../common/LoadingPage";
 import { selectCurrentPage } from "../../common/Pagination/paginationSlice";
 import MovieTilePlaceholder from "../../common/Tiles/MovieTilesContainer/MovieTilePlaceholder";
-import {
-  setMovies,
-  setPeople,
-} from "../../common/NavigationBar/Navigation/navigationSlice";
 
 const MainPage = () => {
   const dispatch = useDispatch();
@@ -40,11 +36,6 @@ const MainPage = () => {
 
     dispatch(fetchPopularMoviesPageNumberForApi(currentPage));
   }, [currentPage, history, dispatch]);
-
-  useEffect(() => {
-    dispatch(setMovies(true));
-    dispatch(setPeople(false));
-  }, [dispatch]);
 
   return (
     <>
@@ -64,7 +55,7 @@ const MainPage = () => {
           <TilesHeader>Popular movies</TilesHeader>
           <TilesContainer>
             {popularMoviesData.map((popularMovie) => (
-              <MoviePageLink
+              <PageLink
                 to={`${toMovieDetails()}/${popularMovie.id}`}
                 onClick={() => dispatch(fetchMovieId(popularMovie.id))}
                 key={nanoid()}
@@ -90,7 +81,7 @@ const MainPage = () => {
                     .replace(".", ",")}
                   votes={popularMovie.vote_count}
                 />
-              </MoviePageLink>
+              </PageLink>
             ))}
           </TilesContainer>
           <Pagination

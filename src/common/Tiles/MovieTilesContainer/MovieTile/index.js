@@ -12,6 +12,7 @@ import {
   Rate,
   Votes,
   MainInfo,
+  NoVotes,
 } from "./styled";
 import star from "./star.svg";
 
@@ -29,11 +30,17 @@ export const MovieTile = ({ image, title, year, type, rate, votes }) => {
             ))}
           </MovieTypes>
         </MainInfo>
-        <Rating>
-          <StarImage src={star} />
-          <Rate>{rate}</Rate>
-          <Votes>{votes} votes</Votes>
-        </Rating>
+        {votes > 0 ? (
+          <Rating>
+            <StarImage src={star} />
+            <Rate>{rate}</Rate>
+            <Votes>
+              {votes} {votes === 1 ? "vote" : "votes"}
+            </Votes>
+          </Rating>
+        ) : (
+          <NoVotes>No votes yet</NoVotes>
+        )}
       </Description>
     </Tile>
   );

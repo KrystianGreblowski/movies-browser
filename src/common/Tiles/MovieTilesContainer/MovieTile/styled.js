@@ -4,7 +4,7 @@ export const Tile = styled.div`
   background-color: ${({ theme }) => theme.color.white};
   max-width: 324px;
   width: 100%;
-  height: 690px;
+  height: 700px;
   box-shadow: 0px 4px 12px 0px #bac7d580;
   padding: 16px;
   display: grid;
@@ -64,13 +64,9 @@ export const Description = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  
+
   @media (max-width: ${({ theme }) => theme.breakpoint.mobile}) {
     margin-left: 16px;
-  }
-  
-  @media (max-width: ${({ theme }) => theme.breakpoint.largeMobile}) {
-    justify-content: flex-start;
   }
 `;
 
@@ -216,4 +212,8 @@ export const Votes = styled.p`
     font-size: 11px;
     line-height: 14.9px;
   }
+`;
+
+export const NoVotes = styled(Votes)`
+  align-self: flex-start;
 `;

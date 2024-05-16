@@ -11,7 +11,7 @@ import { MovieTile } from "../../common/Tiles/MovieTilesContainer/MovieTile";
 import PersonsTile from "../../common/Tiles/PersonTilesContainer/PersonTile";
 import NoResults from "../../common/NoResults";
 import Error from "../../common/ErrorPage";
-import { Container } from "../../common/Container/styled";
+import { Container } from "./styled";
 import { useSearchResults } from "./useSearchResults";
 import { PersonTilesContainer } from "../../common/Tiles/PersonTilesContainer/styled";
 import { useGenres } from "./useGenres";
@@ -22,14 +22,9 @@ import {
   selectCurrentPage,
 } from "../../common/Pagination/paginationSlice";
 import { toMovieDetails, toPersonDetails } from "../../core/routes";
-import { MoviePageLink } from "../../common/MoviePageLink/styled";
 import { fetchMovieId } from "../MoviePage/movieDetailsSlice";
-import { PersonPageLink } from "../../common/PersonPageLink/styled";
+import { PageLink } from "../../common/PageLink/styled";
 import { fetchPersonId } from "../PersonDetails/personDetailsSlice";
-import {
-  setMovies,
-  setPeople,
-} from "../../common/NavigationBar/Navigation/navigationSlice";
 
 function SearchResults() {
   const dispatch = useDispatch();
@@ -58,16 +53,6 @@ function SearchResults() {
     }
   }, [currentPage, currentPageInitialized, dispatch]);
 
-  useEffect(() => {
-    if (isMoviesPage) {
-      dispatch(setMovies(true));
-      dispatch(setPeople(false));
-    } else {
-      dispatch(setMovies(false));
-      dispatch(setPeople(true));
-    }
-  }, [dispatch, isMoviesPage]);
-
   return (
     <>
       {searchResults.status === "loading" ? (
@@ -87,7 +72,7 @@ function SearchResults() {
           <TilesContainer>
             {search_list &&
               search_list.map((searchedMovie) => (
-                <MoviePageLink
+                <PageLink
                   to={`${toMovieDetails()}/${searchedMovie.id}`}
                   onClick={() => dispatch(fetchMovieId(searchedMovie.id))}
                   key={nanoid()}
@@ -118,7 +103,7 @@ function SearchResults() {
                       .replace(".", ",")}
                     votes={searchedMovie.vote_count}
                   />
-                </MoviePageLink>
+                </PageLink>
               ))}
           </TilesContainer>
           {search_totalPages > 1 && (
@@ -137,7 +122,7 @@ function SearchResults() {
           <PersonTilesContainer>
             {search_list &&
               search_list.map((searchedPerson) => (
-                <PersonPageLink
+                <PageLink
                   to={`${toPersonDetails()}/${searchedPerson.id}`}
                   onClick={() => dispatch(fetchPersonId(searchedPerson.id))}
                   key={nanoid()}
@@ -151,7 +136,7 @@ function SearchResults() {
                     }
                     name={searchedPerson.original_name}
                   />
-                </PersonPageLink>
+                </PageLink>
               ))}
           </PersonTilesContainer>
 
