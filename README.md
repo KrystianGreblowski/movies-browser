@@ -39,4 +39,4 @@ Here is a demo of our project:
 
 ## API
 
-The website uses data from [The Movie Data Base](https://developer.themoviedb.org/).
+The website uses data from [The Movie DataBase](https://developer.themoviedb.org/).
